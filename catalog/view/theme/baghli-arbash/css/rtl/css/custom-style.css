@@ -72,7 +72,9 @@ img.img-left{ width:100%;}
 }
 header .input-group{
 	margin:34px 0;
-	border-right:1px solid #be1e2d;
+	border-left: 1px solid #be1e2d;
+	border-right: 1px solid #be1e2d;
+	width: 358px;
 
 }
 
@@ -1481,6 +1483,10 @@ max-width: 100%;
 
 }
 
+.dropdown-menu li a span {
+	margin-right: 10px;
+}
+
 @media only screen and (max-width : 1024px) {
 .featured-prod-cvr .item figure figcaption{
 	position:relative;
@@ -2328,4 +2334,20 @@ ul.log-area li{
 	color: #fff;
 	width: 100px;
 	text-align: center;
+}
+
+
+.navbar-nav li a span {
+	width: 45px;
+	height: 40px;
+	background: url(../image/sprite-menu.png) no-repeat;
+	float: right;
+}
+
+.dropdown-menu li a span {
+	margin-right: 10px;
+}
+
+.navbar-nav li a span.product {
+	background-position: 7px 0;
 }

@@ -44,21 +44,8 @@
             <tr>
               <td class="text-right">#<?php echo $order['order_id']; ?></td>
               <td class="text-right"><?php echo $order['products']; ?></td>
-              <?php if ($order_state =='completed' ) { ?>
-
-          <!--    <td class="text-left"><?php echo $order['status'].$orders['status']==2; ?></td> -->
-
               <td class="text-left"><?php echo $order['status']; ?></td>
-
-              <?php } else { ?>
-
-
-              <td class="text-left"><?php echo $order['status']; ?></td>
-
-              <!--    <td class="text-left"><?php echo $order['status'].$orders['status']==1; ?></td> -->
-
-               <?php } ?>
-               <td class="text-right"><?php echo $order['total']; ?></td>
+                <td class="text-right"><?php echo $order['total']; ?></td>
                <td class="text-left"><?php echo $order['date_added']; ?></td>
                <td class="text-right"><a href="<?php echo $order['view']; ?>" data-toggle="tooltip" title="<?php echo $button_view; ?>" class="btn btn-info"><i class="fa fa-eye"></i></a></td>
              </tr>

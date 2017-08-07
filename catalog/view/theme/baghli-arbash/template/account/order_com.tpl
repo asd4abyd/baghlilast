@@ -12,7 +12,7 @@
         <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
             <h1><?php echo $heading_title; ?></h1>
 
-            <?php  var_dump($order_complete);die ?>
+            <?php // var_dump($order_complete);die ?>
 
 
             <div class="table-responsive">
@@ -28,7 +28,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php print_r($order_complete);?>
+                    <?php // print_r($order_complete);?>
                     <?php foreach ($order_complete as $complete) { ?>
                     <tr>
                         <td class="text-right">#<?php echo $complete['order_id']; ?></td>
@@ -36,7 +36,7 @@
                         <td class="text-left"><?php echo $complete['status']; ?></td>
                         <td class="text-right"><?php echo $complete['total']; ?></td>
                         <td class="text-left"><?php echo $complete['date_added']; ?></td>
-                        <td class="text-right"><a href="<?php echo $complete['view']; ?>" data-toggle="tooltip" title="<?php echo $button_view; ?>" class="btn btn-info"><i class="fa fa-eye"></i></a></td>
+                        <td class="text-right"><a href="<?php echo $view; ?>" data-toggle="tooltip" title="<?php echo $button_view; ?>" class="btn btn-info"><i class="fa fa-eye"></i></a></td>
                     </tr>
                     <?php } ?>
                     </tbody>

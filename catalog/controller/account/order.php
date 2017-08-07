@@ -54,7 +54,7 @@ class ControllerAccountOrder extends Controller {
 		$data['button_view'] = $this->language->get('button_view');
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['orders_status'] = $status;
-print_r($status);//order_status_id
+// print_r($status);//order_status_id
 		if (isset($this->request->get['page'])) {
 			$page = $this->request->get['page'];
 		} else {
@@ -113,7 +113,7 @@ print_r($status);//order_status_id
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-        $data['view']= $this->url->link('account/order/info', 'order_id=' . $result['order_id'], true),
+        $data['view']= $this->url->link('account/order/info', 'order_id=' . $result['order_id'], true);
 
 
         if(isset($this->request->get['complete']))
