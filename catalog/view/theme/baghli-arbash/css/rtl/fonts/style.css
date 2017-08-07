@@ -1,0 +1,254 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*style for Navbar icons*/
+
+.navbar-nav  li  a span{
+	width:45px;
+	height:40px;
+	background:url(../images/sprite-menu.png) no-repeat;
+	float:left;
+	
+}
+.dropdown-menu li  a span{
+	margin-right:10px;	
+}
+.navbar-nav  li  a span.product{
+	background-position:0px 0;
+}
+.navbar-nav  li  a span.brands{
+	background-position:-50px 0;
+}
+.navbar-nav  li  a span.wish-list{
+	background-position:-110px 0;
+}
+.navbar-nav  li  a span.about-us{
+	background-position:-161px 0;
+}
+.navbar-nav  li  a span.contact-us{
+	background-position:-210px 0;
+}
+.navbar-nav  li  a span.cleaning{
+	background-position:0px -45px;
+}
+.navbar-nav  li  a span.k-wear{
+	background-position:-50px -42px;
+}
+.navbar-nav  li  a span.bath{
+	background-position:-107px -42px;
+}
+.navbar-nav  li  a span.laundry{
+	background-position:-258px 0px;
+}
+.navbar-nav  li  a span.waste{
+	background-position:-160px -42px;
+}
+.navbar-nav  li  a span.storage{
+	background-position:-216px -42px;
+}
+
+/****** Style Star Rating Widget *****/
+
+
+.jq-ry-container {
+  position: relative;
+  padding: 0 0px;
+  line-height: 0;
+  display: block;
+  cursor: pointer;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin:10px auto;
+}
+.jq-ry-container.left {
+	margin:0;
+	display:inline-block;
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.featured-prod-cvr .jq-ry-container{
+	margin-left:0;
+	margin-right:0;
+}
+.jq-ry-container[readonly="readonly"] {
+  cursor: default;
+}
+.jq-ry-container > .jq-ry-group-wrapper {
+  position: relative;
+  width: 100%;
+}
+.jq-ry-container > .jq-ry-group-wrapper > .jq-ry-group {
+  position: relative;
+  line-height: 0;
+  z-index: 10;
+  white-space: nowrap;
+}
+.jq-ry-container > .jq-ry-group-wrapper > .jq-ry-group > svg {
+  display: inline-block;
+}
+.jq-ry-container > .jq-ry-group-wrapper > .jq-ry-group.jq-ry-normal-group {
+  width: 100%;
+}
+.jq-ry-container > .jq-ry-group-wrapper > .jq-ry-group.jq-ry-rated-group {
+  width: 0;
+  z-index: 11;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+
+/*Back to top*/
+
+#return-to-top {
+    position: fixed;
+	z-index:100;
+    bottom: 20px;
+    right:0px;
+	background:#be1e2d;
+    width: 157px;
+    height: 52px;
+    display: block;
+    text-decoration: none;
+    display: none;
+	font-size:18px;
+	color:#fff;
+	line-height:52px;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+	-webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.5);
+-moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.5);
+box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.5);
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 10px;
+	width:33px;
+	height:41px;
+    top: 3px;
+    font-size: 19px;
+	margin-right:10px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: -2px;
+}
+
+/*spinner style*/
+
+.spinner {
+  width: 150px;
+  margin:10px auto;
+}
+.spinner input {
+  text-align: right;
+  height:30px;
+  background-color:#ededed;
+  border:none;
+}
+.input-group-btn-vertical {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  vertical-align: middle;
+  display: table-cell;
+}
+.input-group-btn-vertical > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 7px 10px ;
+  margin-left: -1px;
+  position: relative;
+  border-radius: 0;
+  background-color:#ededed;
+}
+.input-group-btn-vertical > .btn:first-child {
+  border-top-right-radius: 7px;
+}
+.input-group-btn-vertical > .btn:last-child {
+  margin-top: -2px;
+  border-bottom-right-radius: 7px;
+}
+.input-group-btn-vertical i{
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+
+/*product-details slider*/
+
+
+.prod-image .owl-buttons .owl-prev{
+	font-size:0px;
+	width:24px;
+	height:44px;
+	position:absolute;
+	top:10px;
+	background:url(../images/left_arrow.png) no-repeat;
+}
+.prod-image .owl-buttons .owl-next{
+	font-size:0px;
+	width:24px;
+	height:44px;
+	position:absolute;
+	top:10px;
+	background:url(../images/right_arrow.png) no-repeat;
+}
+.prod-image .owl-buttons .owl-next{
+	right:0px;
+}
+
+
+#mac1{
+	border:1px solid #ededed;
+	border-radius:10px;
+}
+#mac1 .item{
+    text-align: center;
+}
+#mac2{
+	padding:0 30px;
+	float:left;
+	border:1px solid #ededed;
+	border-radius:10px;
+	margin-top:15px;
+}
+
+#mac2 .item{
+    color: #FFF;
+    text-align: center;
+    cursor: pointer;
+	padding:0 7px;
+}
+/*#mac2 .owl-item{
+	width:85px  !important;
+	margin:0 13px !important;
+}
+#mac2 .item img{
+	width:85px  !important;
+	height:70px;
+}*/
+#mac2 .item h1{
+  	font-size: 18px;
+}
+#mac2 .synced .item, .maced{
+	border-bottom:1px solid #5e95ba;
+	padding-bottom:3px;
+}
+
