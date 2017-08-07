@@ -53,7 +53,7 @@
               <div class="text-danger"><?php echo $error_email; ?></div>
               <?php } ?>
 
-                <div class="line_wrap"><input   type="text" name="Phone" class="form-control blck" placeholder="<?php echo $text_telephone;?>"></div>
+                <div class="line_wrap"><input   type="text" name="Phone"  class="form-control blck" placeholder="<?php echo $text_telephone;?>"></div>
                      
                      
                       <?php if ($error_phone) { ?>

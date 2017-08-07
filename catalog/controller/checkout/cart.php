@@ -124,6 +124,8 @@ class ControllerCheckoutCart extends Controller {
             $data['your_email'] = $this->language->get('your_email');
             $data['your_phone'] = $this->language->get('your_phone');
             $data['email'] = $this->language->get('email');
+            $data['request_more'] = $this->language->get('request_more');
+
 
 
             $data['mobile'] = $this->language->get('mobile');

@@ -294,8 +294,7 @@
 $index++;
      ?>
               <li><a href="<?php echo $category['href']; ?>"><span class="<?php echo $class ?>"></span><?php echo $category['name']; ?></a></li>
-                      <!--
-                      <span class="product"><img src="<?php echo $category['image']; ?>"/></span>-->
+
 
               <?php
                 }
@@ -308,6 +307,8 @@ $index++;
         <li>
           <a href="<?php echo $brand_link; ?>" ><span class="brands"></span> <?= $brands ?> </a>
         </li>
+
+
         <li>
           <a href="<?php echo $wishlist; ?>"><span class="wish-list"></span> <?= $text_wishlist ?> </a>
         </li>

@@ -172,6 +172,8 @@
                         <div class="row" id="product">
                             <?php
 				$counter = 0;
+
+				// print_r($product['options']);die();
 				if ($product['options']){
 
 				foreach ($product['options'] as $option) { ?>

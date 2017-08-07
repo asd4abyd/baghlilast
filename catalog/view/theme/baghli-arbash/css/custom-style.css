@@ -1847,7 +1847,7 @@ select.siz-clr{    width: 100%; max-width: 200px; padding: 5px 8px; border-radiu
 .list-imageNew{position: relative;}
 
 .list-imageNew img{width: 100%;  border: 1px solid #ededed;margin-top: 10px;     }
-.subTotal-div{background: #f4f4f4; padding: 15px; border-radius: 11px; margin-top: 56px; border: solid 1px #cecece;}
+.subTotal-div{background: #f4f4f4; padding: 15px; border-radius: 11px; margin-top: 56px; border: solid 1px #cecece;width: 110%;}
 .subTotal-div h4{font-size: 17px; font-weight: 600; color: #5a5a5a; border-bottom: solid 1px #be1e2d; padding-bottom: 25px; padding-top: 6px;}
 .subTotal-div h4 i{font-style: normal; font-size: 15px; font-weight: normal; color: #000;}
 .subTotal-div h4 span{color: #be1e2d; font-size: 20px; float: right;}

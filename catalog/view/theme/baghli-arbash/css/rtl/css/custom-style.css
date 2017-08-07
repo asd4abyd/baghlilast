@@ -2351,3 +2351,8 @@ ul.log-area li{
 .navbar-nav li a span.product {
 	background-position: 7px 0;
 }
+
+.margin_arabic_style{
+
+	margin-right: -10px;
+}

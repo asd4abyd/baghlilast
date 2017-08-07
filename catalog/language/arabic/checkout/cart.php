@@ -31,6 +31,9 @@ $_['text_trial_description'] 	              = '%s every %d %s(s) for %d payment(
 $_['text_payment_description'] 	              = '%s every %d %s(s) for %d payment(s)';
 $_['text_payment_cancel'] = '%s every %d %s(s) until canceled';
 
+$_['request_more']      = 'طلب المزيد';
+
+
 
 $_['Gra'] ='المبلغ الإجمالي';
 

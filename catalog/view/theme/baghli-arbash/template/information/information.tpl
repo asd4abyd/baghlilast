@@ -2,9 +2,7 @@
 
 <?php 
 
-
 	if($heading_title=='ABOUT US')
-
 		$image = 'innr-bnr-18.png';
 	else if($heading_title=='Site Map')
 		$image = 'innr-bnr-20.png';

@@ -172,7 +172,7 @@
               <div class="list-price-div"><b><?= $quantity_text?> : </b><span><?php echo $product_quantity ?></span></div>
               <?php } ?>
 
-     <?php //($product['option']) ?>
+     <?php // print_r($product['option']);die(); ?>
 
               <?php if ($product['option']) { ?>
               <?php foreach ($product['option'] as $option) { ?>
@@ -185,8 +185,8 @@
               <!--| <a href="#">save for later</a> -->
 
 
-              <button type="button" class="btn btn-primary btn-lg" style="margin-bottom: 30px; margin-top: 30px; margin-left: -12px;" data-toggle="modal" data-target="#myModalbook">
-                POPUP HERE
+              <button type="button" class="btn btn-primary btn-lg margin_arabic_style" style="margin-bottom: 30px; margin-top: 30px; margin-left: -12px;" data-toggle="modal" data-target="#myModalbook">
+                  <?php echo $request_more; ?>
               </button>
 
 
@@ -248,14 +248,7 @@
           <td width="79%" align="right"><?= $tot_p?>: </td>
           <td width="21%"><strong><?php echo $totals[1]['text']; ?></strong></td>
         </tr>
-       <!-- <tr>
-          <td align="right">Total delivery CHarge </td>
-          <td><strong>100.00 KD</strong></td>
-        </tr>
-        <tr>
-          <td align="right">Discount </td>
-          <td><strong>500.00 KD</strong></td>
-        </tr>-->
+
 
         <tr>
           <td align="right"><?= $Gra?>:  </td>
@@ -265,11 +258,7 @@
           <?php // if ($modules) { ?>
           <h2><?php // echo $text_next; ?></h2>
           <p><?php // echo $text_next_choice; ?></p>
-         <!-- <div class="panel-group" id="accordion">
-              <?php // foreach ($modules as $module) { ?>
-              <?php // echo $module; ?>
-              <?php  // } ?>
-          </div> -->
+
           <?php // } ?>
 
       </table>

@@ -15,6 +15,9 @@
 
 			  <?php foreach ($categories as $category) { ?>
 
+
+				<?php // print_r ($category['manufacturer']);  ?>
+
 			  <?php if ($category['manufacturer']) { ?>
 
 			  <div class="row brands-page">

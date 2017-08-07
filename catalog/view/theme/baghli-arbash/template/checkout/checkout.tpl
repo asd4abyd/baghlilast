@@ -188,7 +188,7 @@
       </div>
         </div>
         <?php } ?>
-                    
+
                     <?php if ($shipping_required) { ?>
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -222,7 +222,7 @@
           <div class="panel-collapse collapse" id="collapse-checkout-confirm">
             <div class="panel-body"></div>
           </div>
-        </div>   
+        </div>
  -->
     </div>
     </div>
@@ -252,7 +252,7 @@
                     error: function(xhr, ajaxOptions, thrownError) {
                         alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
                     }
-                }); 
+                });
   });
 </script>
 
@@ -935,7 +935,7 @@ $(document).delegate('#button-payment-method', 'click', function() {
                 location = json['redirect'];
             } else if (json['error']) {
                 $('#button-payment-method').button('reset');
-                
+
                 if (json['error']['warning']) {
                     $('#collapse-payment-method .panel-body').prepend('<div class="alert alert-danger">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
                 }

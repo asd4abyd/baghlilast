@@ -1,4 +1,4 @@
-
+<?php // print_r($faq_manager); ?>
 <footer>
     	<div class="container">
         <div class="row">
