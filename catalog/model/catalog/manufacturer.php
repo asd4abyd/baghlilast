@@ -16,8 +16,50 @@ oc_product.manufacturer_id= ".$manufacturer_id." AND oc_product_description.name
 return $query->rows;
 
 
-
 	}
+   
+
+    
+    // Added by assem to insert categories inside brands imenu in header 
+    
+    
+    
+    public function getManufacturerCategories($manufacturer_id) {
+    $query = $this->db->query("
+        SELECT 
+        DISTINCT c.category_id,cd.name,c.image
+        FROM
+        ". DB_PREFIX . "manufacturer m 
+        LEFT JOIN ". DB_PREFIX. "product p ON (m.manufacturer_id = p.manufacturer_id)
+        LEFT JOIN ". DB_PREFIX. "product_to_category p2c ON (p2c.product_id = p.product_id)
+        LEFT JOIN ". DB_PREFIX. "category c ON (c.category_id = p2c.category_id)
+        LEFT JOIN ". DB_PREFIX. "category_description cd ON (cd.category_id = p2c.category_id)
+        WHERE
+        p.status = 1
+        AND m.manufacturer_id = '".(int)$manufacturer_id."'
+        AND c.status= 1  AND cd.language_id =  '". (int)$this->config->get('config_language_id') ."'
+        ");
+
+    return $query->rows;
+}
+
+      
+    
+     public function getCategoriesManufacrurers($category_id) {
+   $query = $this->db->query("SELECT m.* 
+        FROM " . DB_PREFIX . "product p 
+        RIGHT JOIN " . DB_PREFIX . "product_to_category p2c ON 
+            p.product_id = p2c.product_id 
+        LEFT JOIN " . DB_PREFIX . "manufacturer m ON 
+            p.manufacturer_id = m.manufacturer_id
+        WHERE 
+            p2c.category_id = " . (int)$category_id . " AND 
+            m.manufacturer_id IS NOT NULL
+        GROUP BY m.manufacturer_id");
+    return $query->rows;
+}
+    
+    // Added by assem to insert categories inside brands imenu in header 
 
 
 
@@ -74,4 +116,8 @@ return $query->rows;
 			return $manufacturer_data;
 		}
 	}
+    
+    
+   
+
 }

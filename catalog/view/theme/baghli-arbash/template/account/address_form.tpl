@@ -51,7 +51,7 @@
             </div>
           </div>
 
-              <div class="form-group required">
+            <!--  <div class="form-group required">
                <label class="col-sm-2 control-label" for="input-address-1"><?php echo $entry_address_1; ?></label>
                <div class="col-sm-10">
                  <input type="text" name="address_1" value="<?php echo $address_1; ?>" pattern='[A-Za-z\\s]*' placeholder="<?php echo $entry_address_1; ?>" id="input-address-1" class="form-control" required />
@@ -59,9 +59,9 @@
                  <div class="text-danger"><?php echo $error_address_1; ?></div>
                  <?php } ?>
                </div>
-             </div>
+             </div> 
 
-          <!--  <div class="form-group">
+            <div class="form-group">
                <label class="col-sm-2 control-label" for="input-address-2"><?php echo $entry_address_2; ?></label>
                <div class="col-sm-10">
                  <input type="text" name="address_2" value="<?php echo $address_2; ?>" placeholder="<?php echo $entry_address_2; ?>" id="input-address-2" class="form-control" />

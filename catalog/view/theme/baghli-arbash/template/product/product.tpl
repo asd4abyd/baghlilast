@@ -96,10 +96,12 @@ html, body {
 
 
         </div>
-            <script type="text/javascript">$(".popupZoom").elevateZoom();
-
+            <script type="text/javascript">
+                
+                $(".popupZoom").elevateZoom({scrollZoom : true});
 
             </script>
+              
 
             <div id="mac2" class="owl-carousel" >
                 <?php

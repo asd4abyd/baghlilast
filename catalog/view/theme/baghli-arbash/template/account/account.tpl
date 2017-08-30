@@ -258,7 +258,7 @@
                                            <?php 
                                            
                                            
-                                         //print_r($addressesInformation);exit;
+                                         // print_r($addressesInformation);exit;
                                         
                                                 $address_id = $addressesInformation['address_id'];
                                                  $address1 = $addressesInformation['address_1']; 
@@ -274,14 +274,14 @@
                                               ?>
                                               
                                               
-                        <td><i for="input-address-1"><?php echo $entry_address_1; ?><span class="req">* </span></i></td>
+                     <!--   <td><i for="input-address-1"><?php echo $entry_address_1; ?><span class="req">* </span></i></td>
                         <td><input name="address_1" placeholder="<?php echo $entry_address_1; ?>" id="input-address-1" type="text" value=" <?php echo $address1; ?> " class="form-control" required></td>
                         <?php if ($error_address_1) { ?>
                           <div class="text-danger"><?php echo $error_address_1; ?></div>
                         <?php } ?>
                                              
 
-                        
+                        -->
                       </tr>
 
               

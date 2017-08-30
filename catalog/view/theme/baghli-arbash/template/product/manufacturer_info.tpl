@@ -1,15 +1,19 @@
 <?php echo $header; ?>
 <div class="innr-banner"><img src="catalog/view/theme/baghli-arbash/images/innr-bnr-01.png" alt="">
+    
     <div class="alert"> </div>
 
 </div>
+
 <div class="container">
     <div class="container inner-page">
         <div class="content">
 
         </div>
-        <div class="heading"><span><strong><?php echo $heading_title; ?></strong></span>
-    </div>
+        <div class="heading">
+            
+            <span><strong><?php echo $heading_title; ?></strong></span>
+        </div>
 
 
     <?php $cateroies_visit = array(); ?>
@@ -73,8 +77,7 @@
     <?php } ?>
 
 </div>
-</div></div></div>
-
+</div>
 <script type="text/javascript">
     $(document).ready(function(){
         $('.spinner .btn:first-of-type').on('click', function() {
@@ -246,4 +249,7 @@
         })
     };
 
-</script><?php echo $footer; ?>
+</script>
+</div>
+
+<?php echo $footer; ?>

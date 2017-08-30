@@ -20,7 +20,9 @@
                     <?php 
 $i=0;
 $cnt=sizeof($informations);
-foreach ($informations as $information) { 
+foreach ($informations as $information) {
+// print_r($information);
+
 ?>
                     <li><a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a></li>  
 <?php

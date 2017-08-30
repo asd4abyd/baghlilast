@@ -23,6 +23,7 @@
 
         </div><!-- alert message class -->
 
+
         <div class="heading"><span><strong><?php echo $heading_title_pieces[0];?></strong>
 
                 <?php
@@ -31,8 +32,8 @@
          }
         ?>
 
-
           </span>
+
             <div class="sort pull-right">
                 <div class="row">
 
@@ -78,13 +79,48 @@
 
 
         <div class="row">
-            <?php $i=1; foreach ($products as $product) { ?>
+
+
+        <?php  foreach ($categories as $category) { ?>
+
+		   <div class="col-sm-12 col-md-4 img">
+		    <div class="row brands-page">
+                 <div class="col-sm-12 bran_details">
+				 <h4 class="ban_title"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a> </h4>
+                </div>
+
+                <div class="col-sm-12 col-md-12 img" style=" max-height: 500px; min-height: 500px; margin-bottom:30px">
+                    <figure>
+					<a href="<?php echo $category['href']; ?>">
+
+				
+			 <?php		if ((strpos($category['image'], 'jpg') !== false) || (strpos($category['image'], 'png') !== false)) { ?>
+					<img style=" max-height: 350px; min-height: 350px;" src="<?php echo $category['image']; ?>" title="<?php echo $category['name'];?>" />
+					<?php } else { ?>
+					<img style=" max-height: 350px; min-height: 350px;" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
+					<?php } ?>
+					</a>
+
+                    </figure>
+                </div>
+
+
+
+			  			  </div>
+			  			  </div>
+
+            <?php  } ?>
+
+
+            <div class="row brands-page">
+
+   <?php $i=1; foreach ($products as $product) { ?>
             <?php if($i%2==1) { ?>
 
             <?php } ?>
             <!--product new-->
-            <div class="col-md-6 col-sm-6">
 
+            <div class="col-md-6 col-sm-6">
 
 
 
@@ -218,7 +254,7 @@
 
 
 
-               
+
 
 
                             <?php
@@ -236,7 +272,7 @@
                                 <div class="add_dtt"> <?php if ($product['options']){ ?>
 			<?php foreach ($product['options'] as $option) { ?>
                                     <?php if ($option['type'] == 'text') { ?>
-                                    <span class="gurnty">  
+                                    <span class="gurnty">
             <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
               <label class="control-label" for="input-option<?php echo $option['product_option_id']; ?>"><?php echo $option['name']; ?></label>
               <input  type="text" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option['value']; ?>" placeholder="<?php echo $option['name']; ?>" id="input-option<?php echo $option['product_option_id']; ?>" class="form-control" readonly/>
@@ -279,7 +315,7 @@
             <?php } ?>
         </div><!-- end options -->
         <!--product new-->
-
+<!--
         <div class="col-md-12 text-center">
             <div class="col-md-3">
                 <div  style="vertical-align: top;display: inline-block;   ">
@@ -303,7 +339,7 @@
 
         </div>
 
-        <!--
+
         <div class=" col-md-6 text-right" style="float: right;"><?php  echo $results; ?></div> -->
 
 
@@ -319,6 +355,7 @@
 
     </div>
 
+</div>
 
 
     <?php if ($products) { ?>
@@ -381,7 +418,6 @@
 
 
 
-</div>
 
 
 

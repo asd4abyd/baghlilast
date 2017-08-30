@@ -514,7 +514,10 @@ class ControllerProductSubproduct extends Controller {
 					'type'                 => $option['type'],
 					'value'                => $option['value'],
 					'required'             => $option['required']
-				);
+				);  
+                
+                
+              //  print_r($data['options']);
 			}
 
 			if ($product_info['minimum']) {
@@ -559,8 +562,14 @@ class ControllerProductSubproduct extends Controller {
                 
 
 			$results = $this->model_catalog_product->getProductRelated($this->request->get['product_id']);
+            
+            
+           // print_r($results);
 
 			foreach ($results as $result) {
+                
+                          // print_r($result);
+
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_related_width'), $this->config->get($this->config->get('config_theme') . '_image_related_height'));
 				} else {

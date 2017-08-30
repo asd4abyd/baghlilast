@@ -5,17 +5,17 @@
       <input type="radio" name="shipping_address" value="existing" checked="checked" />
       <?php echo $text_address_existing; ?></label>
   </div>
- <!--  <div id="shipping-existing">
+   <div id="shipping-existing">
     <select name="address_id" class="form-control">
       <?php foreach ($addresses as $address) { ?>
       <?php if ($address['address_id'] == $address_id) { ?>
-      <option value="<?php echo $address['address_id']; ?>" selected="selected"><?php echo $address['firstname']; ?> <?php echo $address['lastname']; ?>, <?php echo $address['address_1']; ?>, <?php echo $address['city']; ?>, <?php echo $address['zone']; ?>, <?php echo $address['country']; ?></option>
+      <option value="<?php echo $address['address_id']; ?>" selected="selected"><?php echo $address['firstname']; ?> <?php echo $address['lastname']; ?>, <?php echo $address['country']; ?></option>
       <?php } else { ?>
-      <option value="<?php echo $address['address_id']; ?>"><?php echo $address['firstname']; ?> <?php echo $address['lastname']; ?>, <?php echo $address['address_1']; ?>, <?php echo $address['city']; ?>, <?php echo $address['zone']; ?>, <?php echo $address['country']; ?></option>
+      <option value="<?php echo $address['address_id']; ?>"><?php echo $address['firstname']; ?> <?php echo $address['lastname']; ?>, <?php echo $address['country']; ?></option>
       <?php } ?>
       <?php } ?>
     </select>
-  </div> -->
+  </div> 
 
 <div class="row">
 
@@ -63,9 +63,11 @@
                             <?php echo $address['address_1']; ?> <br>
                             <?php echo $address['address_2']; ?><br>
                             <?php foreach ($custom_fields as $custom_field ) {?>
+                                <?php if ($custom_field['location'] == 'address') { ?>
+
                                 <div  for="<?php echo $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?> :<?php echo $address["custom_field"][$custom_field['custom_field_id']]; ?></div>
 
-                        <?php    } ?>
+                        <?php } }?>
                          <div class="radio">
                               <label><input type="radio" value="<?php echo $address['address_id'];?>" checked name="address_id">Deliver to this address</label>
                             </div>
@@ -107,6 +109,8 @@
         <input type="text" name="company" value="" placeholder="<?php echo $entry_company; ?>" id="input-shipping-company" class="form-control" />
       </div>
     </div>
+      <!--
+      
     <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-shipping-address-1"><?php echo $entry_address_1; ?></label>
       <div class="col-sm-10">
@@ -131,6 +135,8 @@
         <input type="text" name="postcode" value="<?php echo $postcode; ?>" placeholder="<?php echo $entry_postcode; ?>" id="input-shipping-postcode" class="form-control" />
       </div>
     </div>
+
+-->
     <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-shipping-country"><?php echo $entry_country; ?></label>
       <div class="col-sm-10">

@@ -64,7 +64,6 @@
 
     <div class="row innr-shpng-cart clearfix">
 
-
         <?php if ($products) { ?>
         <?php $counter = 0; ?>
         <?php foreach ($products as $product) { ?>
@@ -75,6 +74,9 @@
             <?php } ?>
     <?php $counter++; ?>
         <!--product new-->
+        
+        
+        <?php //  print_r($product); ?>
         <div class="col-md-6 col-sm-6">
 
             <div class="row">
@@ -90,6 +92,8 @@
                      <span>OFF</span>
                    </div>
                 </div>
+                
+       <
                 <!-- lsit details div -->
                 <div class="col-md-6 proLst-cont updte_design">
                     <!-- title section -->
@@ -98,6 +102,7 @@
                             <h4 class="cart-h4"><a href="<?php echo $product['href']; ?>"><strong><?php echo $product['name']; ?></strong></a></h4>
                             <span><a href="index.php?route=product/manufacturer/info&manufacturer_id=<?php echo $product['manufacturer_id']?>"> <?=$product['manufacturer']; ?></a></span>
                             <div> Model # :<?php echo $product['model'] ?></div>
+                            <div>     </div>
 
 
 

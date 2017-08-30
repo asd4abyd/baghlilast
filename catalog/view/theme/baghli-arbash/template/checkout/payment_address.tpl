@@ -20,7 +20,6 @@
  -->  
 <div class="row">
 
-
                           <?php foreach ($addresses as $address) { ?>
 
                           <?php if ($address['address_id'] == $address_id) { ?>
@@ -116,6 +115,8 @@
         <input type="text" name="company" value="" placeholder="<?php echo $entry_company; ?>" id="input-payment-company" class="form-control" />
       </div>
     </div>
+      
+      <!--
     <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-payment-address-1"><?php echo $entry_address_1; ?></label>
       <div class="col-sm-10">
@@ -134,12 +135,15 @@
         <input type="text" name="city" value="" placeholder="<?php echo $entry_city; ?>" id="input-payment-city" class="form-control" />
       </div>
     </div>
+
     <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-payment-postcode"><?php echo $entry_postcode; ?></label>
       <div class="col-sm-10">
         <input type="text" name="postcode" value="" placeholder="<?php echo $entry_postcode; ?>" id="input-payment-postcode" class="form-control" />
       </div>
     </div>
+      -->
+      
     <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-payment-country"><?php echo $entry_country; ?></label>
       <div class="col-sm-10">

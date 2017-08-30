@@ -7,25 +7,31 @@
 		<div class="content"> </div>
 
 
-
             <div class="row brands-page">
 
 			  <?php if ($categories) { ?>
+                
+               <?php // print_r($categories); ?>
 
 
 			  <?php foreach ($categories as $category) { ?>
-
-
-				<?php // print_r ($category['manufacturer']);  ?>
-
+                
+            <?php  // print_r($category); ?>
+                
+                
 			  <?php if ($category['manufacturer']) { ?>
 
 			  <div class="row brands-page">
 
 
 			  <?php foreach (array_chunk($category['manufacturer'], 4) as $manufacturers) { ?>
+                  
+                              <?php // print_r($manufacturers); ?>
+
 
 				<?php foreach ($manufacturers as $manufacturer) { ?>
+                  
+                  <?php // print_r($manufacturer); ?>
 
                  <div class="col-sm-12 bran_details"><h4 class="ban_title"><?php echo $manufacturer['name'];?> </h4>
                <?php if(count($manufacturer['categories'])>0){ ?>
@@ -33,6 +39,7 @@
 			   <?php } ?>
 
                 </div>
+                
 
 
               <?php if($manufacturer['categories']){ ?>
@@ -43,7 +50,7 @@
 				<?php if (gettype($founded_key) == 'boolean'){ ?>
 				<?php $cateroies_visit[$counter] = $manufacturer_category['category_id'] ; $counter++;?>
 
-                <div class="col-sm-4 col-md-4">
+                <div class="col-sm-4 col-md-4 img">
                     <figure>
 					<a href="<?php echo $manufacturer_category['href_category']; ?>">
 					<?php if($manufacturer['image']) { ?>
@@ -54,7 +61,7 @@
 					</a>
                     <figcaption>
                     <h4><?php echo $manufacturer_category['category_name']['name']; ?> </h4>
-                    <h3 class="brand_namee2"><?php echo $manufacturer['name'];?></h3>
+                <!--    <h3 class="brand_namee2"><?php echo $manufacturer['name'];?></h3> -->
                     </figcaption>
                     </figure>
                 </div>
@@ -84,7 +91,7 @@
 
 
 
-            <nav aria-label="Page navigation" class="navpaging">
+      <!--      <nav aria-label="Page navigation" class="navpaging">
   <ul class="pagination">
   <li>
       <a href="#" aria-label="Previous">
@@ -112,6 +119,6 @@
 
 
   </ul>
-</nav>
+</nav> -->
     </div>
 <?php echo $footer; ?>

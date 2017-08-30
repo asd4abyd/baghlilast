@@ -4,7 +4,7 @@
 ?>
     <div class="tips-area-cvr clearfix updatetips">
     <div class="container">
-    	<div class="col-md-6">
+    	<div class="col-md-6 col-xs-6 col-sm-6">
         	<h2><?php echo $tips_advice ?></h2>
             <h5><?php echo $headline?></h5>
             <div id="example">
@@ -21,7 +21,7 @@ foreach($tips_json_array->module_description as $key=>$tips_settings)
 {
  if($key==$extension['lang_id'])
     
-echo '<li>'.$tips_settings->title.'</li>';
+echo '<li >'.$tips_settings->title.'</li>';
 }
 
 

@@ -40,11 +40,13 @@
     <link href="catalog/view/theme/baghli-arbash/css/owl.transitions.css" rel="stylesheet">
     <link href="catalog/view/theme/baghli-arbash/css/owl.theme.css" rel="stylesheet">
 
+
     <!-- Style -->
     <link href="catalog/view/theme/baghli-arbash/css/style.css" rel="stylesheet">
 
     <link href="catalog/view/theme/baghli-arbash/css/easyzoom.css" rel="stylesheet">
     <link href="catalog/view/theme/baghli-arbash/css/pygments.css" rel="stylesheet">
+    <link href="catalog/view/theme/baghli-arbash/css/popup.css" rel="stylesheet">
     <link href="catalog/view/theme/baghli-arbash/css/jquerysctipttop.css" rel="stylesheet">
 
 
@@ -142,7 +144,6 @@
 <body >
 
 
-
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -156,40 +157,44 @@
 
       <header>
       <div class="container">
-            <div class="col-md-2">
+            <div class="col-md-3 col-sm-12 col-xs-12">
                 <div class="logo"> <a href="<?php echo $home; ?>"><img src="catalog/view/theme/baghli-arbash/images/logo.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>"></a>
                 </div>
              </div>
-            <div class="col-md-10 ">
+            <div class="col-md-9 col-sm-12 col-xs-12 ">
               <div class="row">
                    
                     
                     <?php echo $search; ?>
 
-                  <div class="col-md-5 ">
-                   <ul class=" log-area">
+                  <div class="col-md-5 col-sm-12 col-xs-12">
+                   <ul class=" log-area col-sm-12 col-xs-12">
                        <?php if ($logged) { ?>
-                      <li><a type="button" data-toggle="modal" href="<?php echo $logout; ?>"><i><img src="catalog/view/theme/baghli-arbash/images/login-ico.png" title="<?php echo $text_logout; ?>" alt="<?php echo $text_logout; ?>"></i><br> <?php echo $text_logout; ?></a>
+                      <li class="col-sm-3 col-xs-3"><a type="button" data-toggle="modal" href="<?php echo $logout; ?>"><i><img src="catalog/view/theme/baghli-arbash/images/login-ico.png" title="<?php echo $text_logout; ?>" alt="<?php echo $text_logout; ?>"></i><br> <?php echo $text_logout; ?></a>
                       </li>
                       
-                       <li><a href="<?php echo $account; ?>"><i><img src="catalog/view/theme/baghli-arbash/images/reg-ico.png" title="<?php echo $text_account; ?>" alt="<?php echo $text_account; ?>"></i><br> <?php echo $text_account; ?></a>
+                       <li class="col-sm-3 col-xs-3"><a href="<?php echo $account; ?>"><i><img src="catalog/view/theme/baghli-arbash/images/reg-ico.png" title="<?php echo $text_account; ?>" alt="<?php echo $text_account; ?>"></i><br> <?php echo $text_account; ?></a>
                        </li>
 
-                       <li><a href="<?php echo $shopping_cart;?>"><i><img src="catalog/view/theme/baghli-arbash/images/cart-ico.png" alt=""></i><br>  <?= $cart1?></a></li>
+                       <?php echo $cart;?>
+
+                 <!--      <li class="col-sm-3 col-xs-3"><a href="<?php echo $shopping_cart;?>"><i><img src="catalog/view/theme/baghli-arbash/images/cart-ico.png" alt=""></i><br>  <?= $cart1?></a></li> -->
 
                        <?php }
                    else
                     {
                           ?>
-                       <li><a type="button" data-toggle="modal" data-target="#myModal"><i><img src="catalog/view/theme/baghli-arbash/images/login-ico.png" title="<?php echo $text_login; ?>" alt="<?php echo $text_login; ?>"></i><br> <?php echo $text_login; ?></a></li>
-                        <li><a href="<?php echo $register; ?>"><i><img src="catalog/view/theme/baghli-arbash/images/reg-ico.png" title="<?php echo $text_register; ?>" alt="<?php echo $text_register; ?>"></i><br> <?php echo $text_register; ?></a></li>
-                       <li><a href="<?php echo $shopping_cart;?>"><i><img src="catalog/view/theme/baghli-arbash/images/cart-ico.png" alt=""></i><br> <?= $cart1 ;?></a></li>
+                       <li class="col-sm-3 col-xs-3"><a type="button" data-toggle="modal" data-target="#myModal"><i><img src="catalog/view/theme/baghli-arbash/images/login-ico.png" title="<?php echo $text_login; ?>" alt="<?php echo $text_login; ?>"></i><br> <?php echo $text_login; ?></a></li>
+                        <li class="col-sm-3 col-xs-3"><a href="<?php echo $register; ?>"><i><img src="catalog/view/theme/baghli-arbash/images/reg-ico.png" title="<?php echo $text_register; ?>" alt="<?php echo $text_register; ?>"></i><br> <?php echo $text_register; ?></a></li>
+
+                        <?php echo $cart;?>
+                      <!-- <li class="col-sm-3 col-xs-3"><a href="<?php echo $shopping_cart;?>"><i><img src="catalog/view/theme/baghli-arbash/images/cart-ico.png" alt=""></i><br> <?= $cart1 ;?></a></li> -->
 
                        <?php
                           }
 
                           ?>
-               <li id="arabic-style"><a  href="" ><i><img src="catalog/view/theme/baghli-arbash/images/globe-ico.png" title="<?php echo $text_account; ?>" alt="<?php echo $text_account; ?>"></i><br><?php echo $language; ?></a></li>
+               <li id="arabic-style" class="col-sm-3 col-xs-3"><a  href="" ><i><img src="catalog/view/theme/baghli-arbash/images/globe-ico.png" title="<?php echo $text_account; ?>" alt="<?php echo $text_account; ?>"></i><br><?php echo $language; ?></a></li>
 
 
                    </ul>
@@ -226,9 +231,31 @@
             </div>
             </div>
         </div>
-    </header>  
-    
-    <nav class="navbar navbar-default" > 
+    </header>
+
+    <script>
+
+  $(document).ready(function(e) {
+    $('.cart').click(function(e) {
+      e.preventDefault();
+      $('.cart-popup').toggle();
+      e.stopPropagation();
+
+    });
+
+    $(document).click(function(e){
+      //e.preventDefault();
+      $('.cart-popup').hide();
+      e.stopPropagation();
+    });
+  });
+
+</script>
+
+
+<?php print_r($categories);?>
+
+    <nav class="navbar navbar-default" role="navigation"> 
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -240,6 +267,17 @@
       </button>
     </div>
 
+      
+      
+          <!-- new code from index calling nested menu -->
+
+      
+      
+    
+        <!-- new code from index calling nested menu -->
+
+      
+      
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav" style="width: 100% ;">
@@ -247,12 +285,22 @@
        
           <li class="dropdown">
 
-<a  href="<?php echo $categories[0]['href'];?>" class="dpDown-main-a dropdown-toggle disabled" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="product"></span> <?= $text_product?> </a>
+<a  href="<?php echo $categories[0]['href'];?>" class="dpDown-main-a dropdown-toggle disabled" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="product"></span> <?= $text_product?><!--<b class="caret"></b>--></a>
 
- <ul class="dropdown-menu">
+  <ul class="dropdown-menu multi-level">
+      
+      
      <?php $index = 0; ?>
+     
+     
                <?php foreach ($categories as $category) { ?>
-        <?php //if ($category['children']) { ?>
+      
+                     <?php   print_r ($category)  ?>
+
+      
+
+        
+
      <?php
 
             $class = '';
@@ -293,7 +341,39 @@
 
 $index++;
      ?>
-              <li><a href="<?php echo $category['href']; ?>"><span class="<?php echo $class ?>"></span><?php echo $category['name']; ?></a></li>
+              <li class="dropdown-submenu" >
+                  <a href="<?php echo $category['href']; ?>" class="dropdown-toggle" ><span class="<?php echo $class ?>"></span><?php echo $category['name']; ?></a>
+                  
+               
+
+                  <?php  if($category['children']) { ?>
+                  
+        <ul class="dropdown-menu wMore">  
+            <?php foreach($category['children'] as $children){ ?>
+            
+            <?php // print_r($children); ?>
+            
+           <li>
+               <a href="<?php echo $children['href']; ?>">
+              <img width="38" height="38" src="<?php echo $children['image']; ?>"> &nbsp <?php echo $children['name']; ?>
+               
+               </a>
+               <?php //print_r($children); ?>
+               <ul>
+                    <li>
+                  <a href="<?php echo $category['href']; ?>" class="dropdown-toggle" ><?php echo $category['name']; ?></a>
+                     </li>
+               </ul>
+             <?php } ?>
+                       
+             <?php  }  ?>
+                             
+            </li>
+        </ul>
+     
+     
+     
+     </li>
 
 
               <?php
@@ -302,11 +382,116 @@ $index++;
 
  </ul>
           </li>
-          
-        
-        <li>
-          <a href="<?php echo $brand_link; ?>" ><span class="brands"></span> <?= $brands ?> </a>
-        </li>
+
+
+
+
+          <!-- drop down menu for brands  -->
+
+          <?php // print_r ($results1); ?>
+
+          <li class="dropdown">
+
+              <a  href="<?php echo $brand_link; ?>" class="dpDown-main-a dropdown-toggle disabled" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="brands"></span> <?= $brands ?> </a>
+
+              <ul class="dropdown-menu">
+
+                  <?php $index = 0; ?>
+                  <?php  foreach ($results1 as $results1) { ?>
+
+                  <?php // print_r ($results1); ?>
+
+                  <?php
+
+            $class = '';
+            switch ($index) {
+                 case 0:
+                    $class="apple" ;
+                    break;
+
+                case 1:
+                     $class="brands" ;
+                    break;
+                case 2:
+                     $class="cleaning" ;
+                    break;
+                case 3:
+                     $class="k-wear" ;
+                    break;
+
+                case 4:
+                     $class="bath" ;
+                    break;
+                case 5:
+                     $class="laundry" ;
+                    break;
+                case 6:
+                     $class="waste" ;
+                    break;
+
+                case 7:
+                     $class="storage" ;
+                    break;
+                case 8:
+                     $class="wish-list" ;
+                    break;
+            //    default:
+             //       $class="product" ;
+            }
+
+$index++;
+     ?>
+                  <?php  }?>
+                  <?php // print_r($manu); ?>
+                  <?php //print_r($data_info);?>
+                  
+              
+                  
+<?php foreach($manu as $link){ ?>
+ <?php // print_r($link['catem_info']);?>
+                  
+
+                  <li >
+                      <a href="<?php echo $link['href']; ?>">
+                          <img src="<?php echo $link['image'];?>"> &nbsp <?php echo $link['name'];?>
+                      </a>
+                      
+                      
+                   <!--   
+                      <ul class="dropdown-menu">
+                          <?php foreach($link['catem_info'] as $brand){ ?>
+                          
+                          <?php // print_r($brand);die(); ?>
+                          
+                            <?php foreach($brand as $brand_info){ ?>
+                          
+                           <?php  // print_r($brand_info);die(); ?>
+
+                         <li> 
+                              <a href='<?php echo "http://localhost/baghli/index.php?route=product/category&path=".$brand_info["category_id"] ?>'> <img width="38" height="38" src="<?php echo 'http://localhost/baghli/image/'.$brand_info['image'];?>"> &nbsp<?php echo $brand_info['name'] ?></a>
+                          </li>
+                          
+                            <?php } ?>
+                          
+                          
+                         <?php  } ?>
+                      </ul>
+                      -->
+                      
+                 </li>
+                  <?php  } ?>
+              </ul>
+
+    
+
+
+            
+          </li>
+
+
+   <!--    <li>
+         <a href="<?php echo $brand_link; ?>" ><span class="brands"></span> <?= $brands ?> </a>
+       </li> -->
 
 
         <li>

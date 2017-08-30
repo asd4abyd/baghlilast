@@ -8,23 +8,23 @@
               <?php foreach ($products as $product) { ?>
               <div class="item">
                 <figure>
-                    <div class="img"><a href="<?php echo $product['href']; ?>" title="<?php echo $product['name']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a></div>
+                    <div class="img img-responsive"><a href="<?php echo $product['href']; ?>" title="<?php echo $product['name']; ?>"><img class="img-responsive" src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a></div>
                     <figcaption>
                         <h4><span><?php echo $product['name']; ?></span></h4>
                                 <?php if ($product['price']) { ?>
-       
+
                          <?php if ($product['special']) { ?>
-         
+
             <strong>Price Now : <?php echo $product['special']; ?></strong><br>
             <strong class="line_through">Before : <?php echo $product['price']; ?></strong>
           <?php } else { ?>
-            
+
             <strong>Price Now : <?php echo $product['price']; ?></strong><br>
-            
-         
-         
+
+
+
           <?php } ?>
-           
+
         <?php } ?>
 
                     </figcaption>
@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    
+
    <script type="text/javascript"><!--
  $('.owl-theme<?php echo $module; ?>').owlCarousel({
    items: 6,
@@ -48,5 +48,4 @@
   pagination: true
  });
 </script>
-  
-	
+

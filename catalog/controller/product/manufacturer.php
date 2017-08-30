@@ -36,6 +36,8 @@ class ControllerProductManufacturer extends Controller {
 
 			
         $results1 = $this->model_catalog_manufacturer->getManufacturers();
+
+    //   print_r($results1);
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
 		} else {
@@ -61,6 +63,8 @@ class ControllerProductManufacturer extends Controller {
 		}
 		
 		foreach ($results1 as $result1) {
+            
+     //       print_r($result1);
 			
 			$filter_data = array(
 				'filter_manufacturer_id' => $result1['manufacturer_id'],
@@ -69,11 +73,15 @@ class ControllerProductManufacturer extends Controller {
 				'start'                  => ($page - 1) * $limit,
 				'limit'                  => $limit
 			);
+            
+            
 			
 			// products 
 			$results_products = $this->model_catalog_product->getProducts($filter_data);
 			$categories = array();
 			foreach ($results_products as $result) {
+                
+             //   print_r($result);
 				$category_info = $this->model_catalog_category->getCategory($result['category_id']) ;
 				$categories [] = array(
 					'category_id'  => $result['category_id'],
@@ -83,6 +91,8 @@ class ControllerProductManufacturer extends Controller {
 				);
 			}
 			
+            
+        //    print_r($result1['name']);
 			if (is_numeric(utf8_substr($result1['name'], 0, 1))) {
 				$key = '0 - 9';
 			} else {
@@ -96,12 +106,15 @@ class ControllerProductManufacturer extends Controller {
 			$data['categories'][$key]['manufacturer'][] = array(
 				'name' => $result1['name'],
 				'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $result1['manufacturer_id']),
-				'image' => $this->model_tool_image->resize($result1['image'],318,241), 
+				'image' => $this->model_tool_image->resize($result1['image'],318,241),
 				'categories' => $categories
 			);
 		
 			}
 		// end products
+        
+     
+        
 		
 		$data['continue'] = $this->url->link('common/home');
 
@@ -239,7 +252,7 @@ if(isset($this->request->post['search'] ) && $this->request->post['search']!= nu
 	$search=$this->request->post['search'];
 	$results=$this->model_catalog_manufacturer->search($search,$manufacturer_id);
 	
-
+// print_r($results);
 			foreach ($results as $result) {
 
 
@@ -272,6 +285,8 @@ if(isset($this->request->post['search'] ) && $this->request->post['search']!= nu
 				// } else {
 				// 	$rating = false;
 				// }
+                
+              //  print_r($result[]);
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'category_id'  => $result['category_id'],

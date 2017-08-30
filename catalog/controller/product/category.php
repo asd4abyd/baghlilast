@@ -217,7 +217,8 @@ $data['options'] = array();
 
               if (isset($this->request->post['search'])  && $this->request->post['search']!= null) {
               	$search=$this->request->post['search'];
-               echo($category_id);
+                 
+               echo $category_id;
               	$results = $this->model_catalog_category->search($search,$category_id);
 				
 			foreach ($results as $result) {
@@ -251,18 +252,7 @@ $data['options'] = array();
 
 
 
-                // added by me to declare options in product page in category page
-
-
-
-
-
-
-
-
-                // added by me to declare options in product page in category page
-
-
+        
 
 
                 $data['products'][] = array(
@@ -277,8 +267,8 @@ $data['options'] = array();
 					'tax'         => $tax,
 					'manufacturer' => $result['manufacturer'],
 					'manufacturer_id'=> $result['manufacturer_id'],
-					 'stock_status'=>$result['stock_status'],
-					 'quantity'=>$result['quantity'],
+				    'stock_status'=>$result['stock_status'],
+				    'quantity'=>$result['quantity'],
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => '',
 					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
@@ -390,7 +380,7 @@ $data['options'] = array();
                     'quantity'=>$result['quantity'],
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $result['rating'],
-					'href'        => $this->url->link('product/sub_product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url),
+					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url),sd
                     'options'=>$this-> getProductOptions($result['product_id'])
 				);
 
