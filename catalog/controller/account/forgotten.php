@@ -42,6 +42,8 @@ class ControllerAccountForgotten extends Controller {
 			$mail->setSubject(html_entity_decode($subject, ENT_QUOTES, 'UTF-8'));
 			$mail->setText(html_entity_decode($message, ENT_QUOTES, 'UTF-8'));
 			$mail->send();
+            $mail->setReplyTo($this->request->post['email']);
+            $mail->setSender($this->config->get('config_email'));
 
 			$this->session->data['success'] = $this->language->get('text_success');
 

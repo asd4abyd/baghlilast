@@ -1,3 +1,21 @@
+<?php
+//var_dump($categories);
+
+//foreach($categories as $category){
+
+//if(isset()){}
+
+//foreach($category['children'] as $subCategory){
+
+//foreach($subCategory['children'] as $subSubCategory){
+
+
+//}
+//}
+//}
+//die();
+?>
+
 <!DOCTYPE !html>
 <!--[if IE]><![endif]-->
 <!--[if IE 8 ]><html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>" class="ie8"><![endif]-->
@@ -89,7 +107,7 @@
 
 
 
-  <link rel="shortcut icon" href="favicon.ico?"/>
+    <link rel="shortcut icon" href="favicon.ico?"/>
 
     <!-- Bootstrap -->
     <link href="catalog/view/theme/baghli-arbash/css/rtl/css/bootstrap.css" rel="stylesheet">
@@ -199,7 +217,6 @@
 
                    </ul>
           </div>
-        
 
                    <!-- Modal -->
                     <div class="modal sign-in fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -253,9 +270,9 @@
 </script>
 
 
-<?php print_r($categories);?>
+<?php // print_r($categories);?>
 
-    <nav class="navbar navbar-default" role="navigation"> 
+    <nav class="navbar navbar-default" role="navigation">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -280,26 +297,23 @@
       
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav" style="width: 100% ;">
-          
-       
-          <li class="dropdown">
+      <ul class="nav navbar-nav" >
 
-<a  href="<?php echo $categories[0]['href'];?>" class="dpDown-main-a dropdown-toggle disabled" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="product"></span> <?= $text_product?><!--<b class="caret"></b>--></a>
+
+          <li>
+
+
+  <a href="<?php echo HTTP_SERVER?>index.php?route=product/category&path=<?php echo $categories[0]['category_id'];?>" class="dpDown-main-a dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="product"></span> <?= $text_product?><!--<b class="caret"></b>--></a>
 
   <ul class="dropdown-menu multi-level">
+
       
       
      <?php $index = 0; ?>
      
-     
                <?php foreach ($categories as $category) { ?>
       
-                     <?php   print_r ($category)  ?>
 
-      
-
-        
 
      <?php
 
@@ -341,28 +355,51 @@
 
 $index++;
      ?>
-              <li class="dropdown-submenu" >
-                  <a href="<?php echo $category['href']; ?>" class="dropdown-toggle" ><span class="<?php echo $class ?>"></span><?php echo $category['name']; ?></a>
-                  
-               
+              <li class="dropdown-submenu">
+                  <a href="<?php echo HTTP_SERVER?>index.php?route=product/category&path=<?php echo $category['category_id'];?>"><span class="<?php echo $class ?>"></span><?php echo $category['name']; ?></a>
 
-                  <?php  if($category['children']) { ?>
+
+                  <?php  if((isset($category['children']))) { ?>
                   
-        <ul class="dropdown-menu wMore">  
-            <?php foreach($category['children'] as $children){ ?>
+        <ul class="dropdown-menu wMore">
+            <?php foreach($category['children'] as $subCategory){ ?>
+
+            <?php // print_r($subCategory); ?>
             
-            <?php // print_r($children); ?>
-            
+           
            <li>
-               <a href="<?php echo $children['href']; ?>">
-              <img width="38" height="38" src="<?php echo $children['image']; ?>"> &nbsp <?php echo $children['name']; ?>
-               
+               <a  href="<?php echo $subCategory['href'] ?>" >
+
+
+                   <?php if ((strpos($subCategory['image'], 'jpg') !== false) || (strpos($subCategory['image'], 'png') !== false)) { ?>
+                   <img width="55" height="55"  src="<?php echo $subCategory['image']; ?>" title="<?php echo $subCategory['name'];?>" />
+                   <?php } else { ?>
+                   <img width="55" height="55" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
+                   <?php } ?>&nbsp <strong><?php echo $subCategory['name'];?> </strong>
                </a>
-               <?php //print_r($children); ?>
+
+
+               </a>
+               <?php  if((isset($subCategory['children']))) { ?>
                <ul>
+                   <?php foreach($subCategory['children'] as $subSubCategory){ ?>
+                   
+                   <?php // print_r($subSubCategory); ?>
+                   
                     <li>
-                  <a href="<?php echo $category['href']; ?>" class="dropdown-toggle" ><?php echo $category['name']; ?></a>
-                     </li>
+                        
+                  <a href="<?php echo $subSubCategory['href'] ;?>" class="dropdown-toggle" >
+                      <?php if ((strpos($subSubCategory['image'], 'jpg') !== false) || (strpos($subSubCategory['image'], 'png') !== false)) { ?>
+                      <img width="38" height="38"  src="<?php echo $subSubCategory['image']; ?>" title="<?php echo $subSubCategory['name'];?>" />
+                      <?php } else { ?>
+                      <img width="38" height="38" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
+                      <?php } ?>&nbsp <strong><?php echo $subSubCategory['name'];?> </strong>
+
+                  </a>
+                        
+                    </li>
+                   
+                   <?php } ?>
                </ul>
              <?php } ?>
                        
@@ -371,7 +408,7 @@ $index++;
             </li>
         </ul>
      
-     
+       <?php  }  ?>
      
      </li>
 

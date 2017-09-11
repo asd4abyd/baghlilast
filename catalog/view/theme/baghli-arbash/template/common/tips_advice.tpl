@@ -1,5 +1,7 @@
 <?php if ($extensions) { ?>
 
+<?php // print_r($extensions); ?>
+
 <?php foreach ($extensions as $extension) {
 ?>
     <div class="tips-area-cvr clearfix updatetips">
@@ -12,6 +14,8 @@
             	
  
 <?php
+
+// print_r($extension['modules']);
 foreach($extension['modules'] as $module)
 {
   

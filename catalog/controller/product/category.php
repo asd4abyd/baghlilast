@@ -137,8 +137,14 @@ $data['options'] = array();
 			$data['Befor'] = $this->language->get('Befor');
 	        $data['please'] = $this->language->get('please');
             $data['related'] = $this->language->get('related');
-			
-			$data['button_cart'] = $this->language->get('button_cart');
+            $data['article_no'] = $this->language->get('article_no');
+            $data['brand_name'] = $this->language->get('brand_name');
+            $data['select'] = $this->language->get('select');
+
+
+
+
+            $data['button_cart'] = $this->language->get('button_cart');
 			$data['button_wishlist'] = $this->language->get('button_wishlist');
 			$data['button_compare'] = $this->language->get('button_compare');
 			$data['button_continue'] = $this->language->get('button_continue');
@@ -189,6 +195,7 @@ $data['options'] = array();
 
 			$results = $this->model_catalog_category->getCategories($category_id);
 
+
 			foreach ($results as $result) {
 				$filter_data = array(
 					'filter_category_id'  => $result['category_id'],
@@ -220,9 +227,11 @@ $data['options'] = array();
                  
                echo $category_id;
               	$results = $this->model_catalog_category->search($search,$category_id);
-				
+
+
 			foreach ($results as $result) {
-                
+
+
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
 				} else {
@@ -260,6 +269,7 @@ $data['options'] = array();
                     'options' => $options,
 					'thumb'       => $image,
 					'name'        => $result['name'],
+
 					// 'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
 					'special'     => $special,
@@ -367,6 +377,7 @@ $data['options'] = array();
 			//	print_r($this-> getProductOptions($result['product_id']));
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
+					'model'       =>$result['model'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
@@ -380,9 +391,11 @@ $data['options'] = array();
                     'quantity'=>$result['quantity'],
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $result['rating'],
-					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url),sd
+					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url),
                     'options'=>$this-> getProductOptions($result['product_id'])
 				);
+
+
 
 
 				foreach ($results as $result) {

@@ -1,4 +1,11 @@
 <?php echo $header; ?>
+
+
+<div id="dialog" style="display: none" align = "center">
+    <div class="proprice"><h4>Price:</h4><span>85:000 KWD</span></div>
+    <div class="gotoCart"><button class="gobtnCart">Goto Cart</button></div>
+</div>
+
 <div class="innr-banner"><img src="catalog/view/theme/baghli-arbash/images/innr-bnr-01.png" alt=""></div>
 
 
@@ -93,7 +100,7 @@
                     <figure>
 					<a href="<?php echo $category['href']; ?>">
 
-				
+
 			 <?php		if ((strpos($category['image'], 'jpg') !== false) || (strpos($category['image'], 'png') !== false)) { ?>
 					<img style=" max-height: 350px; min-height: 350px;" src="<?php echo $category['image']; ?>" title="<?php echo $category['name'];?>" />
 					<?php } else { ?>
@@ -106,6 +113,7 @@
 
 
 
+
 			  			  </div>
 			  			  </div>
 
@@ -114,7 +122,8 @@
 
             <div class="row brands-page">
 
-   <?php $i=1; foreach ($products as $product) { ?>
+
+                <?php $i=1; foreach ($products as $product) { ?>
             <?php if($i%2==1) { ?>
 
             <?php } ?>
@@ -128,7 +137,6 @@
                     <!-- image list div -->
                     <div class="col-md-6 list-imageNew new_align">
                         <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>"/></a>
-
                     </div>
                     <!-- lsit details div -->
                     <div class="col-md-6 proLst-cont updte_design">
@@ -136,10 +144,33 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h4 class="cart-h4"><a href="<?php echo $product['href']; ?>"><strong><?php echo $product['name']; ?></strong></a></h4>
-                                <span><a href="index.php?route=product/manufacturer/info&manufacturer_id=<?php echo $product['manufacturer_id']?>"> <?=$product['manufacturer']; ?></a></span>
+                                <span><?php echo $brand_name; ?><a href="index.php?route=product/manufacturer/info&manufacturer_id=<?php echo $product['manufacturer_id']?>"> <?=$product['manufacturer']; ?></a></span><br>
+                                <span class="cart-h4"><?php echo $article_no; ?><?php echo $product['model']; ?></span><br>
 
+                                <?php // if ($product['options']){
+
+				              //  foreach ($product['options'] as $options) {
+
+
+
+				         //       foreach ($options as $option) { ?>
+
+                                <?php // print_r($option); ?>
+
+
+
+
+
+
+
+
+
+
+
+                                <?php // }}} ?>
 
                                 <?php if ($product['rating']) { ?>
+
                                 <div class="rateyo" >
 
                                 </div>
@@ -214,8 +245,10 @@
 
 				foreach ($product['options'] as $option) { ?>
 
+                            <?php // print_r($option); ?>
 
-                            <div id="thisIsOriginal" style="visibility: hidden;"><?php echo $price; ?></div>
+
+                            <div id="thisIsOriginal" style="visibility: hidden;"><?php // echo $price; ?></div>
 
 
                             <?php if ($option['type'] == 'select') { ?>
@@ -223,7 +256,7 @@
                                 <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
 
 
-                                    <label for="" class="siz-clr">Select <?php echo $option['name'] ?></label>
+                                    <label for="" class="siz-clr"><?php echo $select; ?><?php echo $option['name'] ?></label>
 
 
                                     <div class="dropdown">
@@ -292,7 +325,7 @@
                                 <div class="add-crt">
 
 
-                                    <input id="button-cart" type="button" value="<?php echo $button_cart; ?>" class="btn_wrap wishbtn" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');">
+                                    <input  type="button" value="<?php echo $button_cart; ?>" class="btn_wrap wishbtn btnShow8" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');">
 
                                 </div>
                             </div>
@@ -379,7 +412,7 @@
                                 <?php if ($product['price']) { ?>
 
                                 <?php if (!$product['special']) { ?>
-                                <strong><?= $text_price?> <?php echo $product['price']; ?>   </strong>
+                                <strong><?= $text_price?> <?php echo $product['price']; ?> </strong>
                                 <?php } else { ?>
                                 <span class="overline"><?=$Befor?> :<?php echo $product['price']; ?></span>
                                 <strong><?= $text_price?><?php echo $product['special']; ?> </strong>
@@ -670,6 +703,8 @@
 </script>
 
 
+
+
 <script type="text/javascript">
     $(document).ready(function() {
         $('.option').change(function() {
@@ -737,6 +772,21 @@
         });
     });
 </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#dialog").dialog({
+                modal: true,
+                autoOpen: false,
+                title: "jQuery Dialog",
+                width: 800,
+                height: 110
+            });
+            $("#btnShow,#btnShow1,#btnShow2,#btnShow3,#btnShow4,#btnShow5,#btnShow6,#btnShow7,.btnShow8 ").click(function () {
+                $('#dialog').dialog('open');
+            });
+        });
+    </script>
 
 
 <?php  echo $footer; ?>

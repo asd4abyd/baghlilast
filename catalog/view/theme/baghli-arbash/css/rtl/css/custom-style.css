@@ -104,13 +104,11 @@ header .input-group{
 	display:block;
 }
 .banner .owl-next{
-	background-position:0 -56px;
 	top:50%;
-	left:8%;
+	right:8%;
 	margin-top:-27px;
 }
 .banner .owl-prev{
-	background-position:-56px -56px;
 	top:50%;
 	right:8%;
 	margin-top:-27px;

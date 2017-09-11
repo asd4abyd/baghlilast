@@ -29,3 +29,10 @@ $_['Befor']         =  'Befor';
 $_['please']        =' Please select';
 $_['View1']         = ' View';
 $_['related']       = ' RELEATED PRODUCT' ;
+$_['article_no']           = 'Article # : ';
+$_['brand_name']           = 'Brand Name : ';
+
+$_['select']           = 'Select ';
+
+
+

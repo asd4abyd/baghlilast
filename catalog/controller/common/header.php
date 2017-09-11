@@ -136,7 +136,7 @@ class ControllerCommonHeader extends Controller {
 
         // load manufacturer in header
         $this->load->model('catalog/manufacturer');
-      $this->load->model('catalog/product');
+        $this->load->model('catalog/product');
         $this->load->model('catalog/category');
         $this->load->model('tool/image');
         
@@ -148,7 +148,7 @@ class ControllerCommonHeader extends Controller {
 			$manufacturer_id = 0;
 		}
        // $id= $this->model_catalog_manufacturer->man_id();
-     $data['results1'] = $this->model_catalog_manufacturer->getManufacturers();
+         $data['results1'] = $this->model_catalog_manufacturer->getManufacturers();
     //   print_r ($data['results1']);die();
         //   print_r ( $data['results1']['manufacturer_id']);die();
 
@@ -170,7 +170,6 @@ class ControllerCommonHeader extends Controller {
               //  'brand_categ'=>array($this->model_catalog_manufacturer->getCategoriesManufacrurers())
 
             );
-          
 
         }
     // $data['brands_info'] = $this->model_catalog_manufacturer->getManufacturers();
@@ -204,12 +203,17 @@ class ControllerCommonHeader extends Controller {
 
 
 		$data['categories'] = array();
+        
 
 		$categories = $this->model_catalog_category->getCategories(0);
 
+
+
 		foreach ($categories as &$category) {
+
+
             
-           // print_r($category);
+      //     print_r($category);
             
 			if ($category['top']) {
 				// Level 2
@@ -217,6 +221,7 @@ class ControllerCommonHeader extends Controller {
                 
                 $children_data22 = array();
 
+                // $data['link111'] = $this->url->link('product/category', 'path=' . $category['category_id']);
 
 				$children = $this->model_catalog_category->getCategories($category['category_id']);
 
@@ -248,20 +253,25 @@ class ControllerCommonHeader extends Controller {
 
                         $children3[] = array(
 						'name'  => $child22['name'] ,
-						'href'  => $this->url->link('product/category', 'path=' . $child['category_id'] . '_' . $child['category_id']),
-                        'image' => $child22['image']
+						'href'  => $this->url->link('product/category', 'path=' . $child['parent_id'] . '_' . $child['category_id'] . '_' .$child22['category_id']),
+                        'image' => 'image/'.$child22['image']
 					);
+
+
                     }
 
-                    $category['children'][]= array(
+                        $category['children'] []= array(
                         'name'  => $child['name'] ,
                         'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']),
-                        'image' => $child['image'],
+                        'image' => 'image/'.$child['image'],
                         'children'=>$children3
                     );
 
 
                 }
+                
+               
+                 $data['categories']=$categories;
 
 				// Level 1
 //				$data['categories'][] = array(
