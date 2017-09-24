@@ -31,6 +31,8 @@ $_['text_add_company_button']      = 'إضافة';
 $_['text_quick']='روابط';
 $_['text_link']  = 'سريعة ' ;
 $_['text_follow']='تابعنا';
+$_['backto']='الذهاب الى أعلى ';
+
 
 
 

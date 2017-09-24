@@ -31,8 +31,17 @@ $_['text_week']                = 'week';
 $_['text_semi_month']          = 'half-month';
 $_['text_month']               = 'month';
 $_['text_year']                = 'year';
+
+$_['text_customer_review']     = 'Customer  Reviews';
+
 $_['PRICE NOW']                = 'PRICE NOW';
 $_['BEFORE']                   =  'BEFORE';
+
+$_['votes']                  ='votes';
+$_['share_now']                  ='Share now :';
+
+
+
 
 $_['PRODUCT']                  = 'PRODUCT';
 $_['DETAILS']                  = 'DETAILS';

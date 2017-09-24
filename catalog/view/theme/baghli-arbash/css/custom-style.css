@@ -8,6 +8,18 @@ input[type=number]::-webkit-outer-spin-button {
    opacity: 1;
 }
 
+
+.marginlelDate{
+	margin-left: 31px !important;
+}
+
+.colors{
+	background-color: green;
+}
+
+
+
+
 .top_aroww {
     float: right;
     margin: -21px 18px 0px 0px;
@@ -447,8 +459,10 @@ ul.log-area li{
 	margin-top:15px;
 	
 }
-.updatetips ul li{ color:#333;}
-
+.updatetips ul li{
+	color:#333;
+	padding: 20px 0px 30px 0px !important;
+}
 
 
 .tips-area-cvr ul li:before {
@@ -1665,6 +1679,12 @@ max-width: 100%;
 
 }
 
+
+@media  (max-width: 995px) {
+
+
+}
+
 @media  (max-width: 310px) {
 
     .log-area{  padding-left: 0px;
@@ -1925,11 +1945,11 @@ a.dpDown-main-a{
     color: #1b92e4;
 }
 .qnty{
-	margin-top: 12px;
+	margin-top: 40px;
 	/*-- 11 january 2017, Wednesday--*/
 	/*width: 50%;*/
 	float: right;
-margin-right: 0;
+    margin-right: 0;
 }
 .proLst-cont span.save{text-align: left; width: 100%; margin-top: 7px; display: inline-block; }
 
@@ -2904,11 +2924,12 @@ ul.log-area li:first-child
 }
 
 
-@media (min-width: 768px)
+@media (min-width: 768px){
 .navbar.less:141
 .container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
     margin-right: 0;
     margin-left: 0;
+}
 }
 
     @media only screen and (min-width : 1200px) {
@@ -2962,13 +2983,43 @@ ul.log-area li:first-child
 
 
 
-@media all and (min-device-width : 767px) and (max-device-width : 991px)  {
-    .inner-page section.innr-shpng-cart .qnty{
-        
-        position:static!important;
-       
-    }
-    
-    
-    
+@media all and (min-device-width : 767px) and (max-device-width : 991px) {
+	.inner-page section.innr-shpng-cart .qnty {
+
+		position: static !important;
+
+	}
+
+}
+
+	@media (min-width: 320px) and (max-width: 620px) {
+
+		table.tottal-area tr td {
+
+			width: 10px !important;
+
+		}
+		}
+
+	@media (min-width: 690px) and (max-width: 893px){
+		 .qnty{
+
+			position: a.qntybsolute !important ;
+			margin-top: 50px !important;
+			min-width: 75px !important;
+			right: 0 !important;
+			top: 0 !important;
+			text-align: center !important;
+		}
+	}
+
+	}
+
+.ui-dialog .ui-dialog-titlebar-close span {
+	display: block;
+}
+.ui-widget-header .ui-icon{
+	background: url(/image/catalog/close.png) no-repeat center center;
+	width: 20px;
+	height: 20px;
 }

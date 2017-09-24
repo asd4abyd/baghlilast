@@ -4,7 +4,7 @@
 
 // Heading
 $_['heading_title']     = 'دفتر العناوين';
-$_['usrt']                  = 'صفحه ';
+$_['usrt']                  = 'صفحة';
 $_['PROFILE']               = 'المستخدم';
 $_['Personal_Information'] = ' المعلومات الشخصيه';
 // Text

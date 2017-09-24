@@ -30,7 +30,7 @@ class ControllerInformationCareers extends Controller { // Controller - This is 
 
 
          
-  //        	if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+  //       if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 		// 	$mail = new Mail();
 		// 	$mail->protocol = $this->config->get('config_mail_protocol');
 		// 	$mail->parameter = $this->config->get('config_mail_parameter');

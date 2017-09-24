@@ -11,9 +11,7 @@ html, body {
 
 
 
-<?php
-
- echo $header; ?>
+<?php echo $header; ?>
 <div class="innr-banner"><img src="image/innr-bnr-17.png" alt=""></div>
 <div class="container inner-container">
 
@@ -46,7 +44,13 @@ html, body {
 
 
                  <?php if ($thumb || $images) { ?>
-          <?php if ($special) { ?>
+
+
+            <?php // print_r($thumb); ?>
+
+            <?php // print_r($images); ?>
+
+            <?php if ($special) { ?>
 
 
               <div class="offer-label"><?php echo round(100 - ($special_amt*100/$price_amt))."% "; ?>
@@ -56,10 +60,10 @@ html, body {
 <?php  }?>
           <ul class="thumbnails">
 
-            <?php if ($images) { ?>
+            <?php if ($thumb) { ?>
                       <div id="mac1" class="owl-carousel">
 
-
+                         <!popup for image -->
             <?php if($popup) { ?>
             <div class="item">
 
@@ -68,24 +72,16 @@ html, body {
             </a>
             </div>
 
-
-
-
- <?php } ?>
+          <?php } ?>
+                          <!popup for image -->
 
 
 <?php foreach ($images as $image) { ?>
 
               <div class="item">
-          <div id="">
             <a href="<?php echo $image['popup']; ?> " >
               <img src="<?php echo $image['popup']; ?>" data-zoom-image="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" class="popupZoom"  alt="<?php echo $heading_title; ?>" height="390px" />
             </a>
-          </div>
-
-
-
-
 
 
           </div>
@@ -97,11 +93,11 @@ html, body {
 
         </div>
             <script type="text/javascript">
-                
+
                 $(".popupZoom").elevateZoom({scrollZoom : true});
 
             </script>
-              
+
 
             <div id="mac2" class="owl-carousel" >
                 <?php
@@ -138,14 +134,14 @@ $(function(){
   $('.rateyo').rateYo({rating:'<?= (int)$rating?>'});
 });
                 </script>
-               <span class="votes"><?php echo (int) $reviews ?> votes</span>
+               <span class="votes"><?php echo (int) $reviews ?> <?php echo  $votes ?></span>
                <span class="like"><i><form action="" method="POST" enctype="multipart/form-data" style="display: inline;">
  <button style="border:none;background-color: #fff;" type="submit" name="product_like" value="<?= $product_id ?>"><img src="image/like.png" alt="">
 </button>
 </form></i> <?= $countLikes ?></span>
 
           <div class="share_box">
-           <h5>Share Now :</h5>
+           <h5><?php echo $share_now; ?></h5>
              <ul data-url="<?php echo $share; ?>">
              <li><a href="https://twitter.com/login" title="twitter"><img src="image/share_icon1.png" alt=""> </a></li>
                        <li><a href="https://www.instagram.com/accounts/login/" title="instagram"><img src="image/share_icon3.png" alt=""> </a></li>
@@ -469,7 +465,7 @@ $(function(){
             <div class="row">
               <div class="item" style="padding-right: 30px" >
                 <figure>
-                    <div class="image"  ><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive"> </a></div>
+                    <div class="image" ><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive"> </a></div>
                     <figcaption>
                         <h4><strong><?php echo $product['name']; ?> </strong></h4>
 
@@ -512,7 +508,7 @@ $(function(){
     <?php echo $column_right; ?></div>
     <?php //echo $content_bottom; ?>
 <div class="review-area container inner-page">
-  <div class="heading small"><span><strong>Customer  Reviews</strong></span></div>
+  <div class="heading small"><span><strong><?php echo $text_customer_review; ?></strong></span></div>
     <?php if ($review_status) { ?>
 
 

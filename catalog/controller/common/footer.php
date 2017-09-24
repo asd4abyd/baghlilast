@@ -27,7 +27,10 @@ class ControllerCommonFooter extends Controller {
 
         $data['WHOLESALE'] = $this->language->get('WHOLESALE');
 
-        $data['text_link'] = $this->language->get('text_link');
+		$data['backto'] = $this->language->get('backto');
+
+
+		$data['text_link'] = $this->language->get('text_link');
 
         $data['text_quick'] = $this->language->get('text_quick');
 

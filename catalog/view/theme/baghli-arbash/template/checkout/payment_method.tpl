@@ -85,13 +85,13 @@
     <input type="checkbox" name="agree" value="1" />
     <?php } ?>
     &nbsp;
-    <input type="button" value="<?php echo $button_continue; ?>" id="button-payment-method" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary" />
+    <input style="margin-right: 10px" type="button" value="<?php echo $button_continue; ?>" id="button-payment-method" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary" />
   </div>
 </div>
 <?php } else { ?>
 <div class="buttons">
   <div class="pull-right">
-    <input type="button" value="<?php echo $button_continue; ?>" id="button-payment-method" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary" />
+    <input  style="margin-right: 10px" type="button" value="<?php echo $button_continue; ?>" id="button-payment-method" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary" />
   </div>
 </div>
 <?php } ?>

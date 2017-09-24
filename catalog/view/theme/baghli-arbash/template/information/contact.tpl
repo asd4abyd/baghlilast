@@ -13,9 +13,9 @@
             	<p><?php echo $text_commited; ?></p>
 <hr>
 
-            	<h4>Al-Baghli & Al-Arbash int’l Co W.L.L.</h4>
-                P.O. Box 2877 Safat 13029 <br>
-				Kuwait<br>
+            	<h4><?php echo $text_baghli_company; ?></h4>
+                <?php echo $text_box; ?> <br>
+                <?php echo $text_country; ?><br>
 
 				<span class="hotline"><i><img src="catalog/view/theme/baghli-arbash/images/call.png" alt=""></i> <?php echo $telephone; ?> </span>
                 <span class="fax"><i><img src="catalog/view/theme/baghli-arbash/images/fax.png" alt=""></i>  <?php if ($fax) { ?> <?php echo $fax; ?> <?php } ?></span>

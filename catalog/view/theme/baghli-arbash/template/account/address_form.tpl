@@ -59,7 +59,7 @@
                  <div class="text-danger"><?php echo $error_address_1; ?></div>
                  <?php } ?>
                </div>
-             </div> 
+             </div>
 
             <div class="form-group">
                <label class="col-sm-2 control-label" for="input-address-2"><?php echo $entry_address_2; ?></label>

@@ -13,7 +13,7 @@
 	<?php //echo $content_bottom; ?>
 	<?php echo $tips_advices;?>
     <?php //echo $column_right; ?>
-    
+
 <?php echo $footer; ?>
 
 

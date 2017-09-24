@@ -36,7 +36,7 @@
 <?php if ($keywords) { ?>
 <meta name="keywords" content= "<?php echo $keywords; ?>" />
 <?php } ?>
-    
+
     <!-- favicon -->
     <link rel="shortcut icon" href="favicon.ico?"/>
 
@@ -83,7 +83,7 @@
     <script type="text/javascript" src="catalog/view/theme/baghli-arbash/js/jquery.vticker.min.js"></script>
 
     <script src="catalog/view/theme/baghli-arbash/js/owl.carousel.js"></script>
-    
+
   <script type="text/javascript" src="catalog/view/theme/baghli-arbash/js/jquery.rateyo.js"></script>
     <script src="catalog/view/javascript/common.js" type="text/javascript"></script>
     <script src="catalog/view/theme/baghli-arbash/js/jquery-custom.js" type="text/javascript"></script>
@@ -142,8 +142,8 @@
     <?php }  ?>
 
 
-    
- <!--   
+
+ <!--
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
@@ -181,8 +181,8 @@
              </div>
             <div class="col-md-9 col-sm-12 col-xs-12 ">
               <div class="row">
-                   
-                    
+
+
                     <?php echo $search; ?>
 
                   <div class="col-md-5 col-sm-12 col-xs-12">
@@ -190,7 +190,7 @@
                        <?php if ($logged) { ?>
                       <li class="col-sm-3 col-xs-3"><a type="button" data-toggle="modal" href="<?php echo $logout; ?>"><i><img src="catalog/view/theme/baghli-arbash/images/login-ico.png" title="<?php echo $text_logout; ?>" alt="<?php echo $text_logout; ?>"></i><br> <?php echo $text_logout; ?></a>
                       </li>
-                      
+
                        <li class="col-sm-3 col-xs-3"><a href="<?php echo $account; ?>"><i><img src="catalog/view/theme/baghli-arbash/images/reg-ico.png" title="<?php echo $text_account; ?>" alt="<?php echo $text_account; ?>"></i><br> <?php echo $text_account; ?></a>
                        </li>
 
@@ -284,17 +284,17 @@
       </button>
     </div>
 
-      
-      
+
+
           <!-- new code from index calling nested menu -->
 
-      
-      
-    
+
+
+
         <!-- new code from index calling nested menu -->
 
-      
-      
+
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav" >
@@ -307,12 +307,12 @@
 
   <ul class="dropdown-menu multi-level">
 
-      
-      
+
+
      <?php $index = 0; ?>
-     
+
                <?php foreach ($categories as $category) { ?>
-      
+
 
 
      <?php
@@ -360,13 +360,13 @@ $index++;
 
 
                   <?php  if((isset($category['children']))) { ?>
-                  
+
         <ul class="dropdown-menu wMore">
             <?php foreach($category['children'] as $subCategory){ ?>
 
             <?php // print_r($subCategory); ?>
-            
-           
+
+
            <li>
                <a  href="<?php echo $subCategory['href'] ?>" >
 
@@ -383,11 +383,11 @@ $index++;
                <?php  if((isset($subCategory['children']))) { ?>
                <ul>
                    <?php foreach($subCategory['children'] as $subSubCategory){ ?>
-                   
+
                    <?php // print_r($subSubCategory); ?>
-                   
+
                     <li>
-                        
+
                   <a href="<?php echo $subSubCategory['href'] ;?>" class="dropdown-toggle" >
                       <?php if ((strpos($subSubCategory['image'], 'jpg') !== false) || (strpos($subSubCategory['image'], 'png') !== false)) { ?>
                       <img width="38" height="38"  src="<?php echo $subSubCategory['image']; ?>" title="<?php echo $subSubCategory['name'];?>" />
@@ -396,20 +396,20 @@ $index++;
                       <?php } ?>&nbsp <strong><?php echo $subSubCategory['name'];?> </strong>
 
                   </a>
-                        
+
                     </li>
-                   
+
                    <?php } ?>
                </ul>
              <?php } ?>
-                       
+
              <?php  }  ?>
-                             
+
             </li>
         </ul>
-     
+
        <?php  }  ?>
-     
+
      </li>
 
 
@@ -419,8 +419,6 @@ $index++;
 
  </ul>
           </li>
-
-
 
 
           <!-- drop down menu for brands  -->
@@ -481,48 +479,48 @@ $index++;
                   <?php  }?>
                   <?php // print_r($manu); ?>
                   <?php //print_r($data_info);?>
-                  
-              
-                  
+
+
+
 <?php foreach($manu as $link){ ?>
  <?php // print_r($link['catem_info']);?>
-                  
+
 
                   <li >
                       <a href="<?php echo $link['href']; ?>">
                           <img src="<?php echo $link['image'];?>"> &nbsp <?php echo $link['name'];?>
                       </a>
-                      
-                      
-                   <!--   
+
+
+                   <!--
                       <ul class="dropdown-menu">
                           <?php foreach($link['catem_info'] as $brand){ ?>
-                          
+
                           <?php // print_r($brand);die(); ?>
-                          
+
                             <?php foreach($brand as $brand_info){ ?>
-                          
+
                            <?php  // print_r($brand_info);die(); ?>
 
-                         <li> 
+                         <li>
                               <a href='<?php echo "http://localhost/baghli/index.php?route=product/category&path=".$brand_info["category_id"] ?>'> <img width="38" height="38" src="<?php echo 'http://localhost/baghli/image/'.$brand_info['image'];?>"> &nbsp<?php echo $brand_info['name'] ?></a>
                           </li>
-                          
+
                             <?php } ?>
-                          
-                          
+
+
                          <?php  } ?>
                       </ul>
                       -->
-                      
+
                  </li>
                   <?php  } ?>
               </ul>
 
-    
 
 
-            
+
+
           </li>
 
 

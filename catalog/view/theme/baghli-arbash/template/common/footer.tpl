@@ -69,11 +69,10 @@ foreach ($informations as $information) {
     </footer>
 
     <!-- Return to Top -->
-<a href="javascript:" id="return-to-top"><i class="icon-chevron-up"><img src="catalog/view/theme/baghli-arbash/images/backtotop.png" alt=""></i> BACK TO TOP</a>
+<a href="javascript:" id="return-to-top"><i class="icon-chevron-up"><img src="catalog/view/theme/baghli-arbash/images/backtotop.png" alt=""></i><?= $backto?> </a>
 
 
 
-   
     <script>
 
 	$(function() {
@@ -99,6 +98,7 @@ foreach ($informations as $information) {
       // itemsMobile : false
 
   });
+
   $("#new-arrival").owlCarousel({
 
       autoPlay: false, //Set AutoPlay to 3 seconds

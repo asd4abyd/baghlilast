@@ -113,6 +113,7 @@ header .input-group{
 	right:8%;
 	margin-top:-27px;
 }
+
 .new-arrival-cvr{
 	background-color:#004f87;
 	padding:50px 0;
@@ -895,6 +896,8 @@ span.colors i.blue:before {
 
 .umay-like{
 	padding:30px 0;
+	opacity: 1;
+	display: block;
 }
 .umay-like .container{
 	overflow-x:hidden;
@@ -1407,7 +1410,7 @@ ul.sitemap li ul li{
     direction: ltr;
 }
 #umay-like {
-    direction: ltr;
+    direction: rtl;
 }
 #video {
     direction: ltr;
@@ -1441,7 +1444,6 @@ ul.sitemap li ul li{
 		float: left;
 		width: 100%;
 		margin-bottom: 0;
-		margin-left: -15%;
 		border-right: 1px solid #be1e2d;
 	}
 	.srch_sub {
@@ -1737,7 +1739,7 @@ a.dpDown-main-a{
     color: #1b92e4;
 }
 .qnty{
-	margin-top: 12px;
+	margin-top: 40px;
 	/*-- 11 january 2017, Wednesday--*/
 	/*width: 50%;*/
 	float: left;
@@ -2307,7 +2309,6 @@ ul.log-area li{
 		float: right;
 		width: 100%;
 		margin-bottom: 0;
-		margin-left: -15%;
 		border-left: 1px solid #be1e2d;
 	}
 	.srch_sub {

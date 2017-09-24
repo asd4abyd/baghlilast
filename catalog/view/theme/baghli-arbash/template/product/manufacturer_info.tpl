@@ -16,6 +16,7 @@
         </div>
 
 
+
     <?php $cateroies_visit = array(); ?>
     <?php if ($products) { ?>
     <?php $cat_id = 0;  $counter = 0; ?>

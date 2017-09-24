@@ -46,7 +46,7 @@ class ControllerCheckoutCart extends Controller {
             $mail->setFrom($this->request->post['email']);
             $mail->setSender(html_entity_decode($data['your_name'].' : '.$this->request->post['name'], ENT_QUOTES, 'UTF-8'));
             $mail->setSubject(html_entity_decode(sprintf($data['your_email'], $this->request->post['email']), ENT_QUOTES, 'UTF-8'));
-            $mail->setText($data['your_name'].' : '.$this->request->post['name']."\r\n".$data['your_email'].' : '.$this->request->post['email']."\r\n".$data['your_phone'].' : '.$this->request->post['phone']."\r\n".$data['your_product_name'].' : '.$this->request->post['product_name']."\r\n".$data['your_quantity'].' : '.$this->request->post['quantity']);
+            $mail->setText($data['your_name'].' : '.$this->request->post['name']."\r\n".$data['your_email'].' : '.$this->request->post['email']."\r\n".$data['your_phone'].' : '.$this->request->post['phone']."\r\n".$data['your_quantity'].' : '.$this->request->post['quantity']);
             $mail->send();
 
             $this->response->redirect($this->url->link('information/contact/success'));
@@ -259,15 +259,19 @@ class ControllerCheckoutCart extends Controller {
 			$data['products'] = array();
 
 
+
             $products = $this->cart->getProducts();
 
-
+       //     print_r($products);
 			foreach ($products as $product) {
-
 
 				// start  to get special price for each product
 				$product_info = $this->model_catalog_product->getProduct($product['product_id']);
+
+				//print_r($product_info);
                 $data['product_quantity']=$product_info['quantity'];
+
+
 
 				$data['logged'] = $this->customer->isLogged();
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {

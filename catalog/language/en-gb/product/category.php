@@ -18,6 +18,15 @@ $_['text_name_desc']    = 'Name (Z - A)';
 $_['text_price_asc']    = 'Price (Low &gt; High)';
 $_['text_price_desc']   = 'Price (High &gt; Low)';
 $_['text_rating_asc']   = 'Rating (Lowest)';
+
+$_['Most_Selling']   = 'Most Selling';
+
+$_['Most_Releated']   = 'Most Releated';
+
+$_['Best_Match']   = 'Best Match';
+
+
+
 $_['text_rating_desc']  = 'Rating (Highest)';
 $_['text_model_asc']    = 'Model (A - Z)';
 $_['text_model_desc']   = 'Model (Z - A)';
@@ -33,6 +42,7 @@ $_['article_no']           = 'Article # : ';
 $_['brand_name']           = 'Brand Name : ';
 
 $_['select']           = 'Select ';
+$_['go_cart']           = 'Go To Cart ';
 
 
 

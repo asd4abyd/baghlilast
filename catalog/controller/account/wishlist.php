@@ -409,6 +409,12 @@ class ControllerAccountWishList extends Controller {
     }
 
     public function add() {
+
+
+
+
+
+
         $this->load->language('account/wishlist');
 
         $json = array();

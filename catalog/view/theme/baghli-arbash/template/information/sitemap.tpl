@@ -1,9 +1,11 @@
 <?php echo $header;?>
 
 <?php // print_r($categories);die();?>
-<img src="catalog/view/theme/baghli-arbash/images/innr-bnr-20.png" alt="">
+
+<div class="innr-banner"><img src="catalog/view/theme/baghli-arbash/images/innr-bnr-20.png" alt=""></div>
+
 <div class="container">
- 
+
 
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>

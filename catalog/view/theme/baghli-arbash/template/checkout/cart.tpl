@@ -37,7 +37,7 @@
 
             <label><?php echo $mobile ;?></label>
 
-            <input  type="text" name="phone" class="form-control" placeholder="<?php echo $your_phone;?>">
+            <input id="numb"  name="phone" class="form-control" placeholder="<?php echo $your_phone;?>">
 
             <?php if ($error_phone) { ?>
             <div class="text-danger"><?php echo $error_phone;?></div>
@@ -169,6 +169,9 @@
 
 
               <?php if ($product['quantity']) { ?>
+
+                <?php // print_r($product_quantity); ?>
+
               <div class="list-price-div"><b><?= $quantity_text?> : </b><span><?php echo $product_quantity ?></span></div>
               <?php } ?>
 
@@ -198,7 +201,7 @@
 
                 <div class="input-group spinner">
 
-                  <input type="number" name="quantity[<?php echo $product['cart_id']; ?>]" value="<?php echo $product['quantity']; ?>" min="1" size="1" class="form-control" />
+                  <input type="number" name="quantity[<?php echo $product['cart_id']; ?>]" value="<?php echo $product['quantity']; ?>" min="1" size="1" class="form-control " style="margin-left:0%;width: min-content"/>
 
                   <div class="input-group-btn-vertical">
 
@@ -280,6 +283,9 @@
         <!-- content section open-->
     </div><!-- container inner-container-->
 
+
+
+
           <script>
               $('.q-down').click(function(){
                   if($('#input-quantity').val() == 0){
@@ -288,8 +294,22 @@
               });
           </script>
           <script type="text/javascript">
-              function form_submit() {
-                  document.getElementById("search_form").submit();
+      function form_submit() {
+//
+//
+//                      var x, text;
+//
+//                      // Get the value of the input field with id="numb"
+//                      x = document.getElementById("numb").value;
+//
+//                      // If x is Not a Number or less than one or greater than 10
+//                      if (isNaN(x) || x.length() < 8 || x.length() >8) {
+//                          text = "Input not valid";
+//                      } else {
+//                          text = "Input OK";
+//                      }
+
+                // document.getElementById("search_form").submit();
               }
           </script>
 
@@ -304,6 +324,7 @@
           success: function(data){
           alert('successfully submitted')
           }
+
           });
           });
           });

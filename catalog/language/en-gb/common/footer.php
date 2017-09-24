@@ -26,6 +26,9 @@ $_['soci']='SOCIAL LINKS';
 $_['text_follow']='Follow US';
 $_['enter']='Enter Your email';
 
+$_['backto']='BACK TO TOP';
+
+
 
 $_['sub']='SUBSCRIBE';
 $_['e1']='ENTER YOUR EMAIL';

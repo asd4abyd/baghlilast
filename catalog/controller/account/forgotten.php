@@ -86,7 +86,9 @@ class ControllerAccountForgotten extends Controller {
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_your_email'] = $this->language->get('text_your_email');
+
 		$data['text_email'] = $this->language->get('text_email');
+
 
 		$data['entry_email'] = $this->language->get('entry_email');
 

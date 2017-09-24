@@ -303,7 +303,10 @@ class ControllerProductProduct extends Controller {
 			$data['button_upload'] = $this->language->get('button_upload');
 			$data['button_continue'] = $this->language->get('button_continue');
 
-			$this->load->model('catalog/review');
+            $data['text_customer_review'] = $this->language->get('text_customer_review');
+
+
+            $this->load->model('catalog/review');
 
 			$data['tab_description'] = $this->language->get('tab_description');
 			$data['tab_attribute'] = $this->language->get('tab_attribute');
@@ -315,7 +318,12 @@ class ControllerProductProduct extends Controller {
 			$data['model'] = $product_info['model'];
 			$data['text_viewed'] = 'Viewed';
 		    $data['viewed'] = $product_info['viewed'];
-		    	
+
+			$data['votes'] = $this->language->get('votes');
+
+			$data['share_now'] = $this->language->get('share_now');
+
+
 
 
 

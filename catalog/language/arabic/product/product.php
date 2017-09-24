@@ -33,13 +33,24 @@ $_['text_week']                               = 'اسبوعي';
 $_['text_semi_month']                         = 'نصف شهري';
 $_['text_month']                              = 'شهري';
 $_['text_year']                               = 'سنوي';
+$_['text_customer_review']     = 'اراء الزبائن';
+
+
+
 $_['PRICE NOW']                               ='السعر الان';
 $_['BEFORE']                                  = ' قبل';
-$_['PRODUCT']                                 = ' المنتج' ;
-$_['DETAILS']                  ='تفاصيل';
+$_['PRODUCT']                                 = ' تفاصيل' ;
+$_['DETAILS']                  ='المنتج';
 $_['Video']            = 'معرض الفيديو' ;
 $_['Video_title']       = 'عنوان الفيديو';
 $_['select_color']       = 'اختر';
+
+$_['votes']                  ='الأصوات';
+
+$_['share_now']                  =' :انشرها الان';
+
+
+
 
 
 // Entry

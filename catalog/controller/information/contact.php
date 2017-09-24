@@ -51,6 +51,12 @@ class ControllerInformationContact extends Controller {
         $data['text_fax'] = $this->language->get('text_fax');
 		$data['text_open'] = $this->language->get('text_open');
 		$data['text_comment'] = $this->language->get('text_comment');
+		$data['text_baghli_company'] = $this->language->get('text_baghli_company');
+		$data['text_box'] = $this->language->get('text_box');
+		$data['text_country'] = $this->language->get('text_country');
+
+
+
 
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_email'] = $this->language->get('entry_email');

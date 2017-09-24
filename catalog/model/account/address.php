@@ -24,6 +24,11 @@ class ModelAccountAddress extends Model {
 	}
 
 	public function editAddress($address_id, $data) {
+
+		$data['address_1']=array_key_exists('address1',$data)? $data['address_1']:'';
+		$data['address_2']=array_key_exists('address2',$data)? $data['address_2']:'';
+		$data['city']=array_key_exists('city',$data)? $data['city']:'';
+		$data['postcode']=array_key_exists('poastcode',$data)? $data['postcode']:'';
 		$this->db->query("UPDATE " . DB_PREFIX . "address SET firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', company = '" . $this->db->escape($data['company']) . "', address_1 = '" . $this->db->escape($data['address_1']) . "', address_2 = '" . $this->db->escape($data['address_2']) . "', postcode = '" . $this->db->escape($data['postcode']) . "', city = '" . $this->db->escape($data['city']) . "', zone_id = '" . (int)$data['zone_id'] . "', country_id = '" . (int)$data['country_id'] . "', custom_field = '" . $this->db->escape(isset($data['custom_field']) ? json_encode($data['custom_field']) : '') . "' WHERE address_id  = '" . (int)$address_id . "' AND customer_id = '" . (int)$this->customer->getId() . "'");
 
 		if (!empty($data['default'])) {

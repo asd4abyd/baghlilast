@@ -17,6 +17,7 @@
 			  <?php foreach ($categories as $category) { ?>
                 
             <?php  // print_r($category); ?>
+
                 
                 
 			  <?php if ($category['manufacturer']) { ?>

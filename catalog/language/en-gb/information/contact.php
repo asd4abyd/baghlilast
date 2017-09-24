@@ -19,6 +19,12 @@ customers’ needs with emphasis given to on time delivery and post-sale service
 
 
 $_['text_other_number'] = 'Other Number';
+$_['text_baghli_company'] = 'Al-Baghli & Al-Arbash int’l Co W.L.L.';
+$_['text_box'] = 'P.O. Box 2877 Safat 13029';
+$_['text_country'] = 'Kuwait';
+
+
+
 
 
 // Entry
