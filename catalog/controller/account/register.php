@@ -390,13 +390,17 @@ class ControllerAccountRegister extends Controller {
 			$this->error['lastname'] = $this->language->get('error_lastname');
 		}
 
+
+
 		if ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
 			$this->error['email'] = $this->language->get('error_email');
+		} elseif ($this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
+			$this->error['email'] = $this->language->get('error_exists');
 		}
 
-		if ($this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
-			$this->error['warning'] = $this->language->get('error_exists');
-		}
+	//	if ($this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
+		//	$this->error['email'] = $this->language->get('error_exists');
+		// }
 
 		if ((utf8_strlen($this->request->post['mobile']) < 8) || (utf8_strlen($this->request->post['mobile']) > 8)) {
 			$this->error['mobile'] = $this->language->get('error_mobile');

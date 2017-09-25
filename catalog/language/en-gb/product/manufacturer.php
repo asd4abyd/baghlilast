@@ -26,6 +26,9 @@ $_['text_model_asc']    = 'Model (A - Z)';
 $_['text_model_desc']   = 'Model (Z - A)';
 $_['text_limit']        = 'Show:';
 
+$_['see_all']           = 'SEE ALL';
+
+
 $_['search']             = 'Search';
 $_['Go']                  = 'Go !';
 $_['View1']          =  ' View All';

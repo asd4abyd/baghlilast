@@ -5,6 +5,10 @@
 // Heading
 $_['heading_title']    = 'سلة الشراء';
 
+
+$_['your_extra_quantity']    = 'طلب كمية اضافية للمنتج';
+
+
 // Text
 $_['text_success']     = ' تم إضافة <a href="%s">%s</a> إلى <a href="%s"> سلة الشراء </a>!';
 $_['text_success_popup_form']   = '<p>تم الارسال بنجاح لفريق عمل الموقع !</p>';
@@ -33,6 +37,12 @@ $_['text_payment_cancel'] = '%s every %d %s(s) until canceled';
 
 $_['request_more']      = 'طلب المزيد';
 
+$_['your_name']         ='اسمك';
+
+
+$_['quantity_name']         ='الكمية المطلوبة';
+
+
 
 
 $_['Gra'] ='المبلغ الإجمالي';
@@ -47,12 +57,20 @@ $_['befor']='قبل';
 $_['del']= 'حذف';
 $_['qut']  ='الكمية';
 
+
+
+$_['submit']  ='الموافقة';
+
 $_['pro']  ='ادفع الان';
 
 $_['popup_title']        ='طلب المزيد من الكميات';
 
 $_['quantity_text']        ='الكمية المتاحة من المنتج';
 
+$_['mobile']  ='رقم الموبايل';
+
+
+$_['email_name']        ='البريد الألكتروني';
 
 
 

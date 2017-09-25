@@ -320,11 +320,11 @@
             $class = '';
             switch ($index) {
                  case 0:
-                    $class="product" ;
+                    $class="product   product_ar" ;
                     break;
 
                 case 1:
-                     $class="brands" ;
+                     $class="brands brands_ar" ;
                     break;
                 case 2:
                      $class="cleaning" ;

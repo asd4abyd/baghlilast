@@ -111,6 +111,20 @@ class ControllerCheckoutCart extends Controller {
 			$data['text_next'] = $this->language->get('text_next');
 			$data['text_next_choice'] = $this->language->get('text_next_choice');
 
+			$data['your_extra_quantity'] = $this->language->get('your_extra_quantity');
+			$data['your_name'] = $this->language->get('your_name');
+			$data['quantity_name'] = $this->language->get('quantity_name');
+
+			$data['mobile'] = $this->language->get('mobile');
+
+			$data['email_name'] = $this->language->get('email_name');
+
+			$data['submit'] = $this->language->get('submit');
+
+
+
+
+
 			$data['column_image'] = $this->language->get('column_image');
 			$data['column_name'] = $this->language->get('column_name');
 			$data['column_model'] = $this->language->get('column_model');
@@ -496,6 +510,9 @@ class ControllerCheckoutCart extends Controller {
 
 			$data['text_error'] = $this->language->get('text_empty');
 
+			$data['your_extra_quantity'] = $this->language->get('your_extra_quantity');
+
+
 			$data['button_continue'] = $this->language->get('button_continue');
 
 			$data['continue'] = $this->url->link('common/home');
@@ -520,7 +537,7 @@ class ControllerCheckoutCart extends Controller {
 
 
 
-        if ((utf8_strlen($this->request->post['phone']) < 8) || (utf8_strlen($this->request->post['phone']) > 8)) {
+        if ((utf8_strlen($this->request->post['phone']) < 8) || (utf8_strlen($this->request->post['phone']) > 8)  || (is_nan($this->request->post['phone'])) ) {
             $this->error['phone'] = $this->language->get('error_phone');
         }
 
@@ -528,7 +545,7 @@ class ControllerCheckoutCart extends Controller {
             $this->error['name'] = $this->language->get('error_name');
         }
 
-        if ((utf8_strlen(trim($this->request->post['quantity'])) < 1) || (utf8_strlen(trim($this->request->post['quantity'])) > 32)) {
+        if ((utf8_strlen(trim($this->request->post['quantity'])) < 1) || (utf8_strlen(trim($this->request->post['quantity'])) > 32 || (is_nan($this->request->post['quantity'])))) {
             $this->error['quantity'] = $this->language->get('error_quantity');
         }
 

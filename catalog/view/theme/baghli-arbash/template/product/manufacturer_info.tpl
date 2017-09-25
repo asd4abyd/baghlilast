@@ -1,6 +1,6 @@
 <?php echo $header; ?>
 <div class="innr-banner"><img src="catalog/view/theme/baghli-arbash/images/innr-bnr-01.png" alt="">
-    
+
     <div class="alert"> </div>
 
 </div>
@@ -11,7 +11,7 @@
 
         </div>
         <div class="heading">
-            
+
             <span><strong><?php echo $heading_title; ?></strong></span>
         </div>
 
@@ -32,7 +32,7 @@
 
         <div class="col-sm-12 bran_details">
             <?php if(count($product_l1['category_id'])>0){ ?><br/>
-            <a href="<?php echo  $product_l1['href_category'] ?>" class="baran_button">SEE ALL</a>
+            <a href="<?php echo  $product_l1['href_category'] ?>" class="baran_button"><?php echo $see_all; ?></a>
             <?php } ?>
 
         </div>

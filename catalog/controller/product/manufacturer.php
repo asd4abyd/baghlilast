@@ -13,6 +13,7 @@ class ControllerProductManufacturer extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$data['heading_title'] = $this->language->get('heading_title');
+		$data['see_all'] = $this->language->get('see_all');
 
 		$data['text_index'] = $this->language->get('text_index');
 		$data['text_empty'] = $this->language->get('text_empty');
@@ -113,9 +114,7 @@ class ControllerProductManufacturer extends Controller {
 			}
 		// end products
         
-     
-        
-		
+
 		$data['continue'] = $this->url->link('common/home');
 
 		$data['column_left'] = $this->load->controller('common/column_left');
@@ -228,6 +227,8 @@ class ControllerProductManufacturer extends Controller {
 			$data['button_grid'] = $this->language->get('button_grid');
 			$data['search'] = $this->language->get('search');
 			$data['Go'] = $this->language->get('Go');
+			$data['see_all'] = $this->language->get('see_all');
+
 
 			$data['View1'] = $this->language->get('View1');
 			$data['Befor'] = $this->language->get('Befor');

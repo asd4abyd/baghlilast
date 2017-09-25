@@ -36,7 +36,7 @@
 
                  <div class="col-sm-12 bran_details"><h4 class="ban_title"><?php echo $manufacturer['name'];?> </h4>
                <?php if(count($manufacturer['categories'])>0){ ?>
-				<a href="<?php echo $manufacturer['href']; ?>" class="baran_button">SEE ALL</a>
+				<a href="<?php echo $manufacturer['href']; ?>" class="baran_button"><?php echo $see_all; ?></a>
 			   <?php } ?>
 
                 </div>

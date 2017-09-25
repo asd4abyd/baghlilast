@@ -1,14 +1,14 @@
 <?php echo $header; ?>
 
 <div class="container">
-
+<?php // echo $errors; ?>
   <!-- Modal -->
   <!--Begin Modal Window-->
   <div class="modal fade left" id="myModalbook">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="pull-left no-margin">Your Extra Quantity for the Product</h3>
+          <h3 class="pull-left no-margin"><?php echo $your_extra_quantity;?></h3>
           <button type="button" class="close" data-dismiss="modal" title="Close"><span class="glyphicon glyphicon-remove"></span>
           </button>
         </div>
@@ -17,7 +17,7 @@
 
           <form id='search_form'  action="<?php echo $action_popup_form; ?>" method="post" enctype="multipart/form-data">
 
-            <label><?php echo $your_name ;?></label>
+            <label><?php echo $your_name;?></label>
             <input  type="text" name="name" class="form-control" placeholder="<?php echo $your_name;?>">
 
             <?php if ($error_name) { ?>
@@ -26,9 +26,9 @@
 
 
 
-            <label><?php echo $quantity_name ;?></label>
+            <label><?php echo $quantity_name;?></label>
 
-            <input  type="text" name="quantity" class="form-control" placeholder="<?php echo $your_quantity;?>">
+            <input  type="number" name="quantity" class="form-control" placeholder="<?php echo $quantity_name;?>">
 
             <?php if ($error_quantity) { ?>
             <div class="text-danger"><?php echo $error_quantity;?></div>
@@ -37,15 +37,15 @@
 
             <label><?php echo $mobile ;?></label>
 
-            <input id="numb"  name="phone" class="form-control" placeholder="<?php echo $your_phone;?>">
+            <input id="numb" name="phone" class="form-control" placeholder="<?php echo $mobile;?>">
 
             <?php if ($error_phone) { ?>
             <div class="text-danger"><?php echo $error_phone;?></div>
             <?php } ?>
 
-            <label><?php echo $email_name ;?></label>
+            <label><?php echo $email_name;?></label>
 
-            <input  type="text" name="email" class="form-control" placeholder="<?php echo $your_email;?>">
+            <input  type="email" name="email" class="form-control" placeholder="<?php echo $email_name;?>">
 
             <?php if ($error_email) { ?>
             <div class="text-danger"><?php echo $error_email;?></div>
@@ -53,7 +53,7 @@
 
 
             <div class="modal-footer">
-              <button onclick="form_submit()"  class="btn btn-primary algn-leftt">SUBMIT</button>
+              <button onclick="form_submit()"  class="btn btn-primary algn-leftt"><?php echo $submit;?></button>
 
             </div>
 
@@ -249,13 +249,13 @@
       <table class="tottal-area" width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td width="79%" align="right"><?= $tot_p?>: </td>
-          <td width="21%"><strong><?php echo $totals[1]['text']; ?></strong></td>
+          <td width="21%"><strong><?php  echo $totals[1]['text']; ?></strong></td>
         </tr>
 
 
         <tr>
-          <td align="right"><?= $Gra?>:  </td>
-          <td><strong><?php echo $totals[1]['text']; ?></strong></td>
+          <td align="right"><?php // echo $Gra?> </td>
+          <td><strong><?php // echo $totals[1]['text']; ?></strong></td>
         </tr>
 
           <?php // if ($modules) { ?>
@@ -296,7 +296,10 @@
           <script type="text/javascript">
       function form_submit() {
 //
-//
+/  if (<?=count($error); ?> > 0) {
+          $('#myModalbook').modal('show');
+      } else
+          {
 //                      var x, text;
 //
 //                      // Get the value of the input field with id="numb"
@@ -309,7 +312,9 @@
 //                          text = "Input OK";
 //                      }
 
-                // document.getElementById("search_form").submit();
+          /
+              document.getElementById("search_form").submit();
+          }
               }
           </script>
 
@@ -331,7 +336,7 @@
 </script>
 
           <script type="text/javascript">
-              if (count(<?php $errors ?>) > 0) {
+              if (<?=count($error); ?> > 0) {
                   $('#myModalbook').modal('show');
               }
 

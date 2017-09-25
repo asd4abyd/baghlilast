@@ -24,7 +24,8 @@
         </div><!-- alert message class -->
 
 
-        <div class="heading"><span><strong><?php echo $heading_title_pieces[0];?></strong>
+        <div class="heading">
+            <span><strong><?php echo $heading_title_pieces[0];?></strong>
 
                 <?php
          for($i=1; $i< count($heading_title_pieces); $i++){
@@ -312,10 +313,7 @@
                                     <div class="add-crt">
 
 
-                                        <input id="btnShow8" type="button" value="<?php echo $button_cart; ?>" class="btn_wrap wishbtn btnShow8"  onclick="functioncart ()
-
-                                              ">
-
+                                        <input id="button-cart" type="button" value="<?php echo $button_cart; ?>" class="btn_wrap wishbtn" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');">
                                     </div>
                                 </div>
 
@@ -395,7 +393,7 @@
                             <div class="img"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive"> </a></div>
 
                             <figcaption>
-                                <h4><strong><?php echo $product['name']; ?> </strong></h4>
+                                <h4 style="width: 93%"><strong><?php echo $product['name']; ?> </strong></h4>
 
 
                                 <?php if ($product['price']) { ?>
@@ -693,7 +691,11 @@
         });
     </script>
 
-<div id="dialog" style=" display: none;  min-height:2500px;   left: 0px;    width: 100%;    z-index: 999; position: absolute; top:0px; height: 100%; background: url(images/ui-bg_dots-small_65_a6a6a6_2x2.png) 50% 50% repeat rgba(166, 166, 166, 0.75);">
+
+
+    <!--
+
+   <div id="dialog" style=" display: none;  min-height:2500px;   left: 0px;    width: 100%;    z-index: 999; position: absolute; top:0px; height: 100%; background: url(images/ui-bg_dots-small_65_a6a6a6_2x2.png) 50% 50% repeat rgba(166, 166, 166, 0.75);">
    <div style="  top: inherit !important;  display: block;     bottom: 0 !important;   z-index: 1002;    position: fixed;    left: 0px;    padding: .2em;    width: 100% !important;  ">
     <a style="  left: 0px; position: absolute; bottom: 0px; width: 100%;       zoom: 1;  border: 1px solid #be1d2d;    background: #fff;     padding: 15px;     overflow: auto;
  z-index: 9999"  align = "center">
@@ -703,7 +705,10 @@
         <div class="proprice"><h4><?php echo $text_price; ?></h4><span>85:000 KWD</span></div>
         <a href="<?php echo $go_cart_link; ?>"  <div class="gotoCart"><button class="gobtnCart"><?php echo $go_cart; ?></button></div> </a>
     </div>
-   </div>
+    </div>
+    -->
+
+
 </div>
 
     <script type="text/javascript">

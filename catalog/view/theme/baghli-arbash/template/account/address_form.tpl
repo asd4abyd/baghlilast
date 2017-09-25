@@ -275,7 +275,9 @@
           <?php } ?>
           <div class="form-group">
             <label class="col-sm-2 control-label"><?php echo $entry_default; ?></label>
-            <div class="col-sm-10">
+            <div class="col-sm-10" style="
+    margin-top: 9px;
+">
               <?php if ($default) { ?>
               <label class="radio-inline">
                 <input type="radio" name="default" value="1" checked="checked" />

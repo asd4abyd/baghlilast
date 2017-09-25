@@ -41,7 +41,7 @@ $_['qut']        ='QuanTity';
 
 $_['tot']        ='TOTAL';
 
-$_['tot_p']        ='TOTAL PRICE';
+$_['tot_p']        ='ORDER TOTAL';
 
 $_['Gra']        ='GRAND TOTAL';
 
@@ -54,11 +54,18 @@ $_['your_email']        ='Your Email';
 $_['your_product_name']        ='Product Name';
 
 $_['email']        ='Email';
-$_['quantity_name']     ='Quantity';
+
+
+$_['quantity_name']         ='YOUR QUANTITY';
+
+
+$_['mobile']  ='Mobile Number';
+
+$_['submit']  ='SUBMIT';
 
 
 
-
+$_['your_extra_quantity']    = 'ADD MORE QUANTITY FOR THE PRODUCT';
 
 
 

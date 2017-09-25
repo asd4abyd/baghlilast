@@ -20,6 +20,7 @@
         <input type="radio" name="account" value="guest" />
         <?php } ?>
         <?php echo $text_guest; ?></label>
+
     </div>
     <?php } ?>
     <p><?php echo $text_register_account; ?></p>
@@ -27,7 +28,7 @@
   </div>
   <div class="col-sm-6">
     <h2><?php echo $text_returning_customer; ?></h2>
-    <p><?php echo $text_i_am_returning_customer; ?></p>
+    <p><?php // echo  $text_i_am_returning_customer; ?></p>
     <div class="form-group">
       <label class="control-label" for="input-email"><?php echo $entry_email; ?></label>
       <input type="text" name="email" value="" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />

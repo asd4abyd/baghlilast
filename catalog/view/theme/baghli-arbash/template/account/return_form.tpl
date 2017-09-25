@@ -102,6 +102,7 @@
               <input type="text" name="quantity" value="<?php echo $quantity; ?>" placeholder="<?php echo $entry_quantity; ?>" id="input-quantity" class="form-control" />
             </div>
           </div>
+
           <div class="form-group required">
             <label class="col-sm-2 control-label"><?php echo $entry_reason; ?></label>
             <div class="col-sm-10">
@@ -125,6 +126,8 @@
               <?php } ?>
             </div>
           </div>
+
+
           <div class="form-group required">
             <label class="col-sm-2 control-label"><?php echo $entry_opened; ?></label>
             <div class="col-sm-10">
