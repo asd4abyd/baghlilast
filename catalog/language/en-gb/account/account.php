@@ -21,6 +21,13 @@ $_['text_newsletter']    = 'Subscribe / unsubscribe to newsletter';
 $_['text_recurring']     = 'Recurring payments';
 $_['text_transactions']  = 'Transactions';
 
+$_['Default']  = 'YOUR NORMAL USER';
+
+$_['vip']  = 'CONGRATULATIONS ! YOUR VIP USER';
+
+$_['kuwatian_people']  = 'YOUR KUWATIAN USER';
+
+
 $_['column_total']  = 'Order Amount';
 
 $_['column_status']  = 'Order Status';

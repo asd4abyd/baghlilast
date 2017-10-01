@@ -73,7 +73,7 @@ html, body {
             </div>
 
           <?php } ?>
-                          <!popup for image -->
+                          <!-- popup for image -->
 
 
 <?php foreach ($images as $image) { ?>

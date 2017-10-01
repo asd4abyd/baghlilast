@@ -29,7 +29,7 @@ $_['text_payment_description'] = '%s every %d %s(s) for %d payment(s)';
 $_['text_payment_cancel']      = '%s every %d %s(s) until canceled';
 
 
-$_['request_more']      = 'REQUEST MORE';
+$_['request_more']      = 'Add More';
 
 
 

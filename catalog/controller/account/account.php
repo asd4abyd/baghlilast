@@ -1,11 +1,16 @@
 <?php
 class ControllerAccountAccount extends Controller {
 	public function index() {
+
+
         if (!$this->customer->isLogged()) {
+
 			$this->session->data['redirect'] = $this->url->link('account/account', '', true);
 
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
+
+	      	$data['customer_group'] = $this->config->get('config_customer_group_id');
 
 		if ($this->config->get('config_customer_activity')) {
 			$this->load->model('account/activity');
@@ -129,7 +134,18 @@ class ControllerAccountAccount extends Controller {
         $data['fullname1'] = $this->language->get('fullname1');
 
 
-        $data['column_order_id'] = $this->language->get('column_order_id');
+		$data['Default'] = $this->language->get('Default');
+
+		$data['vip'] = $this->language->get('vip');
+
+
+		$data['kuwatian_people'] = $this->language->get('kuwatian_people');
+
+
+
+
+
+		$data['column_order_id'] = $this->language->get('column_order_id');
 
         $data['column_date_added'] = $this->language->get('column_date_added');
 
@@ -198,12 +214,18 @@ if (isset($this->request->get['page'])) {
         $this->session->data['success'] = $this->language->get('text_edit');
 
         $this->load->model('account/customer');
-        
+
         $customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
 
         //print_r($customer_info);exit;
-        
-        
+		//$customer_group_id = $this->customer->getCustomerGroupId();
+
+
+		//print_r($customer_group_id);
+
+     //   $customer_group = $this->model_account_customer->CustomerGroup();
+
+	//	print_r($customer_group);
         
         $data['addresses'] = array();
         

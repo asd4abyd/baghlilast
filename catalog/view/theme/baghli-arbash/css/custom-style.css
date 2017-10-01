@@ -160,8 +160,11 @@ input[type=number]::-webkit-outer-spin-button {
 	}
 .input-group-btn-vertical > .btn:last-child{
 
- min-height: 30px;
-	margin-top: -1px;
+    min-height: 30px;
+
+	margin-top: -2px;
+	border-bottom-right-radius: 7px;
+
 }
 .input-group-btn-vertical i{
  position: absolute;
@@ -1336,6 +1339,15 @@ span.req {
   line-height:28px;
 }
 
+.group_id {
+	color: #5b0900;
+	font-size: 32px;
+	font-weight: 600;
+	margin-bottom: 7px;
+	text-transform:uppercase;
+	line-height:28px;
+}
+
 .profile-usertitle-job {
   text-transform: uppercase;
   color: #666;
@@ -1954,7 +1966,7 @@ a.dpDown-main-a{
 .proLst-cont span.save{text-align: left; width: 100%; margin-top: 7px; display: inline-block; }
 
 .qnty strong{float: left; line-height: 43px; padding-right: 12px;}
-.qnty .spinner{width: 75px;}
+.qnty .spinner{width: 70px;margin: 10px 0;}
 
 .list-price-div{color: #00365b; margin: 3px 0;}
 .list-price-div span{font-weight: bold; font-size: 20px;}
@@ -2913,6 +2925,8 @@ ul.log-area li:first-child
 .wMore li:nth-child(4n+1) {
 	clear: both;
 }
+
+
 
 @media only screen and (max-width : 767px) {
 .wMore {

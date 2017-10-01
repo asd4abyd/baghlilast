@@ -155,8 +155,40 @@
 					</div>
 					<div class="profile-usertitle-name">	    
 		
-                         <label class="col-md-12 control-label" ><?php echo $fullname; ?> </label>
+                         <label class="col-md-6 control-label" ><?php echo $fullname; ?> </label>
                     </div>
+
+                    <div class="group_id">
+
+
+                    <?php
+
+                    if(isset($customer_group) && !empty($customer_group)){
+
+                        if($customer_group == 1){  ?>
+
+                          <label class="col-md-6 control-label" ><?php echo $Default; ?> </label>
+
+
+                        <?php
+                        }else if($customer_group == 2){ ?>
+                        <label class="col-md-6 control-label" ><?php echo $vip; ?> </label>
+
+                        <?php
+
+                        }elseif($customer_group == 3){ ?>
+
+                        <label class="col-md-6 control-label" ><?php echo $kuwatian_people; ?> </label>
+
+<?php
+                        }
+
+                    }
+
+
+                    ?>
+
+                        </div>
 					
 				</div>
 
@@ -270,6 +302,9 @@
                                                 $Floor_Number= $addressesInformation['custom_field'][8];
                                                 // $Flat_Number= $addressesInformation['custom_field'][9];
                                                  $Comments= $addressesInformation['custom_field'][10];
+                                           //      $vip= $addressesInformation['custom_field'][16];
+
+                                              //   print_r($vip);die();
  
                                               ?>
                                               
@@ -307,8 +342,10 @@
 
                         <td>
                                  <input type="text" name="block" value="<?php echo $Block; ?>" class="form-control" required>
-                                 
-                         </td>
+
+
+
+                        </td>
 
                      
                       </tr>
@@ -356,7 +393,19 @@
                         <td><input type="text" name="Floor_Number" value="<?php echo $Floor_Number; ?>" class="form-control numeric"></td>
                         
                       </tr>
-                      
+
+
+<!--
+                       <tr>
+
+                           <td><i>vip </i></td>
+                           <?php echo $vip; ?>
+
+                           <td><input type="checkbox" name="Floor_Number" value="<?php echo $vip; ?>" class="form-control numeric"></td>
+
+                       </tr>
+
+                       -->
                    <!--
                       <tr>
                        
@@ -374,7 +423,6 @@
                         
                         
                         <td><textarea name="Comments" cols="60" rows="5"> <?php echo $Comments; ?></textarea></td>
-                        
                       </tr>
                       
                         

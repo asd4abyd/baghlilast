@@ -213,6 +213,8 @@
                 </div>
 
               </div>
+
+
 <br>
               <div class="totl-amnt">
                 <span><?= $tot?>: <strong><?php echo $product['total']; ?></strong></span>

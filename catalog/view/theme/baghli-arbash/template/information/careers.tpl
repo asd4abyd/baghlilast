@@ -10,32 +10,37 @@
 
        <div class="careers">
 
+
+
+
+           <!-- form for careers -->
+
             <form role="form" action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
 
            <center><h4><strong><?= $resume?></strong></h4></center>
 
     <div class="form-group col-md-5 col-md-offset-1 col-sm-6">
 
-				<input type="text" value="" class="form-control" id="name" name="name" placeholder="<?= $full?>" required>
+				<input type="text" class="form-control" onkeyup="javascript:nonum(this)" onkeypress="javascript:RemoveSpecialChar(this)" id="name" name="name" placeholder="<?= $full?>" required>
 
 				<?php if ($error_name) { ?>
               <div class="text-danger"><?php echo $error_name; ?></div>
               <?php } ?>
 
 
-				<input type="email" value="" class="form-control" id="email" name="email" placeholder="<?= $email?>" required>
+				<input type="email" onkeyup="javascript:emailVal(this)" onkeypress="javascript:emailVal(this)" class="form-control" id="email" name="email" placeholder="<?= $email?>" required>
 
 				<?php if ($error_email) { ?>
               <div class="text-danger"><?php echo $error_email; ?></div>
               <?php } ?>
 
-				<input type="text" class="form-control" id="mobile" name="mobile" placeholder="<?= $mob?>" required>
+				<input type="text" class="form-control" onkeypress="noAlpha(this)" onpaste="return false;" onkeyup="noAlpha(this)" id="mobile" name="mobile" placeholder="<?= $mob?>" required>
 
                   <?php if ($error_phone) { ?>
               <div class="text-danger"><?php echo $error_phone;?></div>
               <?php } ?>
 
-                <input type="text" class="form-control" id="PhoneNo" name="mobile" placeholder="<?= $mob?>" required>
+                <input type="text" onkeypress="noAlpha(this)" onpaste="return false;" onkeyup="noAlpha(this)" class="form-control" id="PhoneNo" name="mobile" placeholder="<?= $mob?>" required>
 
      </div>
 
@@ -59,8 +64,47 @@
         </form>
 
 
+
+
+
         </div>
 
     </div>
 </div>
+
+<script language="javascript" type="text/javascript">
+    function nonum(obj) {
+        reg = /[^a-zA-Z ]/;
+        obj.value = obj.value.replace(reg, "");
+        obj.value = obj.value.toUpperCase();
+
+    }
+</script>
+
+<script language="javascript" type="text/javascript">
+    function RemoveSpecialChar(obj) {
+
+        if (obj.value != '' && obj.value.match(/^[\w ]+$/) == null) {
+            obj.value = obj.value.replace(/[\W]/g, '');
+        }
+    }
+</script>
+
+<script language="javascript" type="text/javascript">
+    function emailVal(obj) {
+        reg =^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$;
+        obj.value = obj.value.replace(reg, "");
+
+
+    }
+</script>
+
+<script language="javascript" type="text/javascript">
+    function noAlpha(obj) {
+        reg = /[^0-9]/g;
+        obj.value = obj.value.replace(reg, "");
+    }
+</script>
+
+
 <?php echo $footer; ?>

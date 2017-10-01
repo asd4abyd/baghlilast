@@ -128,6 +128,8 @@ class ModelAccountCustomer extends Model {
 		$this->db->query("UPDATE " . DB_PREFIX . "customer SET salt = '" . $this->db->escape($salt = token(9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($password)))) . "', code = '' WHERE LOWER(email) = '" . $this->db->escape(utf8_strtolower($email)) . "'");
 	}
 
+
+
     
     public function currentPassword( $currentpassword) {
 		$this->db->query("UPDATE " . DB_PREFIX . "customer SET salt = '" . $this->db->escape($salt = token(9)) . "', currentpassword = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($currentpassword)))) . "', code = '' WHERE LOWER(email) = '" . $this->db->escape(utf8_strtolower($email)) . "'");
@@ -241,7 +243,9 @@ class ModelAccountCustomer extends Model {
 
 		$customer_id = $this->db->getLastId();
 
-		
+
+
+
 
 		$this->load->language('mail/customer');
 
@@ -250,7 +254,7 @@ class ModelAccountCustomer extends Model {
 		$message = sprintf($this->language->get('text_newsletter_welcome'), html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8')) . "\n\n";
 
 		
-			$message .= $this->language->get('text_newsletter') . "\n";
+		$message .= $this->language->get('text_newsletter') . "\n";
 		
 
 		$message .= $this->url->link('account/login', '', true) . "\n\n";
@@ -315,5 +319,19 @@ class ModelAccountCustomer extends Model {
 	}
 
       /** Added By Jijo on 17-04-2017 End Here ****/
+
+
+//	public function CustomerGroup()
+	//{
+//		$customer_group_id = $this->customer->getCustomerGroupId();
+//		if (is_null($customer_group_id)) {
+//			$o = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer_group WHERE customer_group_id = '2'");
+//		} else {
+//			$o = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer_group WHERE customer_group_id = $customer_group_id");
+//		}
+//		$CustomerGrpMsg = html_entity_decode($o->row['group_description']);
+//		echo $CustomerGrpMsg;
+
+//	}
 
 }

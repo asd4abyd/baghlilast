@@ -154,7 +154,11 @@
                         </div>
                       </div>
                       <?php } ?>
-                      <?php if ($custom_field['type'] == 'checkbox') { ?>
+
+
+                      <?php // if ($custom_field['type'] == 'checkbox') { ?>
+
+                      <!--
                       <div class="form-group custom-field custom-field<?php echo $custom_field['custom_field_id']; ?>" data-sort="<?php echo $custom_field['sort_order']; ?>">
                         <label class="col-sm-2 control-label"><?php echo $custom_field['name']; ?></label>
                         <div class="col-sm-10">
@@ -178,7 +182,10 @@
                           <?php } ?>
                         </div>
                       </div>
-                      <?php } ?>
+                      -->
+
+                      <?php // } ?>
+
                       <?php if ($custom_field['type'] == 'text') { ?>
                       <div class="form-group custom-field custom-field<?php echo $custom_field['custom_field_id']; ?>" data-sort="<?php echo $custom_field['sort_order']; ?>">
                         <label class="col-sm-2 control-label" for="input-custom-field<?php echo $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?></label>

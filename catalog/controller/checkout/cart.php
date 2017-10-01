@@ -400,6 +400,7 @@ class ControllerCheckoutCart extends Controller {
 
 
 
+
                 $this->load->model('catalog/product');
 				foreach($data['products'] as $id)
 				{

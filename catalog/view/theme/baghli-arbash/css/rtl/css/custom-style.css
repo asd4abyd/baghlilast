@@ -692,7 +692,10 @@ span.red{
 .input-group-btn-vertical > .btn:last-child{
 
 	min-height: 30px;
-	margin-top: -1px;
+
+
+	margin-top: -2px;
+	border-bottom-right-radius: 7px;
 }
 .input-group-btn-vertical > .btn {
 	display: block;
@@ -1748,7 +1751,7 @@ margin-right: 668px;
 .proLst-cont span.save{text-align: right; width: 100%; margin-top: 7px; display: inline-block; }
 
 .qnty strong{float: right; line-height: 43px; padding-left: 12px;}
-.qnty .spinner{width: 75px;}
+.qnty .spinner{width: 75px;margin: 10px 0;}
 
 .list-price-div{color: #00365b; margin: 3px 0;}
 .list-price-div span{font-weight: bold; font-size: 20px;}
@@ -2565,5 +2568,15 @@ ul.log-area li{
 
 .product_ar{
 
-	background: url("../image/ico");
+	background: url("/image/ico1.png");
+}
+
+
+.group_id {
+	color: #5b0900;
+	font-size: 32px;
+	font-weight: 600;
+	margin-bottom: 7px;
+	text-transform:uppercase;
+	line-height:28px;
 }
