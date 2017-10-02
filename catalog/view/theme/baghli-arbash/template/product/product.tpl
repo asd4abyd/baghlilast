@@ -1,17 +1,9 @@
-<style type="text/css">
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-
-}
- .zoomWindowContainer{position: relative !important;left:300px !important; }
-
-</style>
-
-
 
 
 <?php echo $header; ?>
+
+
+
 <div class="innr-banner"><img src="image/innr-bnr-17.png" alt=""></div>
 <div class="container inner-container">
 
@@ -40,93 +32,52 @@ html, body {
         <?php } ?>
 
 
+
+
+
+
         <div class="col-md-5 col-sm-6 prod-image list-imageNew clearfix new_align">
+		<div class="row">
 
-
-                 <?php if ($thumb || $images) { ?>
-
-
-            <?php // print_r($thumb); ?>
-
-            <?php // print_r($images); ?>
-
-            <?php if ($special) { ?>
-
-
-              <div class="offer-label"><?php echo round(100 - ($special_amt*100/$price_amt))."% "; ?>
-<span>OFF</span> </div>
-
-
-<?php  }?>
-          <ul class="thumbnails">
-
-            <?php if ($thumb) { ?>
-                      <div id="mac1" class="owl-carousel">
-
-                         <!popup for image -->
-            <?php if($popup) { ?>
-            <div class="item">
-
-            <a href="<?php echo $popup; ?>">
-            <img src="<?php echo $popup; ?>" class="popupZoom"  data-zoom-image="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" height="390px" style="direction: rtl;" />
-            </a>
-            </div>
+          <?php if ($thumb || $images) { ?>
+          <?php if ($special) { ?>
+              <div class="offer-label"><?php echo round(100 - ($special_amt*100/$price_amt))."% "; ?><span>OFF</span> </div>
+			<?php  }?>
+			
+          <div class="thumbnails">
+           
+                
+                      
+                      <div class="large-5 column">
+						<!-- im -->
+						<div class="xzoom-container">
+						  <img class="xzoom" id="xzoom-default" src="<?php echo $thumb; ?>" xoriginal="<?php echo $popup; ?>" />
+						  <!-- addtional image -->
+						 <?php if ($images) { ?>
+						 <div class="xzoom-thumbs">
+						 <a href="<?php echo $popup; ?>"><img class="xzoom-gallery" style="max-width:76px;" height="76" src="<?php echo $popup; ?>"  ></a>
+							
+							<?php foreach ($images as $image) { ?>
+							<a href="<?php echo $image['popup']; ?>"><img class="xzoom-gallery" style="max-width:76px;"  src="<?php echo $image['thumb']; ?>"  ></a>
+							<?php } ?>
+							</div>
+							<?php } ?>
+						</div>  <!-- im -->
+                      </div>
+                      
 
           <?php } ?>
-                          <!-- popup for image -->
-
-
-<?php foreach ($images as $image) { ?>
-
-              <div class="item">
-            <a href="<?php echo $image['popup']; ?> " >
-              <img src="<?php echo $image['popup']; ?>" data-zoom-image="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" class="popupZoom"  alt="<?php echo $heading_title; ?>" height="390px" />
-            </a>
-
-
-          </div>
-  <?php }?>
-
-
-
-
-
         </div>
-            <script type="text/javascript">
-
-                $(".popupZoom").elevateZoom({scrollZoom : true});
-
-            </script>
-
-
-            <div id="mac2" class="owl-carousel" >
-                <?php
-                        if($popup) { ?>
-              <div class="item"><img src="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></div>
-    <?php
-}
-?>
-<?php foreach ($images as $image) { ?>
-              <div class="item"><img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></div>
-<?php }
-?>
-
-            </div>
-            <?php } ?>
-          </ul>
-          <?php } ?>
-
-
-
-
+        </div>
         </div>
 
 
         <div class="col-md-7 col-sm-6 prod-data">
 
-                  <h4><strong><?php echo $heading_title; ?></strong> </h4>
-          <p><?php echo strip_tags(substr(html_entity_decode($description),0,500))."..."; ?></p>
+                  <h4 class="cart-h4" id="product-title" ><strong><?php echo $heading_title; ?></strong> </h4>
+          <p id="desc"><?php echo strip_tags(substr(html_entity_decode($description),0,500))."..."; ?></p>
           <div class="brannd_mame"><a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></div>
+		  <span class="cart-h4" id="mod-no"><?php echo "Article#   ".$model;  ?></span><br>
           <div class="rateyo"></div>
                <script>
 $(function(){
@@ -134,14 +85,14 @@ $(function(){
   $('.rateyo').rateYo({rating:'<?= (int)$rating?>'});
 });
                 </script>
-               <span class="votes"><?php echo (int) $reviews ?> <?php echo  $votes ?></span>
+               <span class="votes"><?php echo (int) $reviews ?> votes</span>
                <span class="like"><i><form action="" method="POST" enctype="multipart/form-data" style="display: inline;">
  <button style="border:none;background-color: #fff;" type="submit" name="product_like" value="<?= $product_id ?>"><img src="image/like.png" alt="">
 </button>
-</form></i> <?= $countLikes ?></span>
+</form></i> <?php echo $countLikes ?></span>
 
           <div class="share_box">
-           <h5><?php echo $share_now; ?></h5>
+           <h5>Share Now :</h5>
              <ul data-url="<?php echo $share; ?>">
              <li><a href="https://twitter.com/login" title="twitter"><img src="image/share_icon1.png" alt=""> </a></li>
                        <li><a href="https://www.instagram.com/accounts/login/" title="instagram"><img src="image/share_icon3.png" alt=""> </a></li>
@@ -158,7 +109,6 @@ $(function(){
                     <td width="24%"><?=$price_now?></td>
                     <td width="5%">:</td>
                    <td width="71%"><strong><span class="<?php echo $live_options['live_options_price_container']; ?>"><?php echo $price; ?></span></strong></td>
-
 
                   </tr>
                 <?php } else { ?>
@@ -205,28 +155,55 @@ $(function(){
 
 
                <table class="discription" width="100%" border="0" cellspacing="0" cellpadding="0">
+                   <?php $additionaloptionsubimages = json_decode($additionaloptionsubimages , true); ?>
+                   <div class="color-box">
+                       <ul>
+
             <?php foreach ($options as $option) { ?>
+                   <?php if ($option['type'] == 'radio') { //$additionaloptionsubimages ?>
+                   <div  class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
+                       <label class="control-label"><?php echo $option['name']; ?></label>
+                       <div id="input-option<?php echo $option['product_option_id']; ?>">
+                           <?php foreach ($option['product_option_value'] as $option_value) { ?>
+                           <?php $option_img_val =  $additionaloptionsubimages[$option_value['product_option_value_id']]; ?>
+                           <div class="radio color-img" >
+                               <li>
+                               <label>
+                                   <input onclick="showOptions_innerproduct(this , '<?php echo $option_img_val[0]['thumb']?>')" type="radio" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option_value['product_option_value_id']; ?>" />
+
+                                   <img data-toggle="tooltip" data-placement="top" title="<?php echo $option_value['name']; ?>" src="<?php echo $option_img_val[0]['thumb']?>">
+
+                               </label>
+                               </li>
+                           </div>
+                           <?php } ?>
+                       </div>
+                   </div>
+                       </ul>
+                       </div>
+                   <?php } ?>
 
                    <?php if ($option['type'] == 'select') { ?>
+
                    <div class='col-md-6'>
                        <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?>">
 
-
+							<?php if ($option['name']=='color' ){ ?>
+							<?php $selectclass = 'selectpicker'; ?>
+							<?php } else { $selectclass = ''; } ?>
                            <label for="" class="siz-clr"><?php echo $select_color; ?> <?php echo $option['name'] ?></label>
 
                            <?php // var_dump($option['product_option_value']); ?>
                            <div class="dropdown">
 
 
-                               <select id="select" name="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>" class="form-control">
-                                   <option value=""><?php echo "Select"; ?></option>
+                               <select  onchange="showOptions_innerproduct(this)" name="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>" class=" <?php echo $selectclass; ?>">
+                                  
                                    <?php foreach ($option['product_option_value'] as $option_value) { ?>
-                                   <option id="price" value="<?php echo $option_value['product_option_value_id']; ?>"><?php echo $option_value['name']; ?>
+                                   <option data-thumbnail="http://localhost/baghli-fintolog//image/catalog/Retro%20Bin%20Pink.png" class="color <?php echo $option_value['name']; ?>" id="price" value="<?php echo $option_value['product_option_value_id']; ?>">
 
-                                       <div ></div>
-                                       <?php if ($option_value['price']) { ?>
-                                       (<?php echo $option_value['price']; ?>)
-                                       <?php } ?>
+
+                                       
                                    </option>
                                    <?php } ?>
                                </select>
@@ -381,14 +358,16 @@ $(function(){
 
         </div>
 
-
-
+<div class="col-md-12">
+<div class="row">
     <div class="heading small"><span ><strong> <?= $PRODUCT?> <?= $DETAILS?></strong></span></div>
 <!--   <span class="cap">Product Description </span> -->
   <p> <?php echo $description;?> </p>
     <?php echo $content_bottom; ?>
 
 
+</div>
+</div>
 </div>
 
       <!-- <?php if ($products) { ?>
@@ -465,9 +444,9 @@ $(function(){
             <div class="row">
               <div class="item" style="padding-right: 30px" >
                 <figure>
-                    <div class="image" ><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive"> </a></div>
+                    <div class="image"  ><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive"> </a></div>
                     <figcaption>
-                        <h4><strong><?php echo $product['name']; ?> </strong></h4>
+                        <h4 class="cart-h4" ><strong><?php echo $product['name']; ?> </strong></h4>
 
 
                         <?php if ($product['price']) { ?>
@@ -508,7 +487,7 @@ $(function(){
     <?php echo $column_right; ?></div>
     <?php //echo $content_bottom; ?>
 <div class="review-area container inner-page">
-  <div class="heading small"><span><strong><?php echo $text_customer_review; ?></strong></span></div>
+  <div class="heading small"><span><strong>Customer  Reviews</strong></span></div>
     <?php if ($review_status) { ?>
 
 
@@ -672,196 +651,6 @@ $('#button-cart').on('click', function() {
 });
 //--></script>
 
-
-
-  <script>
-    $(document).ready(function() {
-      $('input[name="notify-me"]').on('click', function(e){
-         if(e.target.click){
-           $('#notify-me').modal();
-         }
-      });
-      $('input[name="login-me"]').on('click', function(e){
-         if(e.target.click){
-           window.location.href = 'index.php?route=account/login';
-         }
-      });
-      $('.q-down').click(function(){
-          if($('#input-quantity').val() == 0){
-            $('#input-quantity').val('1');
-          }
-      });
-  $("#related-products").owlCarousel({
-
-      autoPlay: false, //Set AutoPlay to 3 seconds
-      items : 6,
-      itemsDesktop : [1199,3],
-      itemsDesktopSmall : [979,3],
-    navigationText:false,
-    navigation : true,
-    pagination : false
-
-  });
-  $("#video").owlCarousel({
-      autoPlay: false, //Set AutoPlay to 3 seconds
-      items : 4,
-      itemsDesktop : [1199,3],
-      itemsDesktopSmall : [979,3],
-    navigationText:false,
-    navigation : true,
-    pagination : false
-
-  });
-
-   $("#umay-like").owlCarousel({
-      autoPlay: false, //Set AutoPlay to 3 seconds
-      items :6,
-      itemsDesktop : [1199,3],
-      itemsDesktopSmall : [979,3],
-    navigationText:false,
-    navigation : true,
-    pagination : false
-
-  });
-
-  var mac1 = $("#mac1");
-  var mac2 = $("#mac2");
-
-  mac1.owlCarousel({
-    singleItem : true,
-    slideSpeed : 1000,
-    navigation: true,
-    pagination:false,
-    afterAction : macPosition,
-    responsiveRefreshRate : 200,
-  });
-
-  mac2.owlCarousel({
-    items : 4,
-    itemsDesktop      : [1199,4],
-    itemsDesktopSmall     : [979,4],
-    itemsTablet       : [768,3],
-    itemsMobile       : [479,2],
-    pagination:false,
-    responsiveRefreshRate : 100,
-    afterInit : function(el){
-      el.find(".owl-item").eq(0).addClass("maced");
-    }
-  });
-
-  function macPosition(el){
-    var current = this.currentItem;
-    $("#mac2")
-      .find(".owl-item")
-      .removeClass("maced")
-      .eq(current)
-      .addClass("maced")
-    if($("#mac2").data("owlCarousel") !== undefined){
-      centered(current)
-    }
-  }
-
-  $("#mac2").on("click", ".owl-item", function(e){
-    e.preventDefault();
-    var number = $(this).data("owlItem");
-    mac1.trigger("owl.goTo",number);
-  });
-
-  function centered(number){
-    var mac2visible = mac2.data("owlCarousel").owl.visibleItems;
-    var num = number;
-    var found = false;
-    for(var i in mac2visible){
-      if(num === mac2visible[i]){
-        var found = true;
-      }
-    }
-
-    if(found===false){
-      if(num>mac2visible[mac2visible.length-1]){
-        mac2.trigger("owl.goTo", num - mac2visible.length+2)
-      }else{
-        if(num - 1 === -1){
-          num = 0;
-        }
-        mac2.trigger("owl.goTo", num);
-      }
-    } else if(num === mac2visible[mac2visible.length-1]){
-      mac2.trigger("owl.goTo", mac2visible[1])
-    } else if(num === mac2visible[0]){
-      mac2.trigger("owl.goTo", num-1)
-    }
-
-  }
-
-});
-</script>
-<script type="text/javascript"><!--
-$('.date').datetimepicker({
-  pickTime: false
-});
-
-$('.datetime').datetimepicker({
-  pickDate: true,
-  pickTime: true
-});
-
-$('.time').datetimepicker({
-  pickDate: false
-});
-
-$('button[id^=\'button-upload\']').on('click', function() {
-  var node = this;
-
-  $('#form-upload').remove();
-
-  $('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
-
-  $('#form-upload input[name=\'file\']').trigger('click');
-
-  if (typeof timer != 'undefined') {
-      clearInterval(timer);
-  }
-
-  timer = setInterval(function() {
-    if ($('#form-upload input[name=\'file\']').val() != '') {
-      clearInterval(timer);
-
-      $.ajax({
-        url: 'index.php?route=tool/upload',
-        type: 'post',
-        dataType: 'json',
-        data: new FormData($('#form-upload')[0]),
-        cache: false,
-        contentType: false,
-        processData: false,
-        beforeSend: function() {
-          $(node).button('loading');
-        },
-        complete: function() {
-          $(node).button('reset');
-        },
-        success: function(json) {
-          $('.text-danger').remove();
-
-          if (json['error']) {
-            $(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
-          }
-
-          if (json['success']) {
-            alert(json['success']);
-
-            $(node).parent().find('input').val(json['code']);
-          }
-        },
-        error: function(xhr, ajaxOptions, thrownError) {
-          alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-        }
-      });
-    }
-  }, 500);
-});
-//--></script>
 <script type="text/javascript"><!--
 $('#review').delegate('.pagination a', 'click', function(e) {
     e.preventDefault();
@@ -906,90 +695,9 @@ $('#button-review').on('click', function() {
 });
 
 //--></script>
- <script src="catalog/view/theme/baghli-arbash/js/easyzoom.js"></script>
-  <script>
-    // Instantiate EasyZoom instances
-    var $easyzoom = $('.easyzoom').easyZoom();
 
-    // Setup thumbnails example
-    var api1 = $easyzoom.filter('.easyzoom--with-thumbnails').data('easyZoom');
-
-    $('.thumbnails').on('click', 'a', function(e) {
-      var $this = $(this);
-
-      e.preventDefault();
-
-      // Use EasyZoom's `swap` method
-      api1.swap($this.data('standard'), $this.attr('href'));
-    });
-
-    // Setup toggles example
-    var api2 = $easyzoom.filter('.easyzoom--with-toggle').data('easyZoom');
-
-    $('.toggle').on('click', function() {
-      var $this = $(this);
-
-      if ($this.data("active") === true) {
-        $this.text("Switch on").data("active", false);
-        api2.teardown();
-      } else {
-        $this.text("Switch off").data("active", true);
-        api2._init();
-      }
-    });
-
-
-     $("#video").owlCarousel({
-      autoPlay: false, //Set AutoPlay to 3 seconds
-      items : 4,
-      itemsDesktop : [1199,3],
-      itemsDesktopSmall : [979,3],
-    navigationText:false,
-    navigation : true,
-    pagination : false
-
-  });
-      $("related-products").owlCarousel({
-
-      autoPlay: false, //Set AutoPlay to 3 seconds
-      items : 4,
-      itemsDesktop : [1199,3],
-      itemsDesktopSmall : [979,3],
-    navigationText:false,
-    navigation : true,
-    pagination : false
-
-  });
-
-
-
-  </script>
-  <script>
-
-_colors=$('._select_color_drop li');
-    for (var i = _colors.length - 1; i >= 0; i--) {
-        $(_colors[i]).click(function(){
-            var color_text = $(this).find('span').attr('_text_display');
-            var color_id = $(this).attr('value');
-            var elemnt = $(this).closest('._select_color_drop').prev();
-            elemnt.find('span.color').remove();
-            $(this).find('span').clone().appendTo(elemnt);
-            var contents = $(elemnt).contents();
-            if (contents.length > 0) {
-                if (contents.get(0).nodeType == Node.TEXT_NODE) {
-                    $(elemnt).html(color_text).append(contents.slice(1));
-                }
-            }
-
-            if($('[class= _color]').val() == undefined){
-                elemnt.next().append("<input type='hidden' class='_color' value='"+color_id+"'>");
-            }else{
-                $('[class=_color]').val(color_id);
-            }
-        })
-    };
-
-  </script>
+ 
+  
       <script>
       (function ($) {
       $('.spinner .btn:first-of-type').on('click', function() {
@@ -1002,26 +710,19 @@ _colors=$('._select_color_drop li');
     </script>
 
 
-    <script type="text/javascript">
-
-function x(){
-   location.reload();}
-
-</script>
+  
 
 <script type="text/javascript" src="index.php?route=product/live_options/js&product_id=<?php echo $product_id; ?>"></script>
-
 <?php echo $footer; ?>
-
-<?php if ($direction == 'rtl') { ?>
-<style type="text/css">
-  .zoomWindowContainer{position: relative !important;left:-850px !important;}
-</style>
-<?php } ?>
-
 <script>
-    $(function(){
-
+ $(function(){
         $('.rateyo').rateYo({rating:'<?= (int)$rating?>'});
     });
 </script>
+  <!-- xzoom plugin here -->
+<script src="catalog/view/theme/baghli-arbash/js/vendor/jquery.js"></script>
+  <script type="text/javascript" src="catalog/view/theme/baghli-arbash/dist/xzoom.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="catalog/view/theme/baghli-arbash/css/xzoom.css" media="all" /> 
+<script type="text/javascript" src="catalog/view/theme/baghli-arbash/js/setup.js"></script>
+
+
