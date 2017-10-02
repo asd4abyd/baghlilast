@@ -43,11 +43,11 @@
           <?php if ($special) { ?>
               <div class="offer-label"><?php echo round(100 - ($special_amt*100/$price_amt))."% "; ?><span>OFF</span> </div>
 			<?php  }?>
-			
+
           <div class="thumbnails">
-           
-                
-                      
+
+
+
                       <div class="large-5 column">
 						<!-- im -->
 						<div class="xzoom-container">
@@ -56,7 +56,7 @@
 						 <?php if ($images) { ?>
 						 <div class="xzoom-thumbs">
 						 <a href="<?php echo $popup; ?>"><img class="xzoom-gallery" style="max-width:76px;" height="76" src="<?php echo $popup; ?>"  ></a>
-							
+
 							<?php foreach ($images as $image) { ?>
 							<a href="<?php echo $image['popup']; ?>"><img class="xzoom-gallery" style="max-width:76px;"  src="<?php echo $image['thumb']; ?>"  ></a>
 							<?php } ?>
@@ -64,7 +64,7 @@
 							<?php } ?>
 						</div>  <!-- im -->
                       </div>
-                      
+
 
           <?php } ?>
         </div>
@@ -198,12 +198,12 @@ $(function(){
 
 
                                <select  onchange="showOptions_innerproduct(this)" name="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>" class=" <?php echo $selectclass; ?>">
-                                  
+
                                    <?php foreach ($option['product_option_value'] as $option_value) { ?>
                                    <option data-thumbnail="http://localhost/baghli-fintolog//image/catalog/Retro%20Bin%20Pink.png" class="color <?php echo $option_value['name']; ?>" id="price" value="<?php echo $option_value['product_option_value_id']; ?>">
 
 
-                                       
+
                                    </option>
                                    <?php } ?>
                                </select>
@@ -696,8 +696,8 @@ $('#button-review').on('click', function() {
 
 //--></script>
 
- 
-  
+
+
       <script>
       (function ($) {
       $('.spinner .btn:first-of-type').on('click', function() {
@@ -710,7 +710,7 @@ $('#button-review').on('click', function() {
     </script>
 
 
-  
+
 
 <script type="text/javascript" src="index.php?route=product/live_options/js&product_id=<?php echo $product_id; ?>"></script>
 <?php echo $footer; ?>
@@ -720,9 +720,12 @@ $('#button-review').on('click', function() {
     });
 </script>
   <!-- xzoom plugin here -->
-<script src="catalog/view/theme/baghli-arbash/js/vendor/jquery.js"></script>
-  <script type="text/javascript" src="catalog/view/theme/baghli-arbash/dist/xzoom.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="catalog/view/theme/baghli-arbash/css/xzoom.css" media="all" /> 
+  <script src="catalog/view/theme/baghli-arbash/js/jquery.js"></script>
+  <script type="text/javascript" src="catalog/view/theme/baghli-arbash/js/xzoom.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="catalog/view/theme/baghli-arbash/css/xzoom.css" media="all" />
+
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/baghli-arbash/css/rtl/css/xzoom.css" media="all" />
+
 <script type="text/javascript" src="catalog/view/theme/baghli-arbash/js/setup.js"></script>
 
 
