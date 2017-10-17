@@ -92,7 +92,7 @@
                           <?php  } ?>
                         </div>
                       </div>
-                      <div class="form-group required">
+                      <div class="form-group ">
                         <label class="col-sm-2 control-label" for="input-telephone"><?php echo $entry_telephone; ?></label>
                         <div class="col-sm-10">
                           <input type="text" name="telephone" value="<?php echo $telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-telephone" class="form-control" />
@@ -370,7 +370,7 @@
                           <input type="text" name="address[<?php echo $address_row; ?>][company]" value="<?php echo $address['company']; ?>" placeholder="<?php echo $entry_company; ?>" id="input-company<?php echo $address_row; ?>" class="form-control" />
                         </div>
                       </div>
-                      <div class="form-group required">
+                      <div class="form-group ">
                         <label class="col-sm-2 control-label" for="input-address-1<?php echo $address_row; ?>"><?php echo $entry_address_1; ?></label>
                         <div class="col-sm-10">
                           <input type="text" name="address[<?php echo $address_row; ?>][address_1]" value="<?php echo $address['address_1']; ?>" placeholder="<?php echo $entry_address_1; ?>" id="input-address-1<?php echo $address_row; ?>" class="form-control" />
@@ -385,7 +385,7 @@
                           <input type="text" name="address[<?php echo $address_row; ?>][address_2]" value="<?php echo $address['address_2']; ?>" placeholder="<?php echo $entry_address_2; ?>" id="input-address-2<?php echo $address_row; ?>" class="form-control" />
                         </div>
                       </div>
-                      <div class="form-group required">
+                      <div class="form-group ">
                         <label class="col-sm-2 control-label" for="input-city<?php echo $address_row; ?>"><?php echo $entry_city; ?></label>
                         <div class="col-sm-10">
                           <input type="text" name="address[<?php echo $address_row; ?>][city]" value="<?php echo $address['city']; ?>" placeholder="<?php echo $entry_city; ?>" id="input-city<?php echo $address_row; ?>" class="form-control" />

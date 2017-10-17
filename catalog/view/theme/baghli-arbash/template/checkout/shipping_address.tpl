@@ -15,7 +15,7 @@
       <?php } ?>
       <?php } ?>
     </select>
-  </div> 
+  </div>
 
 <div class="row">
 
@@ -24,7 +24,7 @@
 
                           <?php if ($address['address_id'] == $address_id) { ?>
                           <div class="col-md-4 del-book" id="payment-existing">
-                        <section class="active" name="address_id" class="form-control"  value="<?php echo $address['address_id']; ?>"> 
+                        <section class="active" name="address_id" class="form-control"  value="<?php echo $address['address_id']; ?>">
                             <strong><?php echo $address['firstname']; ?> <?php echo $address['lastname']; ?></strong><br>
                             <?php echo $address['zone']; ?>,<br>
                            <?php echo $address['city']; ?><br>
@@ -34,7 +34,7 @@
                           <?php if ($custom_field['location'] == 'address') { ?>
 
                              <div  for="input-payment-custom-field<?php echo $custom_field['custom_field_id']; ?>"><?php echo $custom_field['name']; ?> :<?php echo $address["custom_field"][$custom_field['custom_field_id']]; ?></div>
-                                  
+
                         <?php   } } ?>
   <!--                       <?php var_dump( $address['custom_field'][1]);?> -->
 
@@ -45,17 +45,17 @@
                             <div class="radio">
                               <label><input type="radio" value="<?php echo $address['address_id'];?>" checked name="address_id">Deliver to this address</label>
                             </div>
-                            
-                           <div class="new_btns"> 
+
+                           <div class="new_btns">
                            <a href="index.php?route=account/address/edit&address_id=<?php echo $address['address_id']?>" class="editt">Edit</a>
                             <a href="index.php?route=account/address/delete&address_id=<?php echo $address['address_id']?>" class="deltte">Delete</a>
                            </div>
-                          
+
                         </section>
                         </div>
                        <?php } else { ?>
                        <div class="col-md-4 del-book" id="payment-existing">
-                       
+
                              <section class="active" name="address_id" class="form-control"  value="<?php echo $address['address_id']; ?>">
                                   <strong><?php echo $address['firstname']; ?> <?php echo $address['lastname']; ?></strong><br>
                             <?php echo $address['zone']; ?>,<br>
@@ -71,18 +71,18 @@
                          <div class="radio">
                               <label><input type="radio" value="<?php echo $address['address_id'];?>" checked name="address_id">Deliver to this address</label>
                             </div>
-                            
-                           <div class="new_btns"> 
+
+                           <div class="new_btns">
                            <a href="index.php?route=account/address/edit&address_id=<?php echo $address['address_id']?>" class="editt">Edit</a>
                             <a href="index.php?route=account/address/delete&address_id=<?php echo $address['address_id']?>" class="deltte">Delete</a>
                            </div>
                            </section>
                            </div>
-                          <?php }?> 
+                          <?php }?>
                           <?php }?>
 
                     </div>
-  
+
   <div class="radio">
     <label>
       <input type="radio" name="shipping_address" value="new" />
@@ -110,7 +110,7 @@
       </div>
     </div>
       <!--
-      
+
     <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-shipping-address-1"><?php echo $entry_address_1; ?></label>
       <div class="col-sm-10">

@@ -165,13 +165,8 @@
 
                     if(isset($customer_group) && !empty($customer_group)){
 
-                        if($customer_group == 1){  ?>
 
-                          <label class="col-md-6 control-label" ><?php echo $Default; ?> </label>
-
-
-                        <?php
-                        }else if($customer_group == 2){ ?>
+                        if($customer_group == 2){ ?>
                         <label class="col-md-6 control-label" ><?php echo $vip; ?> </label>
 
                         <?php

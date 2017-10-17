@@ -382,9 +382,9 @@ class ControllerAccountRegister extends Controller {
 			$this->error['firstname'] = $this->language->get('error_firstname');
 		}
 
-        if ((utf8_strlen(trim($this->request->post['fullname'])) < 1) || (utf8_strlen(trim($this->request->post['fullname'])) > 32)) {
-			$this->error['fullname'] = $this->language->get('error_fullname');
-		}
+//        if ((utf8_strlen(trim($this->request->post['fullname'])) < 1) || (utf8_strlen(trim($this->request->post['fullname'])) > 32)) {
+//			$this->error['fullname'] = $this->language->get('error_fullname');
+//		}
 
 		if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
 			$this->error['lastname'] = $this->language->get('error_lastname');

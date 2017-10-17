@@ -33,6 +33,8 @@ $_['text_payment_cancel'] = '%s every %d %s(s) until canceled';
 $_['column_image']    = 'صورة';
 $_['column_name']     = 'الاسم';
 $_['column_model']    = 'النوع';
+$_['column_upc']    = 'الرقم التسلسلي';
+
 $_['column_quantity'] = 'الكمية';
 $_['column_price']    = 'سعر الوحدة';
 $_['column_total']    = 'الاجمالي';

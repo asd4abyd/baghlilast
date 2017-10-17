@@ -75,7 +75,69 @@ foreach ($informations as $information) {
 
     <script>
 
-	$(function() {
+        function showOptions_innerproduct(s , imgsrc){
+            //
+            $("#xzoom-default").attr("src",imgsrc);
+            $("#xzoom-default").attr("xoriginal",imgsrc);
+            var selectedop = $(s).val() ;// get value
+            $.ajax({
+
+                url: 'index.php?route=product/category/getAlldata',
+                type: 'post',
+                data: {selectedop:selectedop},
+                datatype:'json',
+                success: function(data) {
+                    // $('.cart-h4').html(data['points']);
+
+                    try {
+                        // console.log(JSON.parse(data)["title"]);
+                        var title = JSON.parse(data)["title"];
+                        var desc = JSON.parse(data)["description"];
+
+                        var titleArray=title.split(',');
+                        if (titleArray[1] === undefined) {
+                            var article ='Article #:'+'';
+                        }else{
+                            var article ='Article #:'+titleArray[1];
+                        }
+                        if (titleArray[0] === undefined)
+                        {
+                            var alternativetitle = '';
+                        }else{
+                            var alternativetitle = titleArray[0];
+                        }
+
+                        $('#product-title').html(alternativetitle);
+                        $('#mod-no').html(article);
+                        $('#desc').html(desc);
+
+                    }
+                    catch(err) {
+                        document.getElementByClassName(".cart-h4").innerHTML = err.message;
+                    }
+
+
+
+                },
+                error: function(err) {
+                    alert(err);
+                },
+
+            });
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+        $(function() {
         if($('#example').length!=0)
         $('#example').vTicker();
 });

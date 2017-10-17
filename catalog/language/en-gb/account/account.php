@@ -23,7 +23,7 @@ $_['text_transactions']  = 'Transactions';
 
 $_['Default']  = 'YOUR NORMAL USER';
 
-$_['vip']  = 'CONGRATULATIONS ! YOUR VIP USER';
+$_['vip']  = 'you are a VIP customer';
 
 $_['kuwatian_people']  = 'YOUR KUWATIAN USER';
 

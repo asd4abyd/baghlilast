@@ -263,3 +263,35 @@ box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.5);
 	border-bottom:1px solid #5e95ba;
 	padding-bottom:3px;
 }
+
+/*for colors in product details page*/
+.radio.color-img{
+    display: inline-block;
+}
+.radio.color-img img{
+
+}
+.color-box ul li img {
+    width: 37px;min-height:39px;
+}
+.color-box ul li label{
+    border: 1px solid #ccc;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    padding: 5px;
+    float: left;
+}
+
+label > input{ /* HIDE RADIO */
+    visibility: hidden; /* Makes input not-clickable */
+    position: absolute; /* Remove input from document flow */
+}
+label > input + img{ /* IMAGE STYLES */
+    cursor:pointer;
+    border:2px solid transparent;
+}
+input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+    border:2px solid #f00;
+}
+

@@ -5,12 +5,15 @@ class ControllerProductProduct extends Controller {
 	public function index() {
 		$this->load->language('product/product');
 
+
+
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
 			'href' => $this->url->link('common/home')
 		);
+
 
 		$this->load->model('catalog/category');
 
@@ -77,11 +80,11 @@ class ControllerProductProduct extends Controller {
 			);
             $data['brand_name']=$this->language->get('text_brand');
             $data['brand_url']=$this->url->link('product/manufacturer');
-           
-              
+
+
 
 			$url = '';
- 
+
 			if (isset($this->request->get['sort'])) {
 				$url .= '&sort=' . $this->request->get['sort'];
 			}
@@ -168,19 +171,19 @@ class ControllerProductProduct extends Controller {
 // foreach ($query->num_rows as $f) {
 // 		// return array(
 
-// 	// 'product_id' => $query->row['product_id'], 
+// 	// 'product_id' => $query->row['product_id'],
 // 	// 'customer_id'=> $query->row['customer_id'],
 // 		echo $f['product_id'];
 // 			// );
 
-// // }else { return false; 
+// // }else { return false;
 // }
 
 
- 
+
 
 		$this->load->model('catalog/product');
-		
+
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 
 		if (isset($this->request->post['product_like']) && isset($this->session->data['customer_id'])) {
@@ -324,10 +327,6 @@ class ControllerProductProduct extends Controller {
 			$data['share_now'] = $this->language->get('share_now');
 
 
-
-
-
-
 			$data['reward'] = $product_info['reward'];
 			$data['points'] = $product_info['points'];
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
@@ -365,7 +364,7 @@ class ControllerProductProduct extends Controller {
 
 			foreach ($results as $result) {
 				$data['images'][] = array(
-                  
+
 
 					 'popup' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height')),
 					 'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_additional_width'), $this->config->get($this->config->get('config_theme') . '_image_additional_height'))
@@ -491,8 +490,8 @@ class ControllerProductProduct extends Controller {
 			$data['share'] = $this->url->link('product/product', 'product_id=' . (int)$this->request->get['product_id']);
 
 			$data['attribute_groups'] = $this->model_catalog_product->getProductAttributes($this->request->get['product_id']);
-            
- if($this->config->get('live_options_ajax_status')){
+
+           if($this->config->get('live_options_ajax_status')){
                 $data['live_options'] = array(
                     'live_options_container' => substr($this->config->get('live_options_container'), 1),
                     'live_options_special_container' => substr($this->config->get('live_options_special_container'), 1),
@@ -506,8 +505,8 @@ class ControllerProductProduct extends Controller {
 				// $customer_id=$this->session->data['customer_id'];
 				// $product_like = (int)$this->request->get['product_id'];
 
-	               
-                
+
+
 
 			$results = $this->model_catalog_product->getProductRelated($this->request->get['product_id']);
 
@@ -585,6 +584,9 @@ class ControllerProductProduct extends Controller {
            {
                $this->response->setOutput($this->load->view('product/productParent', $data));
            }
+			if(isset($this->request->get['wholesale'])){
+				$this->response->setOutput($this->load->view('product/whole_product', $data));
+			}
 			$this->response->setOutput($this->load->view('product/product', $data));
 		} else {
 			$url = '';

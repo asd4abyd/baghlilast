@@ -75,7 +75,9 @@ class ControllerCheckoutGuest extends Controller {
 		if (isset($this->session->data['guest']['fax'])) {
 			$data['fax'] = $this->session->data['guest']['fax'];
 		} else {
-			$data['fax'] = '';
+			$data['
+
+			'] = '';
 		}
 
 		if (isset($this->session->data['payment_address']['company'])) {
@@ -270,7 +272,7 @@ class ControllerCheckoutGuest extends Controller {
 			$this->session->data['guest']['lastname'] = $this->request->post['lastname'];
 			$this->session->data['guest']['email'] = $this->request->post['email'];
 			$this->session->data['guest']['telephone'] = $this->request->post['telephone'];
-			$this->session->data['guest']['fax'] = $this->request->post['fax'];
+		//	$this->session->data['guest']['fax'] = $this->request->post['fax'];
 
 			if (isset($this->request->post['custom_field']['account'])) {
 				$this->session->data['guest']['custom_field'] = $this->request->post['custom_field']['account'];

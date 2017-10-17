@@ -46,6 +46,9 @@ $_['text_year']                      = 'سنوي';
 // Column
 $_['column_name']                    = 'الاسم';
 $_['column_model']                   = 'النوع';
+
+$_['column_upc']                   = 'الرقم التسلسلي';
+
 $_['column_quantity']                = 'الكمية';
 $_['column_price']                   = 'السعر';
 $_['column_total']                   = 'الاجمالي';

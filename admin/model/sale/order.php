@@ -247,7 +247,10 @@ class ModelSaleOrder extends Model {
 	}
 
 	public function getOrderProducts($order_id) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "'");
+
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product INNER JOIN oc_product ON oc_product.product_id = oc_order_product.product_id  WHERE oc_order_product.order_id = '" . (int)$order_id . "'");
+		//$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "'");
 
 		return $query->rows;
 	}
@@ -269,6 +272,11 @@ class ModelSaleOrder extends Model {
 
 		return $query->row;
 	}
+//public function getUpc($product_id){
+//	$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product INNER JOIN oc_product ON oc_product.product_id = oc_order_product.product_id  WHERE oc_order_product.order_id = '" . (int)$order_id . "'");
+//
+//}
+
 
 	public function getOrderTotals($order_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_total WHERE order_id = '" . (int)$order_id . "' ORDER BY sort_order");

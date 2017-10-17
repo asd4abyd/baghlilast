@@ -1,4 +1,4 @@
-<sty?php echo $header; ?>
+<?php echo $header; ?>
 
 <div class="innr-banner"><img src="image/innr-bnr-17.png" alt=""></div>
 <div class="container inner-container">

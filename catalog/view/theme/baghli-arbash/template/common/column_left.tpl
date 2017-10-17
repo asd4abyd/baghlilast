@@ -1,6 +1,8 @@
 <?php if ($modules) { ?>
 <aside id="column-left" class="col-sm-3 hidden-xs">
   <?php foreach ($modules as $module) { ?>
+
+  <?php // print_r($module) ?>
   <?php echo $module; ?>
   <?php } ?>
 </aside>

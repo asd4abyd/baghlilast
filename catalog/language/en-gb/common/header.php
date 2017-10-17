@@ -19,6 +19,8 @@ $_['text_all']           = 'Show All';
 $_['text_email_error_login']   = 'Warning: Please enter a valid email';
 $_['text_password_error_login']   = 'Warning: Please enter the password';
 $_['text_product']        = 'PRODUCTS';
+$_['text_wholesale']        = 'Wholesale';
+
 $_['brands']              = 'BRANDS';
 $_['about']            =  'ABOUT US';
 $_['Contact']          = 'CONTACT US';

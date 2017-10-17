@@ -90,4 +90,133 @@ class ModelCatalogCategory extends Model {
 
 		return $query->row['total'];
 	}
+
+
+
+
+	public function getCategoryChildrenWithProducts($parentIdArray){
+		$category_id=$parentIdArray[count($parentIdArray)- 1 ];
+
+
+		$categories = $this->getCategories($category_id);
+
+
+		$final_categories = array();
+		foreach ($categories as $category)
+		{
+			$newParentIdArray=$parentIdArray;
+			$newParentIdArray[count($parentIdArray)]=$category['category_id'];
+
+			$level_data = array(
+				'category_id'=>$category['category_id'],
+				'name' => $category['name'],
+				'image'=> HTTP_SERVER.'/image/'.$category['image'],
+				'href' => $this->url->link('product/category', 'path=' . join('_',$newParentIdArray))
+			);
+
+			$children=$this->getCategoryChildrenWithProducts($newParentIdArray);
+
+
+			if(count($children) ){
+				foreach($children as $child){
+
+					$level_data['children'][] =$child;
+				}
+
+			}
+
+			$this->load->model('catalog/product');
+			$this->load->model('tool/image');
+
+			$products = $this->model_catalog_product->getProducts(['filter_category_id'=>$category['category_id']]);
+
+
+
+			if(count($products)){
+
+				$productsLinks=[];
+				foreach($products as $product){
+					$productsLinks[] = array(
+						'product_id'=>$product['product_id'],
+						'name' => $product['name'],
+						'image'=> HTTP_SERVER.'/image/'.$product['image'],
+						'href' => $this->url->link('product/product', 'product_id=' . $product['product_id'].'&wholesale=1')
+					);
+				}
+				if(isset($level_data['children'])){
+					$level_data['children']=array_merge($productsLinks,$level_data['children']);
+				}else{
+					$level_data['children']=	$productsLinks;
+
+				}
+			}
+
+
+
+			$final_categories[]=$level_data;
+		}
+
+
+
+
+
+
+		return $final_categories;
+
+	}
+	function getMainMenuCategory(){
+		$categories = $this->getCategories(0);
+		$eventsLeftId=0;
+		$eventsRightId=0;
+		$productsLeftId=0;
+		$productsRightId=0;
+
+		foreach($categories as $category){
+			$category_name=str_replace(' ','',strtolower($category['name']));
+			$eventsLeftId=($category_name == 'eventsleft')? $category['category_id']:$eventsLeftId;
+			$eventsRightId=($category_name == 'eventsright')? $category['category_id']:$eventsRightId;
+			$productsLeftId=($category_name == 'productsleft')? $category['category_id']:$productsLeftId;
+			$productsRightId=($category_name == 'productsright')? $category['category_id']:$productsRightId;
+		}
+
+		return [$eventsLeftId,$eventsRightId,$productsLeftId,$productsRightId];
+
+	}
+	public function getCategoryChildren($parentIdArray){
+		$this->load->model('tool/image');
+
+		$final_categories = array();
+
+		$categories = $this->getCategories($parentIdArray[count($parentIdArray)- 1]);
+
+
+
+		foreach ($categories as $category)
+		{
+			$tempParentIdArray=array_merge($parentIdArray,[$category['category_id']]);
+
+
+			$level_data = array(
+				'category_id'=>$category['category_id'],
+				'name' => $category['name'],
+				'image'=>  HTTP_SERVER.'/image/'.$category['image'],
+				'href' => $this->url->link('product/category', 'path=' . join('_',$tempParentIdArray))
+			);
+
+			$children=$this->getCategoryChildren($tempParentIdArray);
+
+			if(count($children)){
+				$level_data['children'] =$children;
+			}
+
+			$final_categories[]=$level_data;
+		}
+		return $final_categories;
+
+	}
+
+
+
+
+
 }

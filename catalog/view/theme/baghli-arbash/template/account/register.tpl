@@ -45,9 +45,9 @@
                 <div class="col-sm-6">
                   <div class="row">
                     <div class="form-group col-sm-12">
-                      <label for="fullname"><?php echo $entry_fullname; ?> <span class="req">* </span></label>
+                      <label for="fullname"><?php echo $entry_fullname; ?> </label>
 						  <input type="text" name="fullname" value="<?php echo $fullname ; ?>" placeholder="<?php echo $entry_fullname; ?>" id="input-fullname" class="form-control" />
-						  <?php if ($error_fullname) { ?><div class="text-danger"><?php echo $error_lastname; ?></div><?php } ?>
+						  <?php if ($error_fullname) { ?><div class="text-danger"><?php echo $error_fullname; ?></div><?php } ?>
                       </div>
                   </div>
                 </div>

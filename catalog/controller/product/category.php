@@ -693,6 +693,24 @@ class ControllerProductCategory extends Controller {
         }
     }
 
+
+    public function getAlldata()
+    {
+        if(isset($this->request->post['selectedop']))
+        {
+            $selectedop1 =$this->request->post['selectedop'];
+        }
+        $this->load->model('catalog/product');
+
+        $option_value = $this->model_catalog_product->getSpecificOption($selectedop1);
+
+
+        $this->response->addHeader('Content-Type: application/json');
+        echo json_encode($option_value);
+
+    }
+
+
     public function getProductOptions($product_id){
 
         $options = array();

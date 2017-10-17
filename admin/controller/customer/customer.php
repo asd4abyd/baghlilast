@@ -1038,9 +1038,9 @@ class ControllerCustomerCustomer extends Controller {
 			}
 		}
 
-		if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
-			$this->error['telephone'] = $this->language->get('error_telephone');
-		}
+//		if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
+//			$this->error['telephone'] = $this->language->get('error_telephone');
+//		}
 
 		// Custom field validation
 		$this->load->model('customer/custom_field');
@@ -1075,13 +1075,13 @@ class ControllerCustomerCustomer extends Controller {
 					$this->error['address'][$key]['lastname'] = $this->language->get('error_lastname');
 				}
 
-				if ((utf8_strlen($value['address_1']) < 3) || (utf8_strlen($value['address_1']) > 128)) {
-					$this->error['address'][$key]['address_1'] = $this->language->get('error_address_1');
-				}
-
-				if ((utf8_strlen($value['city']) < 2) || (utf8_strlen($value['city']) > 128)) {
-					$this->error['address'][$key]['city'] = $this->language->get('error_city');
-				}
+//				if ((utf8_strlen($value['address_1']) < 3) || (utf8_strlen($value['address_1']) > 128)) {
+//					$this->error['address'][$key]['address_1'] = $this->language->get('error_address_1');
+//				}
+//
+//				if ((utf8_strlen($value['city']) < 2) || (utf8_strlen($value['city']) > 128)) {
+//					$this->error['address'][$key]['city'] = $this->language->get('error_city');
+//				}
 
 				$this->load->model('localisation/country');
 

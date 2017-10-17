@@ -402,6 +402,44 @@ public function getlikes($product_id)
 		return $product_attribute_group_data;
 	}
 
+
+
+
+
+
+	public function getSpecificOption($product_option_id){
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_option_value    where product_option_value_id=".$product_option_id);
+
+
+		if ($query->num_rows) {
+			return array(
+				'product_option_id'  => $query->row['product_option_value_id'],
+				'title'             => $query->row['points'],
+				'description'             => $query->row['weight']
+			);
+
+		} else {
+			return false;
+		}
+
+
+
+
+
+
+		//return $query->rows;
+
+
+
+	}
+
+
+
+
+
+
+
 	public function getProductOptions($product_id) {
 		$product_option_data = array();
 

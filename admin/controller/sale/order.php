@@ -436,6 +436,9 @@ class ControllerSaleOrder extends Controller {
 
 		$data['column_product'] = $this->language->get('column_product');
 		$data['column_model'] = $this->language->get('column_model');
+
+		$data['column_upc'] = $this->language->get('column_upc');
+
 		$data['column_quantity'] = $this->language->get('column_quantity');
 		$data['column_price'] = $this->language->get('column_price');
 		$data['column_total'] = $this->language->get('column_total');
@@ -808,6 +811,9 @@ class ControllerSaleOrder extends Controller {
 
 			$data['column_product'] = $this->language->get('column_product');
 			$data['column_model'] = $this->language->get('column_model');
+
+			$data['column_upc'] = $this->language->get('column_upc');
+
 			$data['column_quantity'] = $this->language->get('column_quantity');
 			$data['column_price'] = $this->language->get('column_price');
 			$data['column_total'] = $this->language->get('column_total');
@@ -1598,6 +1604,8 @@ class ControllerSaleOrder extends Controller {
 
 		$data['column_product'] = $this->language->get('column_product');
 		$data['column_model'] = $this->language->get('column_model');
+		$data['column_upc'] = $this->language->get('column_upc');
+
 		$data['column_quantity'] = $this->language->get('column_quantity');
 		$data['column_price'] = $this->language->get('column_price');
 		$data['column_total'] = $this->language->get('column_total');
@@ -1741,6 +1749,7 @@ class ControllerSaleOrder extends Controller {
 					$product_data[] = array(
 						'name'     => $product['name'],
 						'model'    => $product['model'],
+						'upc'    => $product['upc'],
 						'option'   => $option_data,
 						'quantity' => $product['quantity'],
 						'price'    => $this->currency->format($product['price'] + ($this->config->get('config_tax') ? $product['tax'] : 0), $order_info['currency_code'], $order_info['currency_value']),
@@ -1826,7 +1835,9 @@ class ControllerSaleOrder extends Controller {
 		$data['text_shipping_address'] = $this->language->get('text_shipping_address');
 		$data['text_shipping_method'] = $this->language->get('text_shipping_method');
 		$data['text_sku'] = $this->language->get('text_sku');
+		$data['column_upc'] = $this->language->get('column_upc');
 		$data['text_upc'] = $this->language->get('text_upc');
+
 		$data['text_ean'] = $this->language->get('text_ean');
 		$data['text_jan'] = $this->language->get('text_jan');
 		$data['text_isbn'] = $this->language->get('text_isbn');
@@ -1925,6 +1936,7 @@ class ControllerSaleOrder extends Controller {
 					$option_weight = '';
 
 					$product_info = $this->model_catalog_product->getProduct($product['product_id']);
+					// echo($product_info);
 
 					if ($product_info) {
 						$option_data = array();

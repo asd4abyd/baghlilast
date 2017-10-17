@@ -13,6 +13,8 @@
 <body>
 <div class="container">
   <?php foreach ($orders as $order) { ?>
+
+  <?php // print_r($order); ?>
   <div style="page-break-after: always;">
     <h1><?php echo $text_invoice; ?> #<?php echo $order['order_id']; ?></h1>
     <table class="table table-bordered">
@@ -68,13 +70,19 @@
         <tr>
           <td><b><?php echo $column_product; ?></b></td>
           <td><b><?php echo $column_model; ?></b></td>
+          <td><b><?php echo $column_upc; ?></b></td>
+
           <td class="text-right"><b><?php echo $column_quantity; ?></b></td>
           <td class="text-right"><b><?php echo $column_price; ?></b></td>
           <td class="text-right"><b><?php echo $column_total; ?></b></td>
         </tr>
       </thead>
+
+
       <tbody>
         <?php foreach ($order['product'] as $product) { ?>
+
+        <?php //  print_r($product); ?>
         <tr>
           <td><?php echo $product['name']; ?>
             <?php foreach ($product['option'] as $option) { ?>
@@ -82,6 +90,7 @@
             &nbsp;<small> - <?php echo $option['name']; ?>: <?php echo $option['value']; ?></small>
             <?php } ?></td>
           <td><?php echo $product['model']; ?></td>
+          <td><?php echo $product['upc']; ?></td>
           <td class="text-right"><?php echo $product['quantity']; ?></td>
           <td class="text-right"><?php echo $product['price']; ?></td>
           <td class="text-right"><?php echo $product['total']; ?></td>
@@ -103,6 +112,8 @@
         </tr>
         <?php } ?>
       </tbody>
+
+
     </table>
     <?php if ($order['comment']) { ?>
     <table class="table table-bordered">

@@ -27,6 +27,8 @@ $_['Contact']          = 'اتصل بنا';
 $_['sign_in']          = ' تسجيل الدخول';
 $_['sign_up']          = 'سجل الأن';
 
+$_['text_wholesale']        = 'Wholesale';
+
 
 $_['password']            = 'كلمة السر ';
 $_['stay_sign_in']            = 'البقاء على تسجيل الدخول | ';

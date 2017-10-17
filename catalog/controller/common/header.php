@@ -77,9 +77,11 @@ class ControllerCommonHeader extends Controller {
 
 
         $data['text_product'] = $this->language->get('text_product');
+		$data['text_wholesale'] = $this->language->get('text_wholesale');
 
 
-        $data['brands'] = $this->language->get('brands');
+
+		$data['brands'] = $this->language->get('brands');
 
         $data['about'] = $this->language->get('about');
 
@@ -117,7 +119,6 @@ class ControllerCommonHeader extends Controller {
         $data['Dont_have_account']=$this->language->get('Dont_have_account');
         $data['sign_up']=$this->language->get('sign_up');
 
-
         //Login
         $data['entry_email'] = $this->language->get('entry_email');
         $data['password'] = $this->language->get('password');
@@ -139,8 +140,29 @@ class ControllerCommonHeader extends Controller {
         $this->load->model('catalog/product');
         $this->load->model('catalog/category');
         $this->load->model('tool/image');
-        
-        
+
+		//start added by ghole
+
+		// Menu
+
+
+		// $data['categories'] = array();
+
+		$categories = $this->model_catalog_category->getCategories(0);
+
+
+		list($eventsLeftId)=$this->model_catalog_category->getMainMenuCategory();
+
+		//if(isset($this->session->data['serviceType'] ) && $this->session->data['serviceType'] =='events'){
+
+		$leftCategoriesList = $this->model_catalog_category->getCategoryChildrenWithProducts([$eventsLeftId]);
+
+
+		$data['Categories_childern_products']=$leftCategoriesList;
+
+
+
+        //end add by ghole
         
         if (isset($this->request->get['manufacturer_id'])) {
 			$manufacturer_id = (int)$this->request->get['manufacturer_id'];
@@ -203,90 +225,254 @@ class ControllerCommonHeader extends Controller {
 
 
 		$data['categories'] = array();
-        
+
 
 		$categories = $this->model_catalog_category->getCategories(0);
 
 
+		$categories0=$categories;
 
-		foreach ($categories as &$category) {
+		//print_r($categories0);
+
+		if(count($categories0)){
+
+			foreach($categories0 as &$child1) {
+
+		//	print_r($child1['category_id']);
 
 
-            
-      //     print_r($category);
-            
-			if ($category['top']) {
-				// Level 2
-				$children_data = array();
-                
-                $children_data22 = array();
 
-                // $data['link111'] = $this->url->link('product/category', 'path=' . $category['category_id']);
 
-				$children = $this->model_catalog_category->getCategories($category['category_id']);
+			$categories1 = $this->model_catalog_category->getCategories($child1['category_id']);// the first children for main category
 
-				foreach ($children as &$child) {
-                    //print_r($child);
-					$filter_data = array(
-						'filter_category_id'  => $child['category_id'],
-						'filter_sub_category' => true 
+			//print_r($categories1);
+
+			$tempChildren=[];
+			foreach($categories1 as &$child2) {
+
+			//	print_r($child2);
+
+				$tempChildren=array(
+					'name'  => $child2['name'] ,
+					'href'  => $this->url->link('product/category', 'path=' . $child2['parent_id'] . '_' . $child2['category_id'] . '_' .$child2['category_id']),
+					'image' => 'image/'.$child2['image'],
+				);
+
+		//		print_r($tempChildren);
+
+
+			/*___________________________________________*/
+
+
+					$categories2 = $this->model_catalog_category->getCategories($child2['category_id']);// the second children for main category
+				// print_r($categories2);
+
+					$tempChildren2=[];
+					foreach($categories2 as &$child3) {
+						$tempChildren2=array(
+							'name'  => $child3['name'] ,
+							'href'  => $this->url->link('product/category', 'path=' . $child3['parent_id'] . '_' . $child3['category_id'] . '_' .$child3['category_id']),
+							'image' => 'image/'.$child3['image'],
+						);
+
+					//	print_r($tempChildren2);
+
+
+
+
+						$categories3 = $this->model_catalog_category->getCategories($child3['category_id']);// the third children for main category
+
+						$tempChildren3=[];
+
+						foreach($categories3 as &$child4) {
+							$tempChildren3=array(
+								'name'  => $child4['name'] ,
+								'href'  => $this->url->link('product/category', 'path=' . $child4['parent_id'] . '_' . $child4['category_id'] . '_' .$child4['category_id']),
+								'image' => 'image/'.$child4['image'],
+							);
+
+					//		print_r($tempChildren3);
+
+
+						}
+
+
+						$child3['cheldren']=$tempChildren3;
+						$tempChildren3[]= array(
+
+						//		'name'     => $child4['name'],
+								//'children' => $children_data,
+					//			'column'   => $child4['column'] ? $child4['column'] : 1,
+					//			'href'     => $this->url->link('product/category', 'path=' . $child4['category_id']),
+					//			'image'    => $this->model_tool_image->resize($child4['image'],30,38),33
+							);
+
+						;
+
+					}
+
+
+					$child2['cheldren']=$tempChildren2;
+					$tempChildren2[]=array(
+						'name'     => $child3['name'],
+						//'children' => $children_data,
+						'column'   => $child3['column'] ? $child3['column'] : 1,
+						'href'     => $this->url->link('product/category', 'path=' . $child3['category_id']),
+						'image'    => $this->model_tool_image->resize($child3['image'],30,38),33
 					);
-                    
-                  //  print_r($child);
-                //    . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : '')
 
-                    $children22 = $this->model_catalog_category->getCategories($child['category_id']);
-
-                    $children3=array();
-
-                    foreach ($children22 as $child22) {
-
-                    //   print_r($child22);
-
-					$filter_data22 = array(
-						'filter_category_id22'  => $child22['category_id'],
-						'filter_sub_category22' => true
-					);
-
-                  //  print_r($child);
-                //    . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : '')
-
-                        $children3[] = array(
-						'name'  => $child22['name'] ,
-						'href'  => $this->url->link('product/category', 'path=' . $child['parent_id'] . '_' . $child['category_id'] . '_' .$child22['category_id']),
-                        'image' => 'image/'.$child22['image']
-					);
+			//	print_r($child2['cheldren']);
 
 
-                    }
-
-                        $category['children'] []= array(
-                        'name'  => $child['name'] ,
-                        'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']),
-                        'image' => 'image/'.$child['image'],
-                        'children'=>$children3
-                    );
 
 
-                }
-                
-               
-                 $data['categories']=$categories;
+				/*___________________________________________*/
 
-				// Level 1
-//				$data['categories'][] = array(
-//					'name'     => $category['name'],
-//					'children' => $children_data,
-//					'column'   => $category['column'] ? $category['column'] : 1,
-//					'href'     => $this->url->link('product/category', 'path=' . $category['category_id']),
-//                    'image'    => $this->model_tool_image->resize($category['image'],30,38),
-//                    'brand_categ'=>array($this->model_catalog_manufacturer->getCategoriesManufacrurers($category['category_id'])),
-//                //    'man_id'=> $res['manufacturer_id'],
-//                    'href1' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $res['manufacturer_id'])
-//				);
+
+
 			}
+			$child1['cheldren']=$tempChildren;
+
+			$tempChildren[]=array(
+				'name'     => $child2['name'],
+				//'children' => $children_data,
+				'column'   => $child2['column'] ? $child2['column'] : 1,
+				'href'     => $this->url->link('product/category', 'path=' . $child2['category_id']),
+				'image'    => $this->model_tool_image->resize($child2['image'],30,38),33
+			);
+
+
+			//print_r($child1['cheldren']);
+
+
+//			$categories['children'] []= array(
+//				'name'  => $child1['name'] ,
+//				'href'  => $this->url->link('product/category', 'path=' . $categories0['category_id'] . '_' . $child1['category_id']),
+//				'image' => 'image/'.$child1['image'],
+//				'children'=>$tempChildren3
+//			);
+			$tempChildren=[];
+
+
+
 		}
+		}
+
+
+
+
+	//	function getCheldren
+
+//print_r($categories);
+
+//		foreach ($categories as &$category) {
+//
+//
+//
+//          //  print_r($category);
+//
+//			if ($category['top']) {
+//				// Level 2
+//			//	$children_data = array();
+//
+//         //       $children_data22 = array();
+//
+//                // $data['link111'] = $this->url->link('product/category', 'path=' . $category['category_id']);
+//
+//				$children = $this->model_catalog_category->getCategories($category['category_id']);
+//
+//			//	print_r($children);
+//
+//				foreach ($children as &$child) {
+//                    //print_r($child);
+//					$filter_data = array(
+//						'filter_category_id'  => $child['category_id'],
+//						'filter_sub_category' => true
+//					);
+//
+//                 //  print_r($child);
+//                //    . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : '')
+//
+//                    $children22 = $this->model_catalog_category->getCategories($child['category_id']);
+//
+//				//	print_r($children22);
+//
+//                    $children3=array();
+//
+//                    foreach ($children22 as $child22) {
+//
+//                    //   print_r($child22);
+//
+//					$filter_data22 = array(
+//						'filter_category_id22'  => $child22['category_id'],
+//						'filter_sub_category22' => true
+//					);
+//
+//                  //  print_r($child);
+//                //    . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : '')
+//
+//                        $children3[] = array(
+//						'name'  => $child22['name'] ,
+//						'href'  => $this->url->link('product/category', 'path=' . $child['parent_id'] . '_' . $child['category_id'] . '_' .$child22['category_id']),
+//                        'image' => 'image/'.$child22['image'],
+//						);
+//
+//
+//                    }
+//
+//			//		$children4=array();
+//
+//
+//			//		foreach ($child22 as $child33) {
+//
+////						   print_r($child33);
+//
+////						$filter_data22 = array(
+////							'filter_category_id22'  => $child33['category_id'],
+////							'filter_sub_category22' => true
+////						);
+//
+//						//  print_r($child);
+//						//    . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : '')
+//
+////						$children4[] = array(
+////							'name'  => $child33['name'] ,
+////							'href'  => $this->url->link('product/category', 'path=' . $child['parent_id'] . '_' . $child['category_id'] . '_' .$child33['category_id']),
+////							'image' => 'image/'.$child33['image'],
+////						);
+//
+//
+////					}
+//
+//
+//					$category['children'] []= array(
+//                        'name'  => $child['name'] ,
+//                        'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']),
+//                        'image' => 'image/'.$child['image'],
+//                        'children'=>$children3
+//                    );
+//
+//
+//                }
+//
+//
+//                 $data['categories']=$categories;
+//
+//				// Level 1
+////				$data['categories'][] = array(
+////					'name'     => $category['name'],
+////					'children' => $children_data,
+////					'column'   => $category['column'] ? $category['column'] : 1,
+////					'href'     => $this->url->link('product/category', 'path=' . $category['category_id']),
+////                    'image'    => $this->model_tool_image->resize($category['image'],30,38),
+////                    'brand_categ'=>array($this->model_catalog_manufacturer->getCategoriesManufacrurers($category['category_id'])),
+////                //    'man_id'=> $res['manufacturer_id'],
+////                    'href1' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $res['manufacturer_id'])
+////				);
+//			}
+//		}
 //print_r($categories);exit();
+
 
 
 		$data['language'] = $this->load->controller('common/language');
@@ -312,6 +498,7 @@ class ControllerCommonHeader extends Controller {
 		} else {
 			$data['class'] = 'common-home';
 		}
+		//print_r( $data['categories'] );exit();
 
 		return $this->load->view('common/header', $data);
 	}
