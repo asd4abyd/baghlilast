@@ -3,8 +3,8 @@ class ControllerProductProduct extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('product/product');
 
+		$this->load->language('product/product');
 
 
 		$data['breadcrumbs'] = array();
@@ -13,7 +13,6 @@ class ControllerProductProduct extends Controller {
 			'text' => $this->language->get('text_home'),
 			'href' => $this->url->link('common/home')
 		);
-
 
 		$this->load->model('catalog/category');
 
@@ -185,6 +184,8 @@ class ControllerProductProduct extends Controller {
 		$this->load->model('catalog/product');
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
+
+	//	print_r($product_info);
 
 		if (isset($this->request->post['product_like']) && isset($this->session->data['customer_id'])) {
 			$this->model_catalog_product->like($this->session->data['customer_id'], $this->request->post['product_like']);
@@ -408,9 +409,12 @@ class ControllerProductProduct extends Controller {
 			$data['options'] = array();
 
 			foreach ($this->model_catalog_product->getProductOptions($this->request->get['product_id']) as $option) {
+
+		//		var_dump($option);die();
 				$product_option_value_data = array();
 
 //echo '<pre>';print_r($option);exit;
+
 				foreach ($option['product_option_value'] as $option_value) {
                        if($this->config->get('live_options_ajax_status') && !$this->config->get('live_options_show_options_type') && $option_value['price'] > 0){
                 if ($option_value['price_prefix'] == '-' && $option_value['price']) {
@@ -585,9 +589,13 @@ class ControllerProductProduct extends Controller {
                $this->response->setOutput($this->load->view('product/productParent', $data));
            }
 			if(isset($this->request->get['wholesale'])){
+
 				$this->response->setOutput($this->load->view('product/whole_product', $data));
+
+			}else{
+				$this->response->setOutput($this->load->view('product/product', $data));
+
 			}
-			$this->response->setOutput($this->load->view('product/product', $data));
 		} else {
 			$url = '';
 
@@ -718,6 +726,7 @@ class ControllerProductProduct extends Controller {
 		if ($this->request->server['REQUEST_METHOD'] == 'POST') {
 			if ((utf8_strlen($this->request->post['name']) < 3) || (utf8_strlen($this->request->post['name']) > 25)) {
 				$json['error'] = $this->language->get('error_name');
+
 			}
 
 			if ((utf8_strlen($this->request->post['text']) < 25) || (utf8_strlen($this->request->post['text']) > 1000)) {

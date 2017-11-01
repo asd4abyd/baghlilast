@@ -71,7 +71,7 @@
             <label class="col-sm-2 control-label" for="input-date-ordered"><?php echo $entry_date_ordered; ?></label>
             <div class="col-sm-3">
               <div class="input-group date marginlelDate"><input type="text" name="date_ordered" value="<?php echo $date_ordered; ?>" placeholder="<?php echo $entry_date_ordered; ?>" data-date-format="YYYY-MM-DD" id="input-date-ordered" class="form-control" /><span class="input-group-btn">
-                <button type="button" class="btn btn-default"><i class="fa fa-calendar colors"></i></button>
+                <button type="button" class="btn btn-default"><i class="fa fa-calendar colors  "></i></button>
                 </span></div>
             </div>
           </div>

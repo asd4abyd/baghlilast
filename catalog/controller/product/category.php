@@ -3,6 +3,7 @@ class ControllerProductCategory extends Controller {
     public function index() {
 
 
+
         $this->load->language('product/category');
 
         $this->load->model('catalog/category');
@@ -111,6 +112,10 @@ class ControllerProductCategory extends Controller {
 
         $category_info = $this->model_catalog_category->getCategory($category_id);
 
+      //print_r($category_info);
+
+
+
         if ($category_info) {
             $this->document->setTitle($category_info['meta_title']);
             $this->document->setDescription($category_info['meta_description']);
@@ -199,6 +204,7 @@ class ControllerProductCategory extends Controller {
             $results = $this->model_catalog_category->getCategories($category_id);
 
 
+
             foreach ($results as $result) {
                 $filter_data = array(
                     'filter_category_id'  => $result['category_id'],
@@ -208,6 +214,7 @@ class ControllerProductCategory extends Controller {
                 $data['categories'][] = array(
                     'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
                     'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url),
+                    'id' =>  $result['category_id'] ,
                     'image' => HTTP_SERVER.'/image/'.$result['image']
                 );
             }
@@ -228,7 +235,7 @@ class ControllerProductCategory extends Controller {
             if (isset($this->request->post['search'])  && $this->request->post['search']!= null) {
                 $search=$this->request->post['search'];
 
-                echo $category_id;
+             //  echo $category_id;
                 $results = $this->model_catalog_category->search($search,$category_id);
 
 
@@ -269,7 +276,7 @@ class ControllerProductCategory extends Controller {
 
                     $data['products'][] = array(
                         'product_id'  => $result['product_id'],
-                        'options' => $options,
+                //        'options' => $options,
                         'thumb'       => $image,
                         'name'        => $result['name'],
 
@@ -380,25 +387,53 @@ class ControllerProductCategory extends Controller {
                         $rating = false;
                     }
                     //	print_r($this-> getProductOptions($result['product_id']));
-                    $data['products'][] = array(
-                        'product_id'  => $result['product_id'],
-                        'model'       =>$result['model'],
-                        'thumb'       => $image,
-                        'name'        => $result['name'],
-                        'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
-                        'price'       => $price,
-                        'special'     => $special,
-                        'viewed'      =>$result['viewed'],
-                        'tax'         => $tax,
-                        'manufacturer' => $result['manufacturer'],
-                        'manufacturer_id'=> $result['manufacturer_id'],
-                        'stock_status'=>$result['stock_status'],
-                        'quantity'=>$result['quantity'],
-                        'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
-                        'rating'      => $result['rating'],
-                        'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url),
-                        'options'=>$this-> getProductOptions($result['product_id'])
-                    );
+                    $childcat = array();
+
+
+                    $allChildrenCategories=$this->model_catalog_category->getChildrenCategoriesIds(101);
+
+                    if(in_array($result['category_id'] ,$allChildrenCategories)){
+                        $data['products'][] = array(
+                            'product_id'  => $result['product_id'],
+                            'model'       =>$result['model'],
+                            'thumb'       => $image,
+                            'name'        => $result['name'].' ( '.$result['category_id'] .')',
+                            'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
+                            'price'       => $price,
+                            'special'     => $special,
+                            'viewed'      =>$result['viewed'],
+                            'tax'         => $tax,
+                            'manufacturer' => $result['manufacturer'],
+                            'manufacturer_id'=> $result['manufacturer_id'],
+                            'stock_status'=>$result['stock_status'],
+                            'quantity'=>$result['quantity'],
+                            'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
+                            'rating'      => $result['rating'],
+                            'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url.'&wholesale=1'),
+                            'options'=>$this-> getProductOptions($result['product_id'])
+                        );
+                    }else{
+                        $data['products'][] = array(
+                            'product_id'  => $result['product_id'],
+                            'model'       =>$result['model'],
+                            'thumb'       => $image,
+                            'name'        => $result['name'],
+                            'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
+                            'price'       => $price,
+                            'special'     => $special,
+                            'viewed'      =>$result['viewed'],
+                            'tax'         => $tax,
+                            'manufacturer' => $result['manufacturer'],
+                            'manufacturer_id'=> $result['manufacturer_id'],
+                            'stock_status'=>$result['stock_status'],
+                            'quantity'=>$result['quantity'],
+                            'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
+                            'rating'      => $result['rating'],
+                            'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url),
+                            'options'=>$this-> getProductOptions($result['product_id'])
+                        );
+                    }
+
 
 
 

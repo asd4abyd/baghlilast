@@ -74,8 +74,8 @@
             <?php } ?>
     <?php $counter++; ?>
         <!--product new-->
-        
-        
+
+
         <?php //  print_r($product); ?>
         <div class="col-md-6 col-sm-6">
 
@@ -92,7 +92,7 @@
                      <span>OFF</span>
                    </div>
                 </div>
-                
+
        <
                 <!-- lsit details div -->
                 <div class="col-md-6 proLst-cont updte_design">

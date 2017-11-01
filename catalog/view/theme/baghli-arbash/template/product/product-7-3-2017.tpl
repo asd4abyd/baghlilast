@@ -39,15 +39,15 @@
 
 
 -->
-            
+
                  <?php if ($thumb || $images) { ?>
           <?php if ($special) { ?>
 
-             
+
               <div class="offer-label"><?php echo round(100 - ($special_amt*100/$price_amt))."% "; ?>
 <span>OFF</span> </div>
-              
-               
+
+
 <?php  }?>
           <ul class="thumbnails">
             <?php if ($images) { ?>
@@ -77,7 +77,7 @@
 
 
         </div>
-                
+
             <div id="mac2" class="owl-carousel">
                 <?php
                         if($popup) { ?>
@@ -88,21 +88,21 @@
 <?php foreach ($images as $image) { ?>
               <div class="item"><img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></div>
 <?php }
-?>                
+?>
 
             </div>
             <?php } ?>
           </ul>
           <?php } ?>
-            
-            
-            
- 
+
+
+
+
         </div>
-          
+
 
         <div class="col-md-7 col-sm-6 prod-data">
-         
+
                   <h4><strong><?php echo $heading_title; ?></strong> </h4>
           <p><?php echo strip_tags(substr(html_entity_decode($description),0,500))."..."; ?></p>
           <div class="brannd_mame"><a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></div>
@@ -115,10 +115,10 @@ $(function(){
                 </script>
                <span class="votes"><?php echo (int) $reviews ?> votes</span>
                <span class="like"><i><form action="" method="POST" enctype="multipart/form-data" style="display: inline;">
- <button style="border:none;background-color: #fff;" type="submit" name="product_like" value="<?= $product_id ?>"><img src="image/like.png" alt=""> 
+ <button style="border:none;background-color: #fff;" type="submit" name="product_like" value="<?= $product_id ?>"><img src="image/like.png" alt="">
 </button>
 </form></i> <?= $countLikes ?></span>
-               
+
           <div class="share_box">
            <h5>Share Now :</h5>
              <ul data-url="<?php echo $share; ?>">
@@ -128,7 +128,7 @@ $(function(){
 
                     <!-- <div class="addthis_toolbox addthis_default_style" data-url="<?php echo $share; ?>"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
             <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script> -->
-                   
+
              </ul>
           </div>
 <!--
@@ -161,7 +161,7 @@ $(function(){
           </ul>
           <?php } ?>
 -->
-            
+
             <table class="discription" width="100%" border="0" cellspacing="0" cellpadding="0">
             <?php if ($price) { ?>
                 <?php if (!$special) { ?>
@@ -206,7 +206,7 @@ $(function(){
               </td>
                  </div>
               </tr>
-              
+
               </table>
                <table class="discription" width="100%" border="0" cellspacing="0" cellpadding="0">
             <?php foreach ($options as $option) { ?>
@@ -230,9 +230,9 @@ $(function(){
                         <input type="hidden"  name=" option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>" class="_color" value="" required>
                       </ul>
                     </div>
-              
-                              
-                              
+
+
+
                        </td>
             </div>
                    </tr>
@@ -246,16 +246,16 @@ $(function(){
                             <td width="5%">:</td>
                   <td width="71%">
               <div id="input-option<?php echo $option['product_option_id']; ?>">
-                  <select  name ="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>" class="siz-clr"> 
+                  <select  name ="option[<?php echo $option['product_option_id']; ?>]" id="input-option<?php echo $option['product_option_id']; ?>" class="siz-clr">
                       <option selected> Please Select</option>
                 <?php foreach ($option['product_option_value'] as $option_value) { ?>
                <div class="">
                   <label>
-                    
+
                     <option value="<?php echo $option_value['product_option_value_id']; ?>" />
                     <?php if ($option_value['image']) { ?>
-                    <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" /> 
-                    <?php } ?>                    
+                    <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" />
+                    <?php } ?>
                     <?php echo $option_value['name']; ?>
                     <?php if ($option_value['price']) { ?>
                     (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
@@ -266,7 +266,7 @@ $(function(){
                                       </select>
 
               </div>
-            
+
             </td>
             </tr>
             </div>
@@ -280,7 +280,7 @@ $(function(){
                   <label>
                     <input type="checkbox" name="option[<?php echo $option['product_option_id']; ?>][]" value="<?php echo $option_value['product_option_value_id']; ?>" />
                     <?php if ($option_value['image']) { ?>
-                    <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" /> 
+                    <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" />
                     <?php } ?>
                     <?php echo $option_value['name']; ?>
                     <?php if ($option_value['price']) { ?>
@@ -365,12 +365,12 @@ $(function(){
             </div>
             <?php } ?>
 -->
-                     <tr> 
+                     <tr>
                   <td colspan="3">
               <div class="stock_clear">
-                
+
                  <span class="<?php echo $stock_css_class;?>"><?php echo $stock;?></span>
-                 
+
 
                 <?php if($stock_css_class!='lightgrn')
                 {
@@ -395,9 +395,9 @@ $(function(){
                   </div>
                 </div>
                 <?php } } ?>
-                
+
                </div>
-                  
+
             </td>
            </tr>
         <tr>
@@ -405,17 +405,17 @@ $(function(){
             <div class="form-group">
 
               <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-arw grey" <?php if($stock_css_class!='lightgrn'){echo 'disabled=""';} ?> > <?php echo $button_cart; ?> <i><img src="image/arrow.png" alt=""></i></button>
-                        
-                                               
+
+
   <button type="button" data-toggle="tooltip" class="btn btn-arw grey" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product_id; ?>');"> <?= $wishlist ?><i ><img src="image/arrow.png" alt=""> </i></button>
-          
- 
+
+
 <button onClick="window.location.href='index.php?route=checkout/checkout'" type="button" class="btn btn-arw "><?= $bay ?> <i><img src="image/arrow.png" alt=""></i></button>
- 
-                      
-                        
+
+
+
             </div>
-        
+
             </td></tr>
 <!--
             <?php if ($minimum > 1) { ?>
@@ -424,12 +424,12 @@ $(function(){
 -->
               </table>
           </div>
-            
-            
-            
-         
+
+
+
+
         </div>
-   
+
         <div class="heading small"><span><strong> <?= $PRODUCT?> <?= $DETAILS?></strong></span></div>
 <!--   <span class="cap">Product Description </span> -->
   <p> <?php echo $description;?> </p>
@@ -532,7 +532,7 @@ $(function(){
         <?php $i++; ?>
         <?php } ?>
       </div>
-      <?php } ?> --> 
+      <?php } ?> -->
       </div> </div> </div>
          <?php if ($products) { ?>
 
@@ -549,7 +549,7 @@ $(function(){
                     <figcaption>
                         <h4><strong><?php echo $product['name']; ?> </strong></h4>
 
-                           
+
                         <?php if ($product['price']) { ?>
                         <strong>PRICE NOW :
                             <?php if (!$product['special']) { ?>
@@ -564,7 +564,7 @@ $(function(){
                         <?php } ?>
                         <?php if ($product['rating']) { ?>
                         <div class="rateyo" >
-                          
+
                         </div>
 <script>
 $(function(){
@@ -607,11 +607,11 @@ $(function(){
 <div class="review-area container inner-page">
   <div class="heading small"><span><strong>Customer  Reviews</strong></span></div>
     <?php if ($review_status) { ?>
-            
+
 
             <div class="tab-pane" id="tab-review">
-            
-                <div id="review"></div> 
+
+                <div id="review"></div>
                  <form class="form-horizontal" id="form-review">
                 <h2><?php echo $text_write; ?></h2>
                 <?php if ($review_guest) { ?>
@@ -653,12 +653,12 @@ $(function(){
                 <?php echo $text_login; ?>
                 <?php } ?>
               </form>
-                
+
             <?php } ?>
             </div>
 
          <?php if ($attribute_groups) { ?>
-           
+
             <h4>Tips & Advices</h4>
 <style type="text/css">
   li{
@@ -666,7 +666,7 @@ $(function(){
   }
 </style>
                 <?php foreach ($attribute_groups as $attribute_group) { ?>
-                
+
                   <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
                   <ul>
              <!--  <li>  <?php var_dump(explode("\n",$attribute['text'] ));  ?> </li> -->
@@ -680,7 +680,7 @@ $(function(){
 
                  </ul>
                   <?php } ?>
-               
+
                 <?php } ?>
             <?php } ?>
 
@@ -1077,7 +1077,7 @@ _colors=$('._select_color_drop li');
             }
         })
     };
- 
+
   </script>
       <script>
       (function ($) {
@@ -1092,7 +1092,7 @@ _colors=$('._select_color_drop li');
 
 
     <script type="text/javascript">
-  
+
 function x(){
    location.reload();}
 

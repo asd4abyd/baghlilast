@@ -81,8 +81,10 @@
 
         <div class="row">
 
-
             <?php  foreach ($categories as $category) { ?>
+
+
+            <?php // print_r ($category['id']==101); ?>
 
             <div class="col-sm-12 col-md-4 img">
                 <div class="row brands-page">
@@ -103,8 +105,6 @@
 
                         </figure>
                     </div>
-
-
 
 
                 </div>
@@ -191,15 +191,23 @@
                                 <div class="col-md-6"><!--row Quantity -->
                                     <div class="qnty">
                                         <strong><?= $text_quantity ?></strong>
-                                        <div class="input-group spinner">
 
-                                            <input  type="text"  id="input-quantity"  value="<?= $product['minimum'] ?>" class="form-control" name="quantity" size="2">
+
+
+
+
+
+                                        <div class="input-group spinner">
+                                            <input type="text" class="form-control" value="<?= $product['minimum'] ?>">
                                             <div class="input-group-btn-vertical">
                                                 <button class="btn" type="button"><i class="fa fa-caret-up"></i></button>
                                                 <button class="btn q-down" type="button"><i class="fa fa-caret-down"></i></button>
                                                 <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>" />
+
                                             </div>
                                         </div>
+
+
                                     </div>
 
                                 </div><!--row Quantity -->
@@ -366,7 +374,7 @@
             <?php // }} ?>
 
 
-            <?php if (!$categories && !$products) { ?>
+            <?php if (!$cateSearchries && !$products) { ?>
             <p><?php echo $text_empty; ?></p>
             <div class="buttons">
                 <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
@@ -797,6 +805,46 @@
             });*/
         }
     </script>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('.spinner .btn:first-of-type').on('click', function() {
+            var spinner=$(this).parent().parent();
+
+
+            spinner.find('input').val( parseInt(spinner.find('input').val(), 10) + 1);
+        });
+
+
+
+        $('.spinner .btn:last-of-type').on('click', function() {
+            var spinner=$(this).parent().parent();
+            spinner.find('input').val( parseInt(spinner.find('input').val(), 10) - 1);
+        });
+
+
+        $(document).on('click', '.q-down', function() {
+            var spinner=$(this).parent().parent();
+            var quantity = spinner.find('#input-quantity').val();
+
+            if(quantity == 0){
+                spinner.find('#input-quantity').val('1');
+            }
+        });
+
+    });
+
+
+    $('.q-down').click(function(){
+        if($('#input-quantity').val() == 0){
+            $('#input-quantity').val('1');
+        }
+    });
+
+
+
+</script>
 
 
 

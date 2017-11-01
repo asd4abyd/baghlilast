@@ -5,48 +5,45 @@
   <div class="heading"><span><strong>Product </strong> Details</span></div>
 	<div class="row prod-details clearfix">
             <div class="col-md-5 col-sm-6 prod-image list-imageNew clearfix new_align">
-             
-              
-             
-             
+
+
               <div class="offer-label">50% <span>OFF</span> </div>
-              
-              
+
             <div id="mac1" class="owl-carousel">
-            
+
 				  <div class="item">
 					<div class="easyzoom easyzoom--overlay">
 						<a href="images/prods-1s.jpg">
 							<img src="catalog/view/theme/baghli-arbash/images/prod-1.jpg" alt="" width="100%" height="390px" style="width: 100% !important;" />
 						</a>
-					</div>	  
+					</div>
 				  </div>
-        
-        
+
+
         		  <div class="item">
 					<div class="easyzoom easyzoom--overlay">
 						<a href="images/prods-2s.jpg">
 							<img src="catalog/view/theme/baghli-arbash/images/prods-2.jpg" alt="" width="100%" height="390px" style="width: 100% !important;" />
 						</a>
-					</div>	  
+					</div>
 				  </div>
-        
-        
+
+
         		  <div class="item">
 					<div class="easyzoom easyzoom--overlay">
 						<a href="images/prods-3s.jpg">
 							<img src="catalog/view/theme/baghli-arbash/images/prods-3.jpg" alt="" width="100%" height="390px" style="width: 100% !important;" />
 						</a>
-					</div>	  
+					</div>
 				  </div>
-         
-         
+
+
          		 <div class="item">
 					<div class="easyzoom easyzoom--overlay">
 						<a href="images/prods-4s.jpg">
 							<img src="catalog/view/theme/baghli-arbash/images/prods-4.jpg" alt="" width="100%" height="390px" style="width: 100% !important;" />
 						</a>
-					</div>	  
+					</div>
 				  </div>
 
 
@@ -56,7 +53,7 @@
               <div class="item"><img src="images/prods-2.jpg" alt=""></div>
               <div class="item"><img src="images/prods-3.jpg" alt=""></div>
               <div class="item"><img src="images/prods-4.jpg" alt=""></div>
-             
+
 
             </div>
             </div>
@@ -73,25 +70,25 @@
                <div class="rateyo"></div>
                <span class="votes">77 votes</span>
                <span class="like"><i><img src="catalog/view/theme/baghli-arbash/images/like.png" alt=""></i> 77</span>
-               
+
                	 <div class="share_box">
 					 <h5>Share Now :</h5>
                  <ul>
 					 <li><a href="#" title="twitter"><img src="catalog/view/theme/baghli-arbash/images/share_icon1.png" alt=""> </a></li>
                	     <li><a href="#" title="instagram"><img src="catalog/view/theme/baghli-arbash/images/share_icon3.png" alt=""> </a></li>
                 	 <li><a href="#" title="facebook"><img src="catalog/view/theme/baghli-arbash/images/share_icon2.png" alt=""> </a></li>
-                	 
-                 
+
+
 				 </ul>
-                 
+
 				 </div>
-               
+
                </div>
 
 
-              
-               
-               
+
+
+
                <table class="discription" width="100%" border="0" cellspacing="0" cellpadding="0">
                   <tr class="price_nw">
                     <td width="24%">price Now </td>
@@ -103,7 +100,7 @@
                     <td>:</td>
                     <td><span class="overline"><?php echo $price; ?></span></td>
                   </tr>
-                  
+
                   <tr>
                     <td>Quantity</td>
                     <td>:</td>
@@ -145,7 +142,7 @@
                       </select>
                     </div></td>
                   </tr>
-                
+
 				   <tr></tr>
 
                   <tr>
@@ -153,31 +150,31 @@
                     <td>:</td>
                     <td>2 year</td>
                   </tr>
-                  
+
                   <tr>
                     <td>Delivery</td>
                     <td>:</td>
                     <td>Free</td>
                   </tr>
-                  
+
                   <tr>
                   <td colspan="3">
               <div class="stock_clear">
                <!--<span class="lightgrn">IN STOCK</span>-->
                <span class="stock_out">out of Stock</span>
-              
+
                <form>
                <input name="" type="checkbox" value=""><label>Send me email when it is available </label>
                </form>
                </div>
-                  
+
 					  </td>
 				   </tr>
-                  
-                   
-                  
-                  
-                  
+
+
+
+
+
                   <tr >
                     <td colspan="3">
                         <button type="button" onclick="cart.add('<?php echo $product_id; ?>');" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-arw grey "><?php echo $button_cart; ?> <i><img src="catalog/view/theme/baghli-arbash/images/arrow.png" alt=""></i></button>
@@ -381,8 +378,8 @@
                   <label>
                     <input type="radio" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option_value['product_option_value_id']; ?>" />
                     <?php if ($option_value['image']) { ?>
-                    <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" /> 
-                    <?php } ?>                    
+                    <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" />
+                    <?php } ?>
                     <?php echo $option_value['name']; ?>
                     <?php if ($option_value['price']) { ?>
                     (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
@@ -402,7 +399,7 @@
                   <label>
                     <input type="checkbox" name="option[<?php echo $option['product_option_id']; ?>][]" value="<?php echo $option_value['product_option_value_id']; ?>" />
                     <?php if ($option_value['image']) { ?>
-                    <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" /> 
+                    <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" class="img-thumbnail" />
                     <?php } ?>
                     <?php echo $option_value['name']; ?>
                     <?php if ($option_value['price']) { ?>
@@ -775,7 +772,7 @@ $(document).ready(function() {
 			enabled:true
 		}
 	});
-	
+
 	var mac1 = $("#mac1");
   var mac2 = $("#mac2");
 

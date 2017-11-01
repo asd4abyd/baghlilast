@@ -4,7 +4,6 @@
 <div class="container inner-container">
 
 
-
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -40,7 +39,6 @@
             <div class="thumbnails">
 
 
-
               <div class="large-5 column">
                 <!-- im -->
                 <div class="xzoom-container">
@@ -62,7 +60,7 @@
               <?php } ?>
             </div>
           </div>
-        </div>
+      </div>
 
 
         <div class="col-md-7 col-sm-6 prod-data">
@@ -98,12 +96,13 @@
           <table class="discription" width="100%" border="0" cellspacing="0" cellpadding="0">
             <?php if ($price) { ?>
             <?php if (!$special) { ?>
+
             <tr class="price_nw">
               <td width="24%"><?=$price_now?></td>
               <td width="5%">:</td>
               <td width="71%"><strong><span class="<?php echo $live_options['live_options_price_container']; ?>"><?php echo $price; ?></span></strong></td>
-
             </tr>
+
             <?php } else { ?>
             <tr class="price_nw">
               <td width="24%"><?=$price_now?> </td>
@@ -111,6 +110,8 @@
               <!-- <td width="71%"><strong><?php echo $special; ?></strong></td>-->
               <span class="<?php echo $live_options['live_options_special_container']; ?>"><?php echo $special; ?></span>
             </tr>
+
+
             <tr class="brfre_pr">
               <td><?=  $BEFORE?></td>
               <td>:</td>
@@ -186,7 +187,7 @@
                   <?php } else { $selectclass = ''; } ?>
                   <label for="" class="siz-clr"><?php echo $select_color; ?> <?php echo $option['name'] ?></label>
 
-                  <?php // var_dump($option['product_option_value']); ?>
+                  <?php  var_dump($option['product_option_value']); ?>
                   <div class="dropdown">
 
 

@@ -17,7 +17,9 @@
             	<h2><?=$text_quick?> <br><span><?=$text_link?> </span></h2>
                 <ul class="ft-link">
                     <li><a href="<?php echo $sitemap_href; ?>"><?php echo $text_sitemap; ?></a></li>
-                    <?php 
+                    <?php
+
+
 $i=0;
 $cnt=sizeof($informations);
 foreach ($informations as $information) {

@@ -5,7 +5,7 @@
       <paths name="fintolog2">
         <serverdata>
           <mappings>
-            <mapping deploy="/public_html/baghli" local="$PROJECT_DIR$" web="/public_html/baghli" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

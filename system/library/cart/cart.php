@@ -68,7 +68,7 @@ class Cart {
 								}
 
 								if ($option_value_query->row['weight_prefix'] == '+') {
-									$option_weight += $option_value_query->row['weight'];
+								$option_weight += $option_value_query->row['weight'];
 								} elseif ($option_value_query->row['weight_prefix'] == '-') {
 									$option_weight -= $option_value_query->row['weight'];
 								}

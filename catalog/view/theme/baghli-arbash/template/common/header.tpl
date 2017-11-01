@@ -358,9 +358,12 @@
 
 $index++;
      ?>
-                        <li class="dropdown-submenu">
-                            <a href="<?php echo HTTP_SERVER?>index.php?route=product/category&path=<?php echo $category['category_id'];?>"><span class="<?php echo $class ?>"></span><?php echo $category['name']; ?></a>
 
+                        <?php // print_r($category); ?>
+                        <li class="dropdown-submenu">
+                            <?php if($category['category_id'] != 101){ ?>
+                            <a href="<?php echo HTTP_SERVER?>index.php?route=product/category&path=<?php echo $category['category_id'];?>"><span class="<?php echo $class ?>"></span><?php echo $category['name']; ?></a>
+                 <?php } ?>
 
                             <?php  if((isset($category['children']))) { ?>
 
@@ -423,10 +426,10 @@ $index++;
 
 
 
-                <li>
+                <li id="padmenu">
 
-                    <a href="" class="dpDown-main-a dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        <span class="wholesalePic" ></span> <?= $text_wholesale ?>
+                    <a id="arrow" href="" class="dpDown-main-a dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="wholesalePic"></span>&nbsp <?= $text_wholesale ?>
                     </a>
 
                     <ul class="dropdown-menu multi-level">
@@ -440,8 +443,14 @@ $index++;
 
                         <li class="dropdown-submenu">
 
-                            <a href="<?php echo $oneCategory2['href']; ?>"><span class="<?php echo $oneCategory2['image']; ?>"></span><?php echo $oneCategory2['name']; ?></a>
+                            <a  href="<?php echo $oneCategory2['href'] ?>" >
 
+                                <?php if ((strpos($oneCategory2['image'], 'jpg') !== false) || (strpos($oneCategory2['image'], 'png') !== false)) { ?>
+                                <img width="70" height="70"  src="<?php echo $oneCategory2['image']; ?>" title="<?php echo $oneCategory2['name'];?>" />
+                                <?php } else { ?>
+                                <img width="70" height="70" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
+                                <?php } ?>&nbsp <strong><?php echo $oneCategory2['name'];?> </strong>
+                            </a>
 
                             <ul class="dropdown-menu wMore">
 
@@ -499,9 +508,9 @@ $index++;
 
 
 
-                                                <li >
+                                                <li>
 
-                                                    <a  href="<?php echo $oneCategory5['href'] ?>" >
+                                                    <a  href="<?php echo $oneCategory5['href'].'&wholesale=1' ?>" >
 
 
                                                         <?php if ((strpos($oneCategory5['image'], 'jpg') !== false) || (strpos($oneCategory5['image'], 'png') !== false)) { ?>

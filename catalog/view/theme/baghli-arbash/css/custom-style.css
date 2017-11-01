@@ -840,12 +840,13 @@ span.red{
 	border:1px solid #959595;
 	border-radius:8px;
 }
-.prod-data .spinner input{
-	background-color:#fff;
-	border:none;
-	border-radius:8px;
-	text-align:left;
+.prod-data .spinner input {
+	background-color: #fff;
+	border: none;
+	border-radius: 8px;
+	text-align: left;
 }
+
 .prod-data .spinner .input-group-btn-vertical .btn{
 	background-color:#fff;
 }
@@ -1594,7 +1595,6 @@ ul.sitemap li ul li{
 	}
 	.input-group .form-control {
 		position: relative;
-		z-index: -999;
 		float: left;
 		width: 100%;
 		margin-bottom: 0;
@@ -1790,9 +1790,10 @@ ul.log-area li{
 	text-align:left;
 	margin:10px 0;
 }
-.spinner{
-	margin-left:0;
-}
+
+
+
+
 .inner-page section.innr-shpng-cart .totl-amnt{
 	position:relative;
 	text-align:left;
@@ -1966,7 +1967,10 @@ a.dpDown-main-a{
 .proLst-cont span.save{text-align: left; width: 100%; margin-top: 7px; display: inline-block; }
 
 .qnty strong{float: left; line-height: 43px; padding-right: 12px;}
-.qnty .spinner{width: 70px;margin: 10px 0;}
+.qnty .spinner{
+	width: 70px;
+	margin: 10px 0;
+}
 
 .list-price-div{color: #00365b; margin: 3px 0;}
 .list-price-div span{font-weight: bold; font-size: 20px;}
@@ -2114,7 +2118,7 @@ span.faq-search button{position: absolute; top: 0; right: 0; min-height: 38px;}
 .panel-body{padding: 0 15px 15px 15px;}
 label.siz-clr{width: 100%;}
 select.siz-clr{    width: 100%; max-width: 200px; padding: 5px 8px; border-radius: 4px; border: #cecece solid 1px;}
-.offer-label{z-index: 99; background:#be1e2d; width: 50px; height:47px; position: absolute; top: 0px; right: 15px; padding: 15px 0; color: #fff; text-align: center; font-size: 19px;}
+.offer-label{z-index: 99; background:#be1e2d; width: 50px; height:53px; position: absolute; top: 0px; right: 15px; padding: 15px 0; color: #fff; text-align: center; font-size: 19px;}
 .offer-label span{ font-size:15px;}
 .list-imageNew{position: relative;}
 
@@ -2233,7 +2237,7 @@ h4.about-leaderhd{font-size: 24px; font-family: 'Roboto Condensed'; color: #be1e
 .line_wrap input{ margin:5px 0px;}
 
 /*new*/
-.updte_design .qnty{ width:100%; margin-top:-11px;}
+.updte_design .qnty{ width:100%; margin-top:9px;}
 .updte_design .add-crt button{ margin-top:5px;}
 .updte_design .list-price-div{ margin-bottom:12px; margin-top:0px;}
 .new_align .offer-label{ width:85px; padding:5px 8px;}
@@ -2589,12 +2593,11 @@ font-size: 13px ;
         }
     
         header .input-group{  float: right;}
-    .srch_sub span{
-        
-    }
+
+
           
     .srch_updte .input-group-addon{
-        float: right!importnat;
+        float: right ;
         height: 38px !important;
         width: 43px !important ;
     }
@@ -2823,7 +2826,6 @@ ul.log-area li:first-child
 	border-color: transparent;
 	border-style: solid;
 	border-width: 5px 0 5px 5px;
-	border-left-color: #ccc;
 	margin-top: 6px;
 	margin-right: -28px;
 }
@@ -3087,5 +3089,28 @@ ul.log-area li:first-child
 }
 
 .wholesalePic{
-background: url("../image/whol");
+
+	background-image:  url("../images/wholesale.jpg") !important;
+	background-repeat:no-repeat !important;
+	background-size:contain !important;
+	height:50px;width:50px !important;
+}
+
+.color{
+	background-color: #0066ff  !important;
+}
+#arrow{
+background: url(../images/dp-aro.png)no-repeat 98% 32px;
+
+}
+#padmenu{
+	margin-left:20px;margin-right:20px;
+}
+
+
+.spinner input {
+	text-align: right;
+	height: 30px;
+	background-color: #ededed;
+	border: none;
 }

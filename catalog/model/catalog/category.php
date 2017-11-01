@@ -140,7 +140,7 @@ class ModelCatalogCategory extends Model {
 						'product_id'=>$product['product_id'],
 						'name' => $product['name'],
 						'image'=> HTTP_SERVER.'/image/'.$product['image'],
-						'href' => $this->url->link('product/product', 'product_id=' . $product['product_id'].'&wholesale=1')
+						'href' => $this->url->link('product/product', 'product_id=' . $product['product_id'])
 					);
 				}
 				if(isset($level_data['children'])){
@@ -155,10 +155,6 @@ class ModelCatalogCategory extends Model {
 
 			$final_categories[]=$level_data;
 		}
-
-
-
-
 
 
 		return $final_categories;
@@ -182,20 +178,20 @@ class ModelCatalogCategory extends Model {
 		return [$eventsLeftId,$eventsRightId,$productsLeftId,$productsRightId];
 
 	}
+
 	public function getCategoryChildren($parentIdArray){
+		//print_r($parentIdArray);
 		$this->load->model('tool/image');
 
 		$final_categories = array();
 
-		$categories = $this->getCategories($parentIdArray[count($parentIdArray)- 1]);
-
-
-
+		$categories = $this->getCategories($parentIdArray[count($parentIdArray)-1]);
+		//print_r($categories);die();
 		foreach ($categories as $category)
 		{
+
 			$tempParentIdArray=array_merge($parentIdArray,[$category['category_id']]);
-
-
+			//print_r($tempParentIdArray);die();
 			$level_data = array(
 				'category_id'=>$category['category_id'],
 				'name' => $category['name'],
@@ -215,8 +211,26 @@ class ModelCatalogCategory extends Model {
 
 	}
 
+	public function getChildrenCategoriesIds($parentCategoryId){
+		$childrenCategories=[$parentCategoryId];
+		 $this->getCategoryChildrenIds($parentCategoryId,$childrenCategories);
+
+	return $childrenCategories;
+	}
 
 
+	public function getCategoryChildrenIds($parentIdArray,&$total){
 
 
+		$categories = $this->getCategories($parentIdArray);
+
+		foreach ($categories as $category)
+		{
+
+			$total[]=$category['category_id'];
+			$this->getCategoryChildrenIds($category['category_id'],$total);
+
+		}
+
+	}
 }

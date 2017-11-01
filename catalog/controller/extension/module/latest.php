@@ -1,11 +1,13 @@
 <?php
 class ControllerExtensionModuleLatest extends Controller {
 	public function index($setting) {
-		$this->load->language('extension/module/latest');
+		$this->load->language('extension/module/latest_home');
 
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_tax'] = $this->language->get('text_tax');
+
+		$data['price_now'] = $this->language->get('price_now');
 
 		$data['button_cart'] = $this->language->get('button_cart');
 		$data['button_wishlist'] = $this->language->get('button_wishlist');

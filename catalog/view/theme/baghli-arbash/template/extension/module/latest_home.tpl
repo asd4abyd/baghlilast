@@ -15,11 +15,11 @@
 
                          <?php if ($product['special']) { ?>
 
-            <strong>Price Now : <?php echo $product['special']; ?></strong><br>
+            <strong><?php echo $price_now; ?> <?php echo $product['special']; ?></strong><br>
             <strong class="line_through">Before : <?php echo $product['price']; ?></strong>
           <?php } else { ?>
 
-            <strong>Price Now : <?php echo $product['price']; ?></strong><br>
+            <strong><?php echo $price_now; ?> <?php echo $product['price']; ?></strong><br>
 
 
 

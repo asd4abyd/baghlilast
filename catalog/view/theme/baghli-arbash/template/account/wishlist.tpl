@@ -5,11 +5,7 @@
   
 
    <div class="container inner-page">
-   <?php if ($success) { ?>
-  <div class="alert alert-success"><i class="fa fa-check-circle"></i> <?php echo $success; ?>
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-  </div>
-  <?php } ?>
+
 
        <div class="content"></div>
       <div class="heading"><span><strong><?php echo $heading_title; ?></strong></span> <div class="sort pull-right"> <?= $sort1 ?>
