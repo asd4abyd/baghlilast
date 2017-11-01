@@ -571,6 +571,7 @@ class ControllerCheckoutCart extends Controller {
 		$this->load->model('catalog/product');
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
+		
 		if ($product_info) {
 
 

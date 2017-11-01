@@ -125,6 +125,7 @@ class ControllerAccountOrder extends Controller {
             $data['order_not_complete']=$this->model_account_order->getOrdersStatusNotComplete();
             $this->response->setOutput( $this->load->view('account/order_not_com', $data));
         }else{
+
             $this->response->setOutput($this->load->view('account/order_list', $data));
 
         }
