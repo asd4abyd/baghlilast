@@ -343,6 +343,50 @@
               }
 
           </script>
+            <script type="text/javascript">
+
+                $(document).ready(function(){
+                    $('.spinner .btn:first-of-type').on('click', function() {
+                        var spinner=$(this).parent().parent();
+
+
+                        spinner.find('input').val( parseInt(spinner.find('input').val(), 10) );
+
+
+                    });
+
+
+
+                    $('.spinner .btn:last-of-type').on('click', function() {
+                        var spinner=$(this).parent().parent();
+                        var newValue= parseInt(spinner.find('input').val(), 10) ;
+                        newValue=(newValue <1 )? 1:newValue;
+                        spinner.find('input').val(newValue);
+
+                    });
+
+
+                    $(document).on('click', '.q-down', function() {
+                        var spinner=$(this).parent().parent();
+                        var quantity = spinner.find('#input-quantity').val();
+
+                        if(quantity == 0){
+                            spinner.find('#input-quantity').val('1');
+                        }
+                    });
+
+                });
+
+
+                //    $('.q-down').click(function(){
+                //        if($('#input-quantity').val() == 0){
+                //            $('#input-quantity').val('1');
+                //        }
+                //    });
+
+
+
+            </script>
 
 
       <!--<div class="buttons clearfix">

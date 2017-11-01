@@ -42,7 +42,7 @@
                         <div class="input-group"><!-- /input-group -->
                             <form action="" method="Post" class="input-group">
 
-                                <input  type="text" value="<?php echo $search;?>" class="form-control" name="search" placeholder="<?= $search ?>">
+                                <input  type="text" value="<?=array_key_exists('search',$_POST)? $_POST['search']:'' ;?>" class="form-control" name="search" placeholder="<?= $search ?>">
                                 <div class="input-group-btn">
                                     <button class="btn btn-default" style="margin-top:0;" type="submit"><?= $Go?></button>
                                 </div>
@@ -220,7 +220,7 @@
                             <!-- options section start -->
 
                             <div class="row" id="product">
-                                <?php
+                              <?php
 				$counter = 0;
 
 
@@ -374,7 +374,7 @@
             <?php // }} ?>
 
 
-            <?php if (!$cateSearchries && !$products) { ?>
+            <?php if (isset($cateSearchries) && isset($products)&&!$cateSearchries && !$products) { ?>
             <p><?php echo $text_empty; ?></p>
             <div class="buttons">
                 <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
@@ -813,14 +813,19 @@
             var spinner=$(this).parent().parent();
 
 
-            spinner.find('input').val( parseInt(spinner.find('input').val(), 10) + 1);
+            spinner.find('input').val( parseInt(spinner.find('input').val(), 10) );
+
+
         });
 
 
 
         $('.spinner .btn:last-of-type').on('click', function() {
             var spinner=$(this).parent().parent();
-            spinner.find('input').val( parseInt(spinner.find('input').val(), 10) - 1);
+            var newValue= parseInt(spinner.find('input').val(), 10) ;
+            newValue=(newValue <1 )? 1:newValue;
+            spinner.find('input').val(newValue);
+
         });
 
 
@@ -836,11 +841,11 @@
     });
 
 
-    $('.q-down').click(function(){
-        if($('#input-quantity').val() == 0){
-            $('#input-quantity').val('1');
-        }
-    });
+//    $('.q-down').click(function(){
+//        if($('#input-quantity').val() == 0){
+//            $('#input-quantity').val('1');
+//        }
+//    });
 
 
 
