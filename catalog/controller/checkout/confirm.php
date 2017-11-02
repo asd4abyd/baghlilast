@@ -149,7 +149,7 @@ $data['GRAND'] = $this->language->get('GRAND');
 				$order_data['lastname'] = $this->session->data['guest']['lastname'];
 				$order_data['email'] = $this->session->data['guest']['email'];
 				$order_data['telephone'] = $this->session->data['guest']['telephone'];
-				$order_data['fax'] = $this->session->data['guest']['fax'];
+			//	$order_data['fax'] = $this->session->data['guest']['fax'];
 				$order_data['custom_field'] = $this->session->data['guest']['custom_field'];
 			}
 

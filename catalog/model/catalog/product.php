@@ -143,7 +143,7 @@ public function getlikes($product_id)
 			}
 		}
 
-		if ((!empty($data['filter_name']) || !empty($data['filter_tag'])) && $data['search_type'] == 'category') {
+		if ((!empty($data['filter_name']) || !empty($data['filter_tag'])) ) {//&& $data['search_type'] == 'category'
 			$sql .= " AND (";
 
 			if (!empty($data['filter_name'])) {
@@ -195,7 +195,7 @@ public function getlikes($product_id)
 			$sql .= ")";
 		}
 
-		if (!empty($data['filter_name']) && $data['search_type'] == 'brands') {
+		if (array_key_exists('filter_name',$data)&& !empty($data['filter_name'])) {// && $data['search_type'] == 'brands'
 			$sql .= " AND (";
 
 			if (!empty($data['filter_name'])) {
@@ -204,7 +204,7 @@ public function getlikes($product_id)
 				$words = explode(' ', trim(preg_replace('/\s+/', ' ', $data['filter_name'])));
 
 				foreach ($words as $word) {
-					$implode[] = "m.name LIKE '%" . $this->db->escape($word) . "%'";
+					$implode[] = "pd.name LIKE '%" . $this->db->escape($word) . "%'";
 				}
 
 				if ($implode) {
