@@ -816,25 +816,19 @@
 
 
             spinner.find('input').val( parseInt(spinner.find('input').val(), 10) );
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 2cf404311c485c9d38263115d4065daf46d5e291
         });
 
 
 
         $('.spinner .btn:last-of-type').on('click', function() {
             var spinner=$(this).parent().parent();
-<<<<<<< HEAD
-            spinner.find('input').val( parseInt(spinner.find('input').val(), 10) );
-=======
+//             spinner.find('input').val( parseInt(spinner.find('input').val(), 10) );
+
             var newValue= parseInt(spinner.find('input').val(), 10) ;
             newValue=(newValue <1 )? 1:newValue;
             spinner.find('input').val(newValue);
 
->>>>>>> 2cf404311c485c9d38263115d4065daf46d5e291
         });
 
 
@@ -850,22 +844,12 @@
     });
 
 
-<<<<<<< HEAD
-    $('.q-down').click(function(){
-        if($('#input-quantity').val() == 0){
-            $('#input-quantity').val('1');
-        }else{
-                        $('#input-quantity').val('1');
 
-        }
-    });
-=======
 //    $('.q-down').click(function(){
 //        if($('#input-quantity').val() == 0){
 //            $('#input-quantity').val('1');
 //        }
 //    });
->>>>>>> 2cf404311c485c9d38263115d4065daf46d5e291
 
 
 
