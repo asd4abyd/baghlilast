@@ -84,7 +84,7 @@
             <?php  foreach ($categories as $category) { ?>
 
 
-            <?php // print_r ($category['id']==101); ?>
+     
 
             <div class="col-sm-12 col-md-4 img">
                 <div class="row brands-page">
