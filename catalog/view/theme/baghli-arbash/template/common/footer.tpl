@@ -223,8 +223,8 @@ foreach ($informations as $information) {
 
   });
 
-      
-        
+
+
       /* Validation for the login popup updated on 05-04-2017 */
  $(document).ready(function(){
      $('#popup_login').on("click",function(e){
@@ -260,10 +260,10 @@ foreach ($informations as $information) {
  
     /* Validation for the login popup updated on 05-04-2017 */
      
-        
-        
-        
-        
+
+
+
+
 
 });
 </script>
@@ -314,21 +314,18 @@ $(document).ready(function(){
      $('#subscription_newsletter').on("click",function(e){
          e.preventDefault();
 
-    
+
 var newsletter=$('#newsletter').val();
-     
+
    $.ajax({
-                  url: "index.php?route=account/Newsletter/SubscribeNewsletter",
+                  url: "index.php?route=account/newsletter/subscribeNewsletter",
                   type: "POST",
       data: {'newsletter':newsletter},
         success: function(result){
                $("#subscription_msg").html(result);
             $('#newsletter').val('');
-        }});      
-         
-         
-         
-    
+        }});
+
 });
 
 
@@ -369,8 +366,8 @@ var newsletter=$('#newsletter').val();
         $("#edit-cart-items").submit();
            
         }
-        
-        
+
+
     });
         
     $(".val-prev").click(function(){

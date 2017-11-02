@@ -4,7 +4,8 @@
 <?php // echo $errors; ?>
   <!-- Modal -->
   <!--Begin Modal Window-->
-  <div class="modal fade left" id="myModalbook">
+  <div class="modal fade left" id="myModalbook" data-backdrop="static"
+          >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -13,52 +14,54 @@
           </button>
         </div>
 
-        <div class="modal-body">
+          <div class="modal-body">
 
-          <form id='search_form'  action="<?php echo $action_popup_form; ?>" method="post" enctype="multipart/form-data">
-
-            <label><?php echo $your_name;?></label>
-            <input  type="text" name="name" class="form-control" placeholder="<?php echo $your_name;?>">
-
-            <?php if ($error_name) { ?>
-            <div class="text-danger"><?php echo $error_name;?></div>
-            <?php } ?>
+              <form id='search_form'  action="<?php echo $action_popup_form; ?>" method="post" enctype="multipart/form-data">
 
 
+                  <label><?php echo $your_name ;?></label>
+                  <input  type="text" name="name" class="form-control" placeholder="<?php echo $your_name;?>">
 
-            <label><?php echo $quantity_name;?></label>
-
-            <input  type="number" name="quantity" class="form-control" placeholder="<?php echo $quantity_name;?>">
-
-            <?php if ($error_quantity) { ?>
-            <div class="text-danger"><?php echo $error_quantity;?></div>
-            <?php } ?>
+                  <?php if ($error_name) { ?>
+                  <div class="text-danger"><?php echo $error_name;?></div>
+                  <?php } ?>
 
 
-            <label><?php echo $mobile ;?></label>
-
-            <input id="numb" name="phone" class="form-control" placeholder="<?php echo $mobile;?>">
-
-            <?php if ($error_phone) { ?>
-            <div class="text-danger"><?php echo $error_phone;?></div>
-            <?php } ?>
-
-            <label><?php echo $email_name;?></label>
-
-            <input  type="email" name="email" class="form-control" placeholder="<?php echo $email_name;?>">
-
-            <?php if ($error_email) { ?>
-            <div class="text-danger"><?php echo $error_email;?></div>
-            <?php } ?> <br>
 
 
-            <div class="modal-footer">
-              <button onclick="form_submit()"  class="btn btn-primary algn-leftt"><?php echo $submit;?></button>
+                  <label><?php echo $quantity_name ;?></label>
 
-            </div>
+                  <input  type="text" name="quantity" class="form-control" placeholder="<?php echo $your_quantity;?>">
 
-          </form>
-        </div>
+                  <?php if ($error_quantity) { ?>
+                  <div class="text-danger"><?php echo $error_quantity;?></div>
+                  <?php } ?>
+
+
+                  <label><?php echo $mobile ;?></label>
+
+                  <input  type="text" name="phone" class="form-control" placeholder="<?php echo $your_phone;?>">
+
+                  <?php if ($error_phone) { ?>
+                  <div class="text-danger"><?php echo $error_phone;?></div>
+                  <?php } ?>
+
+                  <label><?php echo $email_name ;?></label>
+
+                  <input  type="text" name="email" class="form-control" placeholder="<?php echo $your_email;?>">
+
+                  <?php if ($error_email) { ?>
+                  <div class="text-danger"><?php echo $error_email;?></div>
+                  <?php } ?> <br>
+
+
+                  <div class="modal-footer">
+                      <button onclick="form_submit()"  class="btn btn-primary algn-leftt">SUBMIT</button>
+
+                  </div>
+
+              </form>
+          </div>
 
       </div>
     </div>
@@ -295,10 +298,13 @@
                   }
               });
           </script>
+
+
+
           <script type="text/javascript">
       function form_submit() {
 //
-/  if (<?=count($error); ?> > 0) {
+ if (<?=count($error); ?> > 0) {
           $('#myModalbook').modal('show');
       } else
           {
@@ -314,7 +320,7 @@
 //                          text = "Input OK";
 //                      }
 
-          /
+
               document.getElementById("search_form").submit();
           }
               }

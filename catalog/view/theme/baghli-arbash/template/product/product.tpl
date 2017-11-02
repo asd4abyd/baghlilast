@@ -4,6 +4,14 @@
 <div class="container inner-container">
 
 
+  <style>
+
+    .radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"]
+
+  </style>
+
+
+
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -130,16 +138,21 @@
                   </td>
                   <td width="5%">:</td>
                   <td width="71%">
+
+
                     <div class="input-group spinner">
 
-                      <?php // print_r ($minimum); ?>
                       <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control">
                       <div class="input-group-btn-vertical">
                         <button class="btn" type="button"><i class="fa fa-caret-up"></i></button>
                         <button class="btn q-down" type="button"><i class="fa fa-caret-down"></i></button>
                         <input type="hidden" name="product_id" value="" />
                       </div>
+
                     </div>
+
+
+
                     <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
                   </td>
                 </div>
@@ -692,17 +705,44 @@
 
 
 
-<script>
-  (function ($) {
-    $('.spinner .btn:first-of-type').on('click', function() {
-      $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
-    });
-    $('.spinner .btn:last-of-type').on('click', function() {
-      $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
-    });
-  })(jQuery);
-</script>
 
+
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    $('.spinner .btn:first-of-type').on('click', function() {
+      var spinner=$(this).parent().parent();
+
+      spinner.find('input').val( parseInt(spinner.find('input').val(), 10) );
+
+    });
+
+
+
+    $('.spinner .btn:last-of-type').on('click', function() {
+      var spinner=$(this).parent().parent();
+      spinner.find('input').val( parseInt(spinner.find('input').val(), 10) );
+      var newValue= parseInt(spinner.find('input').val(), 10) ;
+      newValue=(newValue <1 )? 1:newValue;
+      spinner.find('input').val(newValue);
+
+    });
+
+
+    $(document).on('click', '.q-down', function() {
+      var spinner=$(this).parent().parent();
+      var quantity = spinner.find('#input-quantity').val();
+
+      if(quantity == 0){
+        spinner.find('#input-quantity').val('1');
+      }
+    });
+
+  });
+
+
+</script>
 
 
 

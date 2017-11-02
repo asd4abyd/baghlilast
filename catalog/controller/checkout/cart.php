@@ -27,30 +27,30 @@ class ControllerCheckoutCart extends Controller {
 //
 //            $this->response->redirect($this->url->link('checkout/cart/success'));
 //        }
-        if (isset($this->request->get['ajaxRequest'] ) && $this->validate() ) {
-            $data['your_quantity'] = $this->language->get('your_quantity');
-            $data['your_name'] = $this->language->get('your_name');
-            $data['your_email'] = $this->language->get('your_email');
-            $data['your_phone'] = $this->language->get('your_phone');
-            $data['your_product_name'] = $this->language->get('your_product_name');
-            $mail = new Mail();
-            $mail->protocol = $this->config->get('config_mail_protocol');
-            $mail->parameter = $this->config->get('config_mail_parameter');
-            $mail->smtp_hostname = $this->config->get('config_mail_smtp_hostname');
-            $mail->smtp_username = $this->config->get('config_mail_smtp_username');
-            $mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
-            $mail->smtp_port = $this->config->get('config_mail_smtp_port');
-            $mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
+		if (isset($this->request->get['ajaxRequest'] ) && $this->validate() ) {
+			$data['your_quantity'] = $this->language->get('your_quantity');
+			$data['your_name'] = $this->language->get('your_name');
+			$data['your_email'] = $this->language->get('your_email');
+			$data['your_phone'] = $this->language->get('your_phone');
+			$data['your_product_name'] = $this->language->get('your_product_name');
+			$mail = new Mail();
+			$mail->protocol = $this->config->get('config_mail_protocol');
+			$mail->parameter = $this->config->get('config_mail_parameter');
+			$mail->smtp_hostname = $this->config->get('config_mail_smtp_hostname');
+			$mail->smtp_username = $this->config->get('config_mail_smtp_username');
+			$mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
+			$mail->smtp_port = $this->config->get('config_mail_smtp_port');
+			$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
 
-            $mail->setTo($this->config->get('config_email'));
-            $mail->setFrom($this->request->post['email']);
-            $mail->setSender(html_entity_decode($data['your_name'].' : '.$this->request->post['name'], ENT_QUOTES, 'UTF-8'));
-            $mail->setSubject(html_entity_decode(sprintf($data['your_email'], $this->request->post['email']), ENT_QUOTES, 'UTF-8'));
-            $mail->setText($data['your_name'].' : '.$this->request->post['name']."\r\n".$data['your_email'].' : '.$this->request->post['email']."\r\n".$data['your_phone'].' : '.$this->request->post['phone']."\r\n".$data['your_quantity'].' : '.$this->request->post['quantity']);
-            $mail->send();
+			$mail->setTo($this->config->get('config_email'));
+			$mail->setFrom($this->request->post['email']);
+			$mail->setSender(html_entity_decode($data['your_name'].' : '.$this->request->post['name'], ENT_QUOTES, 'UTF-8'));
+			$mail->setSubject(html_entity_decode(sprintf($data['your_email'], $this->request->post['email']), ENT_QUOTES, 'UTF-8'));
+			$mail->setText($data['your_name'].' : '.$this->request->post['name']."\r\n".$data['your_email'].' : '.$this->request->post['email']."\r\n".$data['your_phone'].' : '.$this->request->post['phone']."\r\n"."\r\n".$data['your_quantity'].' : '.$this->request->post['quantity']);
+			$mail->send();
 
-            $this->response->redirect($this->url->link('information/contact/success'));
-        }
+			$this->response->redirect($this->url->link('information/contact/success'));
+		}
         // send email request to server
 
 
@@ -219,6 +219,19 @@ class ControllerCheckoutCart extends Controller {
             }
 
 
+	//		if (isset($this->request->post['product_name'])) {
+	//			$data['product_name'] = $this->request->post['product_name'];
+	//		} else {
+	//		$data['product_name'] ='';
+		//	}
+
+
+		//	if (isset($this->error['product_name'])) {
+	//			$data['error_product'] = $this->error['product_name'];
+	//		} else {
+	//			$data['error_product'] = '';
+		//	}
+
             if (isset($this->request->post['email'])) {
                 $data['email'] = $this->request->post['email'];
             } else {
@@ -275,6 +288,8 @@ class ControllerCheckoutCart extends Controller {
 
 
             $products = $this->cart->getProducts();
+
+			//print_r($products);
 
        //     print_r($products);
 			foreach ($products as $product) {
@@ -536,8 +551,6 @@ class ControllerCheckoutCart extends Controller {
 
     protected function validate() {
 
-
-
         if ((utf8_strlen($this->request->post['phone']) < 8) || (utf8_strlen($this->request->post['phone']) > 8)  || (is_nan($this->request->post['phone'])) ) {
             $this->error['phone'] = $this->language->get('error_phone');
         }
@@ -553,6 +566,10 @@ class ControllerCheckoutCart extends Controller {
         if ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
             $this->error['email'] = $this->language->get('error_email');
         }
+
+	//	if ((utf8_strlen(trim($this->request->post['product_name'])) < 1) || (utf8_strlen(trim($this->request->post['product_name'])) > 32)) {
+	//		$this->error['product_name'] = $this->language->get('error_product');
+	//	}
 
         return !$this->error;
     }

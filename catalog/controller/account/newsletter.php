@@ -64,7 +64,7 @@ class ControllerAccountNewsletter extends Controller {
 		$this->response->setOutput($this->load->view('account/newsletter', $data));
 	}
     
-    public function SubscribeNewsletter()
+    public function subscribeNewsletter()
     {
         $this->load->language('account/newsletter');
         $this->load->model('account/customer');

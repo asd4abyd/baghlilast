@@ -806,9 +806,7 @@ var newsletter=$('#newsletter').val();
             $('#newsletter').val('');
         }});      
          
-         
-         
-    
+
 });
         });
         
