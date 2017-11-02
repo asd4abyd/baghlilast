@@ -162,6 +162,7 @@ class ControllerCommonHeader extends Controller {
 
 
 
+
         //end add by ghole
         
         if (isset($this->request->get['manufacturer_id'])) {

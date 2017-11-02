@@ -428,17 +428,31 @@ $index++;
 
                 <li id="padmenu">
 
-                    <a id="arrow" href="" class="dpDown-main-a dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a  href="" class="dpDown-main-a dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <span class="wholesalePic"></span>&nbsp <?= $text_wholesale ?>
                     </a>
 
                     <ul class="dropdown-menu multi-level">
 
 
-                        <?php if(isset($Categories_childern_products[2]['children'])){ ?>
+                        <?php if(isset($Categories_childern_products[1]['children'])){ ?>
 
 
-                        <?php foreach($Categories_childern_products[2]['children'] as $oneCategory2){ ?>
+<!-- whol sale issu in arabic -->
+<?php if($lang=="en") {
+
+$caten=$Categories_childern_products[2]['children'];
+
+}else {
+
+   $caten =$Categories_childern_products[1]['children'];
+}
+
+
+    ?>
+
+
+                        <?php foreach($caten as $oneCategory2){ ?>
 
 
                         <li class="dropdown-submenu">

@@ -175,7 +175,7 @@
 
                 <?php // print_r($product_quantity); ?>
 
-              <div class="list-price-div"><b><?= $quantity_text?> : </b><span><?php echo $product_quantity ?></span></div>
+              <div class="list-price-div"><b><?= $quantity_text?> : </b><span><?php echo $product['avalabile'];?></span></div>
               <?php } ?>
 
      <?php // print_r($product['option']);die(); ?>

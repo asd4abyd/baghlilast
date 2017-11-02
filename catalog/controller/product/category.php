@@ -3,7 +3,6 @@ class ControllerProductCategory extends Controller {
     public function index() {
 
 
-
         $this->load->language('product/category');
 
         $this->load->model('catalog/category');
@@ -201,7 +200,22 @@ class ControllerProductCategory extends Controller {
 
             $data['categories'] = array();
 
-            $results = $this->model_catalog_category->getCategories($category_id);
+$dataCategoriesWithSortSearch=[
+'category_id'=>$category_id,
+'search'=>array_key_exists('search', $this->request->get)? $this->request->get['search']:'',
+'sort'=>array_key_exists('sort', $this->request->get)? $this->request->get['sort']:'c.sort_order-asc',
+];
+//die(var_dump($dataCategoriesWithSortSearch));
+$sortByList=[
+    'c.sort_order-asc'=>$this->language->get('text_default'),
+'cd.name-asc'=>$this->language->get('text_name_asc'),
+'cd.name-desc'=>$this->language->get('text_name_desc'),
+];
+$data['sortByList']=$sortByList;
+
+$data['pageLink']=$this->url->link('product/category', '');
+
+            $results = $this->model_catalog_category->getCategoriesWithSortSearch($dataCategoriesWithSortSearch);
 
 
 
@@ -224,7 +238,8 @@ class ControllerProductCategory extends Controller {
             $filter_data = array(
                 'filter_category_id' => $category_id,
                 'filter_filter'      => $filter,
-                'sort'               => $sort,
+                'filter_name'      => array_key_exists('search',$this->request->get)?$this->request->get['search']:'',
+                'sort'               => array_key_exists('sort',$this->request->get)?$this->request->get['sort']:'',
                 'order'              => $order,
                 'start'              => ($page - 1) * $limit,
                 'limit'              => $limit
@@ -232,7 +247,7 @@ class ControllerProductCategory extends Controller {
 
             $product_total = $this->model_catalog_product->getTotalProducts($filter_data);
 
-            if (isset($this->request->post['search'])  && $this->request->post['search']!= null) {
+            if (  false && isset($this->request->post['search'])  && $this->request->post['search']!= null) {
                 $search=$this->request->post['search'];
 
              //  echo $category_id;
@@ -353,6 +368,7 @@ class ControllerProductCategory extends Controller {
 
                 }
             }else{
+  
                 $results = $this->model_catalog_product->getProducts($filter_data);
 //print_r($results);
                 foreach ($results as $result) {
