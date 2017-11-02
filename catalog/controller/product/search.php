@@ -45,9 +45,9 @@ class ControllerProductSearch extends Controller {
 		$this->load->model('catalog/category');
 if(isset($this->request->get['search'] ) && $this->request->get['search_type']="category" ){
 	
-	$search_result = $this->model_catalog_category->getCategoryBySearchName($this->request->get['search']);
+	// $search_result = $this->model_catalog_category->getCategoryBySearchName($this->request->get['search']);
 	
-foreach ($search_result as $oneCategory) {$category_id=$oneCategory;break;}
+// foreach ($search_result as $oneCategory) {$category_id=$oneCategory;break;}
 }
 
 		if (isset($this->request->get['sub_category'])) {
@@ -105,9 +105,9 @@ foreach ($search_result as $oneCategory) {$category_id=$oneCategory;break;}
 			$url .= '&tag=' . urlencode(html_entity_decode($this->request->get['tag'], ENT_QUOTES, 'UTF-8'));
 		}
 		
-		if (isset($this->request->get['search_type'])) {
-			$url .= '&search_type=' . urlencode(html_entity_decode($this->request->get['search_type'], ENT_QUOTES, 'UTF-8'));
-		}
+		// if (isset($this->request->get['search_type'])) {
+		// 	$url .= '&search_type=' . urlencode(html_entity_decode($this->request->get['search_type'], ENT_QUOTES, 'UTF-8'));
+		// }
 
 		if (isset($this->request->get['description'])) {
 			$url .= '&description=' . $this->request->get['description'];
@@ -227,7 +227,7 @@ foreach ($search_result as $oneCategory) {$category_id=$oneCategory;break;}
 				'order'               => $order,
 				'start'               => ($page - 1) * $limit,
 				'limit'               => $limit,
-				'search_type'		  => $search_type,
+				//'search_type'		  => $search_type,
 			);
 
 			$product_total = $this->model_catalog_product->getTotalProducts($filter_data);
