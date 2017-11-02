@@ -283,9 +283,7 @@ class ControllerCheckoutCart extends Controller {
 				$product_info = $this->model_catalog_product->getProduct($product['product_id']);
 
 				//print_r($product_info);
-                $data['product_quantity']=$product_info['quantity'];
-
-
+               // $data['product_quantity']=$product_info['quantity'];
 
 				$data['logged'] = $this->customer->isLogged();
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
@@ -388,6 +386,7 @@ class ControllerCheckoutCart extends Controller {
                     'name'      => $product['name'],
                     'description' => htmlspecialchars_decode(substr($product['description'],0,300)). '...',
                     'model'     => $product['model'],
+                    'avalabile'	=>	$product_info['quantity'],
                     'option'    => $option_data,
                     'recurring' => $recurring,
                     'quantity'  => $product['quantity'],

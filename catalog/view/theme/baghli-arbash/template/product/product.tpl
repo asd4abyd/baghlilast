@@ -598,7 +598,7 @@
       data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
       dataType: 'json',
       beforeSend: function() {
-        $('#button-cart').button('loading');
+       // $('#button-cart').button('loading');
       },
       complete: function() {
         $('#button-cart').button('reset');
