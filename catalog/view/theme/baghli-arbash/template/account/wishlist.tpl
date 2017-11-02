@@ -90,7 +90,8 @@ $(function(){
                     <div class="qnty">
                       <strong><?= $Quantity ?></strong>
                         <div class="input-group spinner">
-                          <input class="form-control"  type="text"  id="input-quantity"  value="<?= $product['minmum'] ?>" name="quantity"  size="2">
+
+                          <input class="form-control"  type="text"  id="input_quantity_<?=$product['product_id'];?>"  value="<?= $product['minmum'] ?>" name="quantity"  size="2">
                           <div class="input-group-btn-vertical">
                             <button class="btn" type="button"><i class="fa fa-caret-up"></i></button>
                             <button class="btn q-down" type="button"><i class="fa fa-caret-down"></i></button>
@@ -184,10 +185,10 @@ $(function(){
                 <div>
                 <div class="col-md-6 s" >
                    <div class="add-crt ">
-            <input id="button-cart" onclick="cart.add('<?php echo $product['product_id'];?>')" value="<?= $addtocart?>" class="btn_wrap add_algn" type="button"  <?php if($stock_css_class!='lightgrn'){echo 'disabled=""';} ?>>
+            <input id="button-cart"  data-product_id="<?=$product['product_id'];?>"  value="<?= $addtocart?>" class="btn_wrap add_algn button-cart" type="button"  <?php if($stock_css_class!='lightgrn'){echo 'disabled=""';} ?>>
           </div>
                      <div class="add-crt">
-                    <input name="" onClick="window.location.href='<?php echo $product['remove']; ?>'" type="button" value="<?= $Delete ?>" class="btn_wrap delte">
+                    <input name=""   onClick="window.location.href='<?php echo $product['remove']; ?>'" type="button" value="<?= $Delete ?>" class="btn_wrap delte">
                     </div>
         </div>
         </div>
@@ -361,11 +362,12 @@ _colors=$('._select_color_drop li');
     };
   </script>
   <script type="text/javascript"><!--
-$('#button-cart').on('click', function() {
+$('.button-cart').on('click', function() {
+  var product_id=$(this).data('product_id');
   $.ajax({
     url: 'index.php?route=checkout/cart/add',
     type: 'post',
-    data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
+    data: {'product_id':product_id,'quantity':$('#input_quantity_'+product_id).val()},
     dataType: 'json',
     beforeSend: function() {
       $('#button-cart').button('loading');
@@ -374,7 +376,9 @@ $('#button-cart').on('click', function() {
       $('#button-cart').button('reset');
     },
     success: function(json) {
-window.location.href='http://localhost/baghli/index.php?route=account/wishlist&remove=products[product_id]';
+
+window.location.href='http://localhost/baghli/index.php?route=account/wishlist&remove='+product_id;
+
       $('.alert, .text-danger').remove();
       $('.form-group').removeClass('has-error');
 

@@ -78,7 +78,9 @@
                 //  callAccount();change_password
                 // alert($data);
                 $("#image-loading").hide();
-                $("#change_password").before("<div class='alert alert-success' id='personal-information-success'><a href='#' class='close' data-dismiss='alert'>&times;</a>Your password has been successfully updated .</div>");
+
+
+              
 
             }
         });
@@ -94,6 +96,10 @@
             alert("Passwords don't Match!!!");
             ok = false;
 
+        }
+
+        else{
+  $("#change_password").after("<div class='alert alert-success' id='personal-information-success'><a href='#' class='close' data-dismiss='alert'>&times;</a>Your password has been successfully updated .</div>");
         }
 
         return ok;
@@ -231,7 +237,7 @@
                        
                         <td><i><?= $Mobile ?> <span class="req">* </span></i></td>
                         
-                        <td><input  type="tel" name="mobile" value="<?php echo $mobile; ?>" class="form-control numeric"></td>
+                        <td><input  type="tel" name="mobile" value="<?php echo $mobile; ?>" class="form-control numeric" required></td>
                      
                       </tr>
                       

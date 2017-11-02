@@ -160,6 +160,7 @@ class ControllerCheckoutPaymentMethod extends Controller {
 		$data['button_continue'] = $this->language->get('button_continue');
 
         $this->load->language('extension/module/couponcheckout');
+        $data['button_continue'] = $this->language->get('button_continue');
         $data['coupon_heading_title'] =  $this->language->get('coupon_title');
         $data['entry_coupon'] = $this->language->get('text_coupon_entry');
 

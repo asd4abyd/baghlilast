@@ -18,7 +18,7 @@
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
       <h1><?php echo $heading_title; ?></h1>
       
-            <?php // var_dump($orders);die ?>
+           
 
 
       <?php if ($orders) { ?>
@@ -37,12 +37,12 @@
           </thead>
           <tbody>
 
-          <?php print_r($orders) ?>
             <?php foreach ($orders as $order) { ?>
 
 
             <tr>
               <td class="text-right">#<?php echo $order['order_id']; ?></td>
+              <td class="text-right"> <?php echo $order['name']; ?> </td>
               <td class="text-right"><?php echo $order['products']; ?></td>
               <td class="text-left"><?php echo $order['status']; ?></td>
                 <td class="text-right"><?php echo $order['total']; ?></td>

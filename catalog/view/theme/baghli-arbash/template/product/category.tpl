@@ -58,7 +58,7 @@
                     <div class="col-sm-6">
                         <?= $text_sort ?>
 
-                        <select class="form-control"  id="input-sort" onchange="location = this.value";>
+                        <select class="form-control"  id="input-sort" onchange="location = this.value" name="sort" ;>
 
 
 
@@ -84,7 +84,7 @@
             <?php  foreach ($categories as $category) { ?>
 
 
-            <?php // print_r ($category['id']==101); ?>
+     
 
             <div class="col-sm-12 col-md-4 img">
                 <div class="row brands-page">
@@ -202,7 +202,7 @@
                                             <div class="input-group-btn-vertical">
                                                 <button class="btn" type="button"><i class="fa fa-caret-up"></i></button>
                                                 <button class="btn q-down" type="button"><i class="fa fa-caret-down"></i></button>
-                                                <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>" />
+                                                <input id  type="hidden" name="product_id" value="<?= $product['product_id']  ?>" min="1" size="1"  />
 
                                             </div>
                                         </div>
@@ -374,7 +374,9 @@
             <?php // }} ?>
 
 
-            <?php if (isset($cateSearchries) && isset($products)&&!$cateSearchries && !$products) { ?>
+
+            <?php if (isset($cateSearchries) && isset($products) && !$cateSearchries && !$products) { ?>
+
             <p><?php echo $text_empty; ?></p>
             <div class="buttons">
                 <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
@@ -814,18 +816,25 @@
 
 
             spinner.find('input').val( parseInt(spinner.find('input').val(), 10) );
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 2cf404311c485c9d38263115d4065daf46d5e291
         });
 
 
 
         $('.spinner .btn:last-of-type').on('click', function() {
             var spinner=$(this).parent().parent();
+<<<<<<< HEAD
+            spinner.find('input').val( parseInt(spinner.find('input').val(), 10) );
+=======
             var newValue= parseInt(spinner.find('input').val(), 10) ;
             newValue=(newValue <1 )? 1:newValue;
             spinner.find('input').val(newValue);
 
+>>>>>>> 2cf404311c485c9d38263115d4065daf46d5e291
         });
 
 
@@ -841,11 +850,22 @@
     });
 
 
+<<<<<<< HEAD
+    $('.q-down').click(function(){
+        if($('#input-quantity').val() == 0){
+            $('#input-quantity').val('1');
+        }else{
+                        $('#input-quantity').val('1');
+
+        }
+    });
+=======
 //    $('.q-down').click(function(){
 //        if($('#input-quantity').val() == 0){
 //            $('#input-quantity').val('1');
 //        }
 //    });
+>>>>>>> 2cf404311c485c9d38263115d4065daf46d5e291
 
 
 
