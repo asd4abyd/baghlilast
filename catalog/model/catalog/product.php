@@ -234,6 +234,7 @@ public function getlikes($product_id)
 		);
 
 		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
+
 			if ($data['sort'] == 'pd.name' || $data['sort'] == 'p.model') {
 				$sql .= " ORDER BY LCASE(" . $data['sort'] . ")";
 			} elseif ($data['sort'] == 'p.price') {
@@ -241,13 +242,24 @@ public function getlikes($product_id)
 			} else {
 				$sql .= " ORDER BY " . $data['sort'];
 			}
-		} else {
+
+		}elseif(isset($data['sort']) && (strrpos($data['sort'],'-asc') >0 || strrpos($data['sort'],'-desc')>0 )){
+		
+			$sortArray=explode('.',$data['sort']);
+	
+		$newSortArray=explode('-',$sortArray[1]);
+
+$order=str_replace('c','p', $sortArray[0]) .'.'.$newSortArray[0];
+				$sql .= " ORDER BY " .$order.' '.$newSortArray[1];
+		
+
+				} else {
 			$sql .= " ORDER BY p.sort_order";
 		}
 
 		if (isset($data['order']) && ($data['order'] == 'DESC')) {
 			$sql .= " DESC, LCASE(pd.name) DESC";
-		} else {
+		} else if(!(isset($data['sort']) && (strrpos($data['sort'],'-asc') >0 || strrpos($data['sort'],'-desc')>0 ))) {
 			$sql .= " ASC, LCASE(pd.name) ASC";
 		}
 
@@ -286,7 +298,9 @@ public function getlikes($product_id)
 		);
 
 		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
+
 			if ($data['sort'] == 'pd.name' || $data['sort'] == 'p.model') {
+
 				$sql .= " ORDER BY LCASE(" . $data['sort'] . ")";
 			} else {
 				$sql .= " ORDER BY " . $data['sort'];

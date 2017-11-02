@@ -37,43 +37,42 @@
 
             <div class="sort pull-right">
                 <div class="row">
-
+  <form action="<?=$pageLink;?>" method="get" class="input-group" id="categorySearchSub">
+<input type="hidden" name="route" value="<?=(isset($_GET['route']))? $_GET['route']:'';?>" />
+<input type="hidden" name="path" value="<?=(isset($_GET['path']))? $_GET['path']:'';?>" />
                     <div class="col-sm-6 sort-search">
                         <div class="input-group"><!-- /input-group -->
-                            <form action="" method="Post" class="input-group">
-
-                                <input  type="text" value="<?=array_key_exists('search',$_POST)? $_POST['search']:'' ;?>" class="form-control" name="search" placeholder="<?= $search ?>">
+                          
+                                <input  type="text" value="<?=array_key_exists('search',$_GET)? $_GET['search']:'' ;?>" class="form-control" name="search" placeholder="<?= $search ?>">
                                 <div class="input-group-btn">
                                     <button class="btn btn-default" style="margin-top:0;" type="submit"><?= $Go?></button>
                                 </div>
 
-                            </form>
                         </div><!-- /input-group -->
                     </div>
 
-                    <?php // print_r($sorts); ?>
 
 
 
                     <div class="col-sm-6">
-                        <?= $text_sort ?>
 
-                        <select class="form-control"  id="input-sort" onchange="location = this.value" name="sort" ;>
+                        <select  style=" float:right;"class="form-control"  id="input-sort" onchange="$('#categorySearchSub').submit();" name="sort" ;>
 
-
-
-                            <?php foreach ($sorts as $sorts) { ?>
-                            <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
-
-                            <option value="<?php echo $sorts['href']; ?>" selected="selected"><?php echo $sorts['text']; ?> </option>
-                            <?php } else { ?>
-                            <option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
-                            <?php } ?>
-                            <?php } ?>
+<?php foreach($sortByList as $sortKey=>$sortValue){ ?>
+<option value="<?=$sortKey;?>" 
+    <?=(isset($_GET['sort']) && $sortKey==$_GET['sort'])? 'selected':'';?>
+    ><?=$sortValue;?></option>
+ <?php }?>
 
                         </select>
 
+                        <?= $text_sort ?>
                     </div>
+                            </form>
+
+
+
+
                 </div>
             </div>
         </div>
@@ -84,7 +83,6 @@
             <?php  foreach ($categories as $category) { ?>
 
 
-     
 
             <div class="col-sm-12 col-md-4 img">
                 <div class="row brands-page">
@@ -120,7 +118,6 @@
                 <?php if($i%2==1) { ?>
 
                 <?php } ?>
-                <!--product new-->
 
                 <div class="col-md-6 col-sm-6">
 
