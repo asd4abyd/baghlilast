@@ -6,7 +6,7 @@
 $_['heading_title']     = 'دفتر العناوين';
 $_['usrt']                  = 'صفحة';
 $_['PROFILE']               = 'المستخدم';
-$_['Personal_Information'] = ' المعلومات الشخصيه';
+$_['Personal_Information'] = 'المعلومات الشخصية';
 // Text
 $_['text_account']      = 'الحساب';
 $_['text_address_book'] = 'قائمة دفتر العناوين';

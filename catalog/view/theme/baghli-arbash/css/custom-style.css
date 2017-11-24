@@ -2,8 +2,8 @@
 @charset "utf-8";
 /* CSS Document */
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button {  
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
 
    opacity: 1;
 }
@@ -461,7 +461,7 @@ ul.log-area li{
 }
 .tips-area-cvr ul li{
 	margin-top:15px;
-	
+
 }
 .updatetips ul li{
 	color:#333;
@@ -671,7 +671,7 @@ footer .copyright{
 	line-height:57px;
 }
 .inner-page h4, .inner-page h4 a{
-	font-size:19px;
+	font-size:18px;
 	font-family: 'Roboto Condensed';
 	color:#be1e2d;
 }
@@ -1297,6 +1297,8 @@ span.req {
 }
 .sort .sort-search .form-control{
 	max-width:100%;
+	z-index: 1;
+	position: relative;
 }
 .sort .btn{
 	margin-top:-4px;
@@ -1599,6 +1601,7 @@ ul.sitemap li ul li{
 		width: 100%;
 		margin-bottom: 0;
 		margin-left: -15%;
+		z-index: -999;
 
 	}
 	.srch_sub {
@@ -1665,7 +1668,7 @@ max-width: 100%;
     ul.log-area{   padding-right: 0px !important;
     padding-left: 0px !important;    width: 100%;
 }
-     
+
 	}
 
 
@@ -1700,8 +1703,8 @@ max-width: 100%;
 @media  (max-width: 310px) {
 
     .log-area{  padding-left: 0px;
-    padding-right: 0px;} 
-     
+    padding-right: 0px;}
+
 }
 
 
@@ -1724,7 +1727,7 @@ max-width: 100%;
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
-    
+
 }
 
 
@@ -2123,7 +2126,7 @@ select.siz-clr{    width: 100%; max-width: 200px; padding: 5px 8px; border-radiu
 .list-imageNew{position: relative;}
 
 .list-imageNew img{width: 100%;  border: 1px solid #ededed;margin-top: 10px;     }
-.subTotal-div{background: #f4f4f4; padding: 15px; border-radius: 11px; margin-top: 56px; border: solid 1px #cecece;width: 110%;}
+.subTotal-div{background: #f4f4f4; padding: 15px; border-radius: 11px; margin-top: 56px; border: solid 1px #cecece;width: 110%;    height: 70%;}
 .subTotal-div h4{font-size: 17px; font-weight: 600; color: #5a5a5a; border-bottom: solid 1px #be1e2d; padding-bottom: 25px; padding-top: 6px;}
 .subTotal-div h4 i{font-style: normal; font-size: 15px; font-weight: normal; color: #000;}
 .subTotal-div h4 span{color: #be1e2d; font-size: 20px; float: right;}
@@ -2262,6 +2265,7 @@ tr.brfre_pr td{ color:#be1e2d; font-size:16px;}
 tr.brfre_pr td .overline{ font-size:16px;}
 label a{ text-decoration:underline; color:#00365b; padding:0px 5px;}
 label a:hover{ color:#be1e2d;}
+.subtt{height: 80%}
 .subtt h4{ padding-bottom:15px; padding-left:10px; padding-right:10px;}
 .subtt h4 span{ color:#000;}
 .subtt h4.totall{ background-color:#00365b; margin-top:-10px; padding-top:15px; color:#fff; border-bottom-color:#00365b;}
@@ -2332,7 +2336,7 @@ span.save a.delteee{ color:#000 !important;}
 .innr-banner{ width:100%; height: auto;}
 .innr-banner img{ width:100%; height: auto;}
 .list-imageNew  .demoss img{ width:auto !important; }
-.demoss { width:100% !important; }  
+.demoss { width:100% !important; }
 .srch_sub{ float:left; width: 305px; font-size: 16px !important;}
 .sub_selct{
 
@@ -2381,7 +2385,7 @@ select.view_all::-ms-expand {
 #umay-like  .jq-ry-container{ margin:10px auto;}
 .share_box{ float: right; width: auto; display: inline-block; }
 .share_box h5{ float: left; margin-top: 4px; }
-.share_box ul{ float:left; margin-left: 10px; } 
+.share_box ul{ float:left; margin-left: 10px; }
 .share_box ul li{ float:left; margin: 0px 4px; }
 .share_box ul li:last-child{ margin-right:0px; }
 .share_box ul li a img{ width: 24px; height: auto; }
@@ -2451,7 +2455,7 @@ font-size: 13px ;
 }
 
 @media all and (min-device-width : 326px) and (max-device-width : 481px){
-    
+
     .srch_updte{ margin-left:0px !important; }
 	.share_box{ float:left; width:100%; margin: 30px 0px 10px; }
 	header .input-group {
@@ -2462,7 +2466,7 @@ font-size: 13px ;
 	.srch_updte {
 		height: 38px;
 		width: 50px;
-		
+
 	}
 	.input-group .form-control {
 		position: relative;
@@ -2478,7 +2482,7 @@ font-size: 13px ;
 		width:100% !important;
 		margin-left: 50px;
 	}
-    
+
 }
 
 @media all and (min-device-width : 480px) and (max-device-width : 768px){
@@ -2491,9 +2495,9 @@ font-size: 13px ;
 	.about-new .visionMisiion p{max-width: 100%;}
 	select.siz-clr{max-width: 100%;}
 .list-imageNew{clear: both; margin-top: 15px;}
-	.list-imageNew img{ max-width:auto; }	
-	
-	
+	.list-imageNew img{ max-width:auto; }
+
+
 	.stock_clear form{ float:left; width:100%; margin-top:10px;}
 	.button_card{ font-size:16px; padding:7px 8px;}
 
@@ -2519,7 +2523,7 @@ font-size: 13px ;
 
 @media only screen and (max-width : 767px){
 	.srch_updte{ width:70%;}
-	
+
 }
 
 
@@ -2547,11 +2551,11 @@ font-size: 13px ;
 	.view_all{ width:100%; border-left:1px solid #ddd; float: left; margin-top: 10px; border-radius: 4px; max-width: 130px;}
 	ul.log-area li{ padding:11px 12px; }
     }}
-    
-    
+
+
     @media only screen and (max-width : 780px) and (min-width:295px){
-        
-      
+
+
         .brands-page{
         margin: 2%;
         margin-left: 2%;
@@ -2561,9 +2565,9 @@ font-size: 13px ;
         .bran_details {
     margin: 10%;
 }
-        
+
         .input-group .form-control{
-               
+
     z-index: 2;
     float: left;
     width: 100%;
@@ -2572,7 +2576,7 @@ font-size: 13px ;
     border-right: 1px solid #be1e2d;
             margin-left: 0%;
 
-            
+
         }
         .updte_design{
                 padding-right: 25px !important;
@@ -2582,58 +2586,58 @@ font-size: 13px ;
                 padding-right: 25px !important;
     padding-left: 27px !important;
         }
-        
-        
+
+
     }
 
 @media only screen and (max-width : 576px) and (min-width : 320px){
-    
+
     .srch_updte{ display: inherit;
     margin-left: 30px !important;
         }
-    
+
         header .input-group{  float: right;}
 
 
-          
+
     .srch_updte .input-group-addon{
         float: right ;
         height: 38px !important;
         width: 43px !important ;
     }
-    
-      
-    
+
+
+
 }
 
 @media only screen and (max-width : 576px) and (min-width : 295px){
-    
+
     .input-group-addon {
         float: right !important ;
-        
+
     }
 }
 
 
 
 @media only screen and (max-width : 576px) and (min-width : 295px){
-    
+
     .srch_updte{ display: inherit;
     margin-left: 30px !important;
         }
-    
+
         header .input-group{  float: right;}
     .srch_sub span{
-        
+
     }
-          
+
     .srch_updte .input-group-addon{
         float: none;
         height: 38px !important;
         width: 43px !important ;
     }
-      
-    
+
+
 }
 
 
@@ -2723,6 +2727,10 @@ ul.log-area li:first-child
 
 .bran_details h4 {
 	font-weight: bold;
+}
+
+.bran_details{
+	min-height: 58px;
 }
 
 .ban_title {
@@ -2890,18 +2898,19 @@ ul.log-area li:first-child
 	border-radius: 6px 0 6px 6px;
 }
 .prodCat {
-	display: nonel
+	display: none;
 }
 /*NewCSS*/
 
 
 .wMore {
 	width: 910px;
-	
+
 }
 .wMore li {
-	width: 25%;
-	float: left;
+	width: 33%;
+	max-width: 33%;
+	vertical-align: top;
 }
 .wMore li a {
 	border: none;
@@ -2924,9 +2933,7 @@ ul.log-area li:first-child
 	margin-left: 20px;
 	margin-right: 20px;
 }
-.wMore li:nth-child(4n+1) {
-	clear: both;
-}
+
 
 
 
@@ -2954,7 +2961,7 @@ ul.log-area li:first-child
 	max-width: 100%;/*background: #fff;*//*border: solid 1px #e4e4e4;*/
 }
 }
-    
+
     .dropdown-submenu>.dropdown-menu {
 	top: 0;
 	left: 100%;
@@ -2964,10 +2971,12 @@ ul.log-area li:first-child
 	-moz-border-radius: 0 6px 6px;
 	border-radius: 0 6px 6px 6px;
 }
-    
+
     .dropdown-submenu:hover>.dropdown-menu {
-	display: block;
-}
+
+	display: grid;
+		width: 200%;
+	}
 
 
 
@@ -3113,4 +3122,10 @@ background: url(../images/dp-aro.png)no-repeat 98% 32px;
 	height: 30px;
 	background-color: #ededed;
 	border: none;
+}
+
+
+label > input {
+
+	position: inherit; !important;
 }

@@ -15,7 +15,7 @@
             <div class="pro_exdt">
                 <h3><?php echo $product['name']; ?></h3>
                 <h4><?php echo $product['total']; ?> <span></span></h4>
-                <h5>Qty : <?php echo $product['quantity']; ?></h5>
+                <h5><?php echo $Qty; ?> <?php echo $product['quantity']; ?></h5>
 
             </div>
             <a href="#" class="close_btn"></a>

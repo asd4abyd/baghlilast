@@ -39,6 +39,8 @@ $_['BEFORE']                   =  'BEFORE';
 
 $_['votes']                  ='votes';
 $_['share_now']                  ='Share now :';
+$_['customer_service']           ='Customer  Reviews';
+
 
 
 

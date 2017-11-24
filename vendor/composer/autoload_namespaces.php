@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
+    'PHPExcel' => array($vendorDir . '/phpoffice/phpexcel/Classes'),
     'Divido' => array($vendorDir . '/divido/divido-php/lib'),
     'Braintree' => array($vendorDir . '/braintree/braintree_php/lib'),
 );

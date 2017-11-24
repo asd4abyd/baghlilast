@@ -48,6 +48,8 @@ class ControllerCommonCart extends Controller {
 		}
 
 		$data['text_empty'] = $this->language->get('text_empty');
+		$data['Qty'] = $this->language->get('Qty');
+
 		$data['text_cart'] = $this->language->get('text_cart');
 		$data['text_checkout'] = $this->language->get('text_checkout');
 		$data['text_recurring'] = $this->language->get('text_recurring');

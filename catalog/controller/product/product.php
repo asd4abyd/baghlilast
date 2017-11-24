@@ -297,17 +297,25 @@ class ControllerProductProduct extends Controller {
 			$data['entry_bad'] = $this->language->get('entry_bad');
 
             $data['entry_rem'] = $this->language->get('entry_rem');
-            $data['select_color'] = $this->language->get('select_color');
+			$data['customer_service'] = $this->language->get('customer_service');
+
+			$data['select_color'] = $this->language->get('select_color');
+
+
+			$data['continue'] = $this->url->link('common/home');
 
 
 
-            $data['button_cart'] = $this->language->get('button_cart');
+
+			$data['button_cart'] = $this->language->get('button_cart');
 			$data['button_wishlist'] = $this->language->get('button_wishlist');
 			$data['button_compare'] = $this->language->get('button_compare');
 			$data['button_upload'] = $this->language->get('button_upload');
 			$data['button_continue'] = $this->language->get('button_continue');
 
-            $data['text_customer_review'] = $this->language->get('text_customer_review');
+			$data['continue'] = $this->url->link('common/home');
+
+			$data['text_customer_review'] = $this->language->get('text_customer_review');
 
 
             $this->load->model('catalog/review');
@@ -371,6 +379,8 @@ class ControllerProductProduct extends Controller {
 					 'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_additional_width'), $this->config->get($this->config->get('config_theme') . '_image_additional_height'))
 				);
 			}
+
+		//	print_r($this->config->get($this->config->get('config_theme') . '_image_additional_width'));die();
 			$data['logged'] = $this->customer->isLogged();
 			if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
 				$data['price'] = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
@@ -559,6 +569,7 @@ class ControllerProductProduct extends Controller {
 				);
 			}
 
+
 			$data['tags'] = array();
 
 			if ($product_info['tag']) {
@@ -661,6 +672,7 @@ class ControllerProductProduct extends Controller {
 			$data['button_continue'] = $this->language->get('button_continue');
 
 			$data['continue'] = $this->url->link('common/home');
+
 
 
 			$this->response->addHeader($this->request->server['SERVER_PROTOCOL'] . ' 404 Not Found');

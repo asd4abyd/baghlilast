@@ -1,15 +1,50 @@
 <?php echo $header; ?>
 
 <script  type="text/javascript">
-    
 
+
+    $( document ).ready(function() {
+        $('.image-loading1').hide();
+        $('.image-loading2').hide();
+
+    });
     function editInformation()
     {
-        $("#image-loading").show();
-        $("#personal-information-success").hide();
+        var errors = 0;
+        var numeric = $('#numeric').val();
+        var full_name = $('#full_name').val();
+        var email = $('#email').val();
+
+     //   $("#image-loading").show();
+
+        if((full_name.length == 0) || (email.length==0) || (numeric.length==0)) {
+            errors = 2;
+        }else{
+           if  (( numeric.length < 10)||(numeric.length > 12))
+                errors = 1;
+        }
+        $(".alert-danger").hide();
+        if(errors>0) {
+            $(".image-loading1").hide();
+            $(".alert-success").hide();
+
+
+            $(".alert-danger").show();
+            if (errors == 2){
+
+                $("#information-data").before("<div class='alert alert-danger' id='personal-information-success'><a href='#' class='close' data-dismiss='alert'>&times;</a><?php echo $required_information; ?></div>");
+                $('.alert-danger').delay(1000).fadeOut();
+            }else {
+                $("#information-data").before("<div class='alert alert-danger' id='personal-information-success'><a href='#' class='close' data-dismiss='alert'>&times;</a><?php echo $mobile_validate; ?></div>");
+                $('.alert-danger').delay(1000).fadeOut();
+            }
+            return false;
+        }
+
 
         var data = $('#information-data').serialize();
-        //alert(data);
+        // alert(data);
+        $(".image-loading1").show();
 
         $.ajax({
             url: 'index.php?route=account/edit',
@@ -19,9 +54,14 @@
 
             //success: success,
             success: function(data) {
-                //alert('Success');
-                $("#image-loading").hide();
-                $("#information-data").before("<div class='alert alert-success' id='personal-information-success'><a href='#' class='close' data-dismiss='alert'>&times;</a>Your personal information has been successfully updated .</div>");
+            //    console.log(data);
+
+
+                $("#information-data").before("<div class='alert alert-success' id='personal-information-success'><a href='#' class='close' data-dismiss='alert'>&times;</a><?php echo $personal_info_success; ?></div>");
+                $('.alert-success').delay(1000).fadeOut();
+                $(".image-loading1").hide();
+
+
 
             }
     }) ;
@@ -62,57 +102,49 @@
 
 
   //  }
-       function changepassword()
+    function changepassword()
     {
-
-        $.ajax({
-            url: 'index.php?route=account/password',
-
-            type: 'post',
-
-            data: $('#change_password').serialize(),
-
-
-            success: function(data) {
-
-                //  callAccount();change_password
-                // alert($data);
-                $("#image-loading").hide();
-
-
-              
-
-            }
-        });
 
 
         var pass1 = document.getElementById("pass1").value;
         var pass2 = document.getElementById("pass2").value;
-        var ok = true;
-        if (pass1 != pass2) {
-            //alert("Passwords Do not match");
-            document.getElementById("pass1").style.borderColor = "#e30000";
-            document.getElementById("pass2").style.borderColor = "#e30900";
-            alert("Passwords don't Match!!!");
-            ok = false;
+        var error_no = 0;
 
+        if(pass1.length==0){
+
+            $("#change_password").after("<div class='alert alert-danger' id='personal-information-success'><a href='#' class='close' data-dismiss='alert'>&times;</a><?php echo $enter_password; ?></div>");
+            $('.alert-danger').delay(1000).fadeOut();
+            return false;
+        }else{
+            if (pass1 != pass2)  {
+                $(".alert-success").hide();
+                document.getElementById("pass1").style.borderColor = "#e30000";
+                document.getElementById("pass2").style.borderColor = "#e30900";
+
+                $("#change_password").after("<div class='alert alert-danger' id='personal-information-success'><a href='#' class='close' data-dismiss='alert'>&times;</a><?php echo $not_match; ?></div>");
+                $('.alert-danger').delay(1000).fadeOut();
+                return false;
+            }
         }
 
-        else{
-  $("#change_password").after("<div class='alert alert-success' id='personal-information-success'><a href='#' class='close' data-dismiss='alert'>&times;</a>Your password has been successfully updated .</div>");
-        }
-
-        return ok;
-        
 
 
-        
-        $("#image-loading").show();
         $("#personal-information-success").hide();
-
+        $('.image-loading2').show();
         var data = $('#change_password').serialize();
-        //alert(data);
+        $.ajax({
+            url: 'index.php?route=account/password',
+            type: 'post',
+            data: $('#change_password').serialize(),
+            success: function(data) {
+                $("#change_password").after("<div class='alert alert-success' id='personal-information-success'><a href='#' class='close' data-dismiss='alert'>&times;</a><?php echo $change_pass; ?></div>");
+                $('.image-loading2').hide();
+                $('.alert-success').delay(1000).fadeOut();
 
+                return true;
+
+            }
+        });
 
 
 
@@ -196,11 +228,30 @@
 			</div>
 		</div>
 		<div class="col-md-12">
-            <div id="personal_info">
 
-            <div class="profile-content clearfix">
+
+            <div id="personal_info" >
+
+
+                <!-- Personal Information -->
+
+
+
+            <div class="profile-content clearfix" style="position: relative;  width: 100%;   float: left;">
+
+                <div class='image-loading1' style="position: absolute; top:0px; left: 0px;
+                    width: 100%; background: rgba(9,9,9,0.3);">
+                    <i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
+                    <!--<img src="catalog/view/theme/baghli-arbash/images/loading.gif" alt=""> -->
+                    <!--
+                   <img width="50" height="50" src="https://68.media.tumblr.com/695ce9a82c8974ccbbfc7cad40020c62/tumblr_o9c9rnRZNY1qbmm1co1_500.gif" alt="">-->
+                </div>
+
+
             
              <form action="" onsubmit="event.preventDefault();" method="post" enctype="multipart/form-data" class="form-horizontal" id="information-data">
+
+
 
 			   <h4>
 
@@ -209,11 +260,12 @@
              <button onClick="javascript:editInformation();" class="btn btn-primary pull-right"><?= $Edit?></button>
              
               </h4>
-              
+
+
+
                <div class="tbl-scrl">
-                   <div id='image-loading' style="display: none;position: relative;left:50%">
-                       <img width="50" height="50" src="https://68.media.tumblr.com/695ce9a82c8974ccbbfc7cad40020c62/tumblr_o9c9rnRZNY1qbmm1co1_500.gif" alt="">
-                   </div>
+
+
 
                    <table class="prof-info" width="100%" border="0" cellspacing="0" cellpadding="0">
                      
@@ -221,7 +273,7 @@
 
                         <td><i><?= $fullname1 ?><span class="req">* </span></i></td>
                         
-                        <td><input type="text" name='fullname'  value="<?php echo $fullname; ?>"  class="form-control"></td>
+                        <td><input id="full_name" type="text" name='fullname'  value="<?php echo $fullname; ?>"  class="form-control" required></td>
                         
                       </tr>
                       
@@ -229,16 +281,16 @@
                        
                         <td><i><?=$email1?> <span class="req">* </span></i></td>
                         
-                        <td><input type="email" name="email" value="<?php echo $email; ?>" class="form-control " required></td>
+                        <td><input type="email" id="email" name="email" value="<?php echo $email; ?>" class="form-control " required></td>
                         
                       </tr>
                       
                       <tr>
-                       
-                        <td><i><?= $Mobile ?> <span class="req">* </span></i></td>
-                        
-                        <td><input  type="tel" name="mobile" value="<?php echo $mobile; ?>" class="form-control numeric" required></td>
-                     
+
+                        <td><i><?= $Mobile ?> <span class="req">(10-12 numbers)* </span></i></td>
+
+                        <td><input  maxlength="12"  id="numeric" type="tel" name="mobile" value="<?php echo $mobile; ?>" class="form-control numeric" required></td>
+
                       </tr>
                       
                       <tr>
@@ -249,12 +301,19 @@
                     </table>
 
                 </div>
+
                  <input type="hidden" name="edit-ajax" value="true">
                 </form>
+
 
                 <br>
 
                 </div>
+
+
+                <!-- Personal Information -->
+
+
                 
                 
                 <?php // var_dump($address_form); ?>
@@ -277,10 +336,7 @@
                 <div class="tbl-scrl">
                   
                   
-                    <div id='image-loading' style="display: none;position: relative;left:50%">
-                       <!--<img src="catalog/view/theme/baghli-arbash/images/loading.gif" alt=""> -->
-                       <img width="50" height="50" src="https://68.media.tumblr.com/695ce9a82c8974ccbbfc7cad40020c62/tumblr_o9c9rnRZNY1qbmm1co1_500.gif" alt="">
-                    </div>
+
                   
                    <table class="prof-info" width="100%" border="0" cellspacing="0" cellpadding="0">
                      
@@ -511,7 +567,7 @@
                       <?php  } ?>
                 </div><!-- end address -->
             </div>
-
+<!--
                 <div class="add_card">
                 <h4><strong><?= $addc ?></strong> </h4>
                     <div class="sub_cardd">
@@ -570,19 +626,26 @@
                     </div>
 
                 </div>
+
+                -->
                 
 
                 
-                <div class="change_password_profile">
+                <div class="change_password_profile" style="position: relative;  width: 100%;   float: left;">
 
-                <h4> <strong><?=$change?></strong> </h4>
-                
+                    <div class='image-loading2' style="position: absolute; top:0px; left: 0px;
+                    width: 100%; background: rgba(9,9,9,0.16); line-height: 20vw;    text-align: center;height: 100%;">
+                        <i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
+                        <!--<img src="catalog/view/theme/baghli-arbash/images/loading.gif" alt=""> -->
+                        <!--
+                       <img width="50" height="50" src="https://68.media.tumblr.com/695ce9a82c8974ccbbfc7cad40020c62/tumblr_o9c9rnRZNY1qbmm1co1_500.gif" alt="">-->
+                    </div>
+
+                <h4> <strong><?=$text_password?></strong> </h4>
+
                 <div class="tbl-scrl"> 
                 
-                <div id='image-loading' style="display: none;position: relative;left:50%">
-                       <!--<img src="catalog/view/theme/baghli-arbash/images/loading.gif" alt=""> -->
-                       <img width="50" height="50" src="https://68.media.tumblr.com/695ce9a82c8974ccbbfc7cad40020c62/tumblr_o9c9rnRZNY1qbmm1co1_500.gif" alt="">
-                    </div>
+
                  
                  <form action=""  onsubmit="event.preventDefault();" id="change_password">
                   
@@ -591,7 +654,7 @@
 
                       <tr>
                         <td><i><?=$new_p?> <span class="req">* </span></i></td>
-                        <td><input type="password" name="password" value="<?php echo $password;?>" id="pass1" class="form-control" required></td>
+                        <td><input  type="password" name="password" value="<?php echo $password;?>" id="pass1" class="form-control" required></td>
                         
                          <?php if ($error_password) { ?>
               <div class="text-danger"><?php echo $error_password; ?></div>
@@ -664,10 +727,10 @@
                         <div class="orders">
                         <h4 class="clearfix"><?=$p_Order?> <div class="sort pull-right"><?=$SORT?>
                             <select class="form-control">
-                              <option>Best Match</option>
-                                <option>Newest</option>
-                                <option>Most Selling</option>
-                                <option>Most Rated</option>
+                              <option><?php echo $BestMatch; ?></option>
+                                <option><?php echo $Newest; ?></option>
+                                <option><?php echo $MostSelling; ?></option>
+                                <option><?php echo $MostRated; ?></option>
                             </select>
                           </div>
                             
@@ -697,7 +760,7 @@
                                     <td><?php echo $order['status']; ?></td>
                                     <td><?php echo $order['total']; ?></td>
                                     <td><div class="rateyo"></div>
-                                    <a class="review" href="<?php echo $order['view']; ?>">Review</a>
+                                    <a class="review" href="<?php echo $order['view']; ?>"><?php echo $review; ?></a>
                                     </td>
                                   </tr>
                                 

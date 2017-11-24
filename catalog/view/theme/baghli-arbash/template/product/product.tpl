@@ -46,26 +46,25 @@
 
             <div class="thumbnails">
 
-
               <div class="large-5 column">
                 <!-- im -->
                 <div class="xzoom-container">
-                  <img class="xzoom" id="xzoom-default" src="<?php echo $thumb; ?>" xoriginal="<?php echo $popup; ?>" />
+                  <img class="xzoom xactive " id="xzoom-default" src="<?php echo $thumb; ?>" xoriginal="<?php echo $popup; ?>" />
                   <!-- addtional image -->
                   <?php if ($images) { ?>
                   <div class="xzoom-thumbs">
                     <a href="<?php echo $popup; ?>"><img class="xzoom-gallery" style="max-width:76px;" height="76" src="<?php echo $popup; ?>"  ></a>
 
                     <?php foreach ($images as $image) { ?>
-                    <a href="<?php echo $image['popup']; ?>"><img class="xzoom-gallery" style="max-width:76px;"  src="<?php echo $image['thumb']; ?>"  ></a>
+                    <a  href="<?php echo $image['popup']; ?> "><img class="xzoom-gallery xzoom-lens xzoom-loading xactive " style="max-width:76px;" width="80" src="<?php echo $image['thumb']; ?>" ></a>
                     <?php } ?>
                   </div>
                   <?php } ?>
                 </div>  <!-- im -->
               </div>
 
-
               <?php } ?>
+
             </div>
           </div>
       </div>
@@ -321,7 +320,8 @@
                   <input class="but btn-primary" <?php if($logged){ echo 'name="notify-me"'; }else{ echo 'name="login-me"'; } ?> type="button" value="<?= $entry_rem?>" >
                 </form>
                 <?php if($logged){ ?>
-                <div class="modal fade" id="notify-me" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal fade" id="notify-me" tabindex="-10
+                " role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -468,6 +468,7 @@
                 <?php } ?>
               </strong>
               <?php } ?>
+
               <?php if ($product['rating']) { ?>
               <div class="rateyo" >
 
@@ -494,7 +495,7 @@
 <?php echo $column_right; ?></div>
 <?php //echo $content_bottom; ?>
 <div class="review-area container inner-page">
-  <div class="heading small"><span><strong>Customer  Reviews</strong></span></div>
+  <div class="heading small"><span><strong><?php echo $customer_service; ?></strong></span></div>
   <?php if ($review_status) { ?>
 
 
@@ -535,7 +536,8 @@
       <?php echo $captcha; ?>
       <div class="buttons clearfix">
         <div class="pull-right">
-          <button type="button" id="button-review" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary"><?php echo $button_continue; ?></button>
+
+          <a href="<?php echo $continue; ?>" role="button" data-loading-text="<?php echo $text_loading; ?>" id="button-review" class="btn btn-primary"><?php echo $button_continue; ?></a>
         </div>
       </div>
       <?php } else { ?>
@@ -611,10 +613,10 @@
       data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
       dataType: 'json',
       beforeSend: function() {
-       // $('#button-cart').button('loading');
+      //  $('#button-cart').button('loading');
       },
       complete: function() {
-        $('#button-cart').button('reset');
+      //  $('#button-cart').button('reset');
       },
       success: function(json) {
         $('.alert, .text-danger').remove();
@@ -652,7 +654,7 @@
         }
       },
       error: function(xhr, ajaxOptions, thrownError) {
-        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
       }
     });
   });

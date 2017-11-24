@@ -3,7 +3,7 @@
 //  E-Mail : info@OpenCartArab.com
 
 // Heading
-$_['heading_title']     = '<span><strong>العلامة التجارية</strong></span>';
+$_['heading_title']     = 'العلامات التجارية';
 
 // Text
 $_['text_brand']        = 'الشركة';

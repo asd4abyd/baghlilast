@@ -36,3 +36,8 @@ $_['e1']='ENTER YOUR EMAIL';
 $_['PAYMENT']='PAYMENT';
 $_['METHODS']='METHODS';
 $_['text_faq_manager'] = "FAQ's";
+
+$_['text_email_error_login'] = "Warning : You should to enter correct email !";
+$_['text_password_error_login'] = "Warning : You should to enter correct password !";
+
+

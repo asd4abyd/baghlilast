@@ -569,4 +569,11 @@ class ModelCustomerCustomer extends Model {
 	public function deleteLoginAttempts($email) {
 		$this->db->query("DELETE FROM `" . DB_PREFIX . "customer_login` WHERE `email` = '" . $this->db->escape($email) . "'");
 	}
+
+	public function getCustomersall()
+	{
+		$query = $this->db->query("SELECT  * FROM " . DB_PREFIX . "customer" );
+
+		return $query->rows;
+	}
 }

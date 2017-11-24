@@ -41,7 +41,7 @@
         </div>
       </div><!--col-md-8-->
       <div class="col-md-3">
-        <div class="subTotal-div subtt">
+        <div class="subTotal-div subtt" style="height: 275px">
           <h4><?= $SUBTOTAL?>  <i></i>: <span><?= $totals[0]['text'] ?></span></h4>
           <h4><?= $CHARGE?> &nbsp; : <span><?= $totals[1]['text'] ?></span></h4>
           <br>
@@ -54,7 +54,7 @@
          
          <!--  <h4>DISCOUNT  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span>60 KD</span></h4> -->
           <h4 class="totall"><?= $GRAND?>   &nbsp;&nbsp;: <span><?= $totals[2]['text'] ?></span></h4>
-      
+
 <!--       <div class="remindd"><input type="checkbox"> <label>Please call me 1 day before delivery</label> </div> -->
             
 
@@ -71,6 +71,12 @@
         </div><!--subTotal-div-->
       </div><!--col-md-4-->
     </div><!--row-->
+
+
+<script>
+
+
+</script>
 
 <?php } else { ?>
 <script type="text/javascript"><!--

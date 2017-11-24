@@ -46,6 +46,18 @@ class ModelCatalogCategory extends Model {
 		return $query->rows;
 	}
 
+
+
+	public function getTotalCategoriesWithSortSearch($data)
+
+	{
+		$sortArray=explode('-',$data['sort']);
+		$searchTest=(!empty($data['search']))? " and cd.name like '%".$data['search']."%' ":'';
+		$query = $this->db->query("SELECT count(*) as total FROM " . DB_PREFIX . "category c LEFT JOIN " . DB_PREFIX . "category_description cd ON (c.category_id = cd.category_id) LEFT JOIN " . DB_PREFIX . "category_to_store c2s ON (c.category_id = c2s.category_id) WHERE c.parent_id = '" . (int)$data['category_id'] . "' AND cd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c2s.store_id = '" . (int)$this->config->get('config_store_id') . "'  AND c.status = '1' ".$searchTest."  ");
+
+		return $query->row['total'];
+	}
+
 	public function getCategoryFilters($category_id) {
 		$implode = array();
 

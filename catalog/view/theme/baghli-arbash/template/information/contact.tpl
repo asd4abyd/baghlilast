@@ -107,7 +107,7 @@
           $geocodes = explode(',',$geocode);
         ?>
 
-           <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyDXS2iN05o5o1XLOTsVDJrccho6VU5x630&callback=initMap"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyALX3FlTyIVZiiLNh0O90mbcYmFeoF_x8Y"></script>
            <script type="text/javascript">
               var lat = {lat: <?php echo $geocodes[0]; ?>, lng: <?php echo $geocodes[1]; ?>};
               var myOptions = {

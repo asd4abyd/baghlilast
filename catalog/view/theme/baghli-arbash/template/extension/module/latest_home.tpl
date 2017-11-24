@@ -1,5 +1,3 @@
-
-
 <div class="new-arrival-cvr">
     	<div class="container">
         	<div class="heading"><span><?php echo $heading_title; ?></span></div>
@@ -21,9 +19,7 @@
 
             <strong><?php echo $price_now; ?> <?php echo $product['price']; ?></strong><br>
 
-
-
-          <?php } ?>
+                        <?php } ?>
 
         <?php } ?>
 
@@ -39,7 +35,7 @@
         </div>
     </div>
 
-   <script type="text/javascript"><!--
+   <script type="text/javascript">
  $('.owl-theme<?php echo $module; ?>').owlCarousel({
    items: 6,
    autoPlay: 3000,

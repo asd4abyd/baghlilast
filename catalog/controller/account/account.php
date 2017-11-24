@@ -90,11 +90,28 @@ class ControllerAccountAccount extends Controller {
         $data['entry_fullname'] = $this->language->get('entry_fullname');
         
         $data['email1'] = $this->language->get('email1');
-        $data['Mobile'] = $this->language->get('Mobile');
+		$data['review'] = $this->language->get('review');
+
+		$data['BestMatch'] = $this->language->get('BestMatch');
+		$data['Newest'] = $this->language->get('Newest');
+		$data['MostSelling'] = $this->language->get('MostSelling');
+		$data['MostRated'] = $this->language->get('MostRated');
+
+		$data['required_information'] = $this->language->get('required_information');
+		$data['mobile_validate'] = $this->language->get('mobile_validate');
+
+		$data['personal_info_success'] = $this->language->get('personal_info_success');
+
+		$data['enter_password'] = $this->language->get('enter_password');
+		$data['not_match'] = $this->language->get('not_match');
+		$data['change_pass'] = $this->language->get('change_pass');
+
+
+		$data['Mobile'] = $this->language->get('Mobile');
         $data['Phone'] = $this->language->get('Phone');
         $data['delevar'] = $this->language->get('delevar');
         $data['Area'] = $this->language->get('Area');
-             $data['Edit'] = $this->language->get('Edit');
+		$data['Edit'] = $this->language->get('Edit');
 
         $data['Street'] = $this->language->get('Street');
         $data['Avenue2'] = $this->language->get('Avenue2');
@@ -351,7 +368,9 @@ if (isset($this->request->get['page'])) {
 		} else {
 			$data['mobile'] = '';
 		}
-        
+
+
+//		var_dump($data['mobile']);die();
         
           if (isset($this->error['mobile'])) {
 			$data['error_mobile'] = $this->error['mobile'];

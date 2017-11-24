@@ -93,7 +93,9 @@
             <div class="profile-content clearfix">
 
 
-                <h4><strong><?= $DE?></strong> <!-- <button type="button" data-toggle="modal" data-target="#myModal22" class="btn btn-primary pull-right">Add New</button> -->
+                <h4><strong><?= $DE?></strong> <!-- <button type="button" data-toggle="modal" data-target="#myModal22" class="
+
+                 pull-right">Add New</button> -->
                 <!-- Button trigger modal -->
                 </h4>
                 <!-- Modal -->
@@ -189,6 +191,8 @@
         </div>
         <?php } ?>
 
+
+                    <?php //print_r($shipping_required); ?>
                     <?php if ($shipping_required) { ?>
         <div class="panel panel-default">
           <div class="panel-heading">

@@ -16,7 +16,7 @@
 //die();
 ?>
 
-<!DOCTYPE !html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <!--[if IE 8 ]><html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>" class="ie8"><![endif]-->
 <!--[if IE 9 ]><html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>" class="ie9"><![endif]-->
@@ -39,10 +39,6 @@
 
     <!-- favicon -->
     <link rel="shortcut icon" href="favicon.ico?"/>
-
-
-
-
 
     <!-- Bootstrap -->
     <link href="catalog/view/theme/baghli-arbash/css/bootstrap.css" rel="stylesheet">
@@ -359,10 +355,20 @@
 $index++;
      ?>
 
-                        <?php // print_r($category); ?>
                         <li class="dropdown-submenu">
                             <?php if($category['category_id'] != 101){ ?>
-                            <a href="<?php echo HTTP_SERVER?>index.php?route=product/category&path=<?php echo $category['category_id'];?>"><span class="<?php echo $class ?>"></span><?php echo $category['name']; ?></a>
+
+                            <a href="<?php echo HTTP_SERVER?>index.php?route=product/category&path=<?php echo $category['category_id'];?>">
+
+                           <!--     <span class="<?php echo $class ?>"></span> -->
+
+                                <?php if ((strpos($category['image'], 'jpg') !== false) || (strpos($category['image'], 'png') !== false)) { ?>
+                                <img width="35" height="35"  src="<?php echo $category['image']; ?>" title="<?php echo $category['name'];?>" />
+                                <?php } else { ?>
+                                <img width="35" height="35" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
+                                <?php } ?>&nbsp <strong><?php echo $category['name'];?> </strong>
+
+                                </a>
                  <?php } ?>
 
                             <?php  if((isset($category['children']))) { ?>
@@ -374,16 +380,18 @@ $index++;
 
 
                                 <li>
-                                         <a  href="<?php echo $subCategory['href'] ?>" >
+                                         <a href="<?php echo $subCategory['href'] ?>" >
 
                                              <?php if ((strpos($subCategory['image'], 'jpg') !== false) || (strpos($subCategory['image'], 'png') !== false)) { ?>
-                                             <img width="55" height="55"  src="<?php echo $subCategory['image']; ?>" title="<?php echo $subCategory['name'];?>" />
+                                             <img width="35" height="35"  src="<?php echo $subCategory['image']; ?>" title="<?php echo $subCategory['name'];?>" />
                                              <?php } else { ?>
-                                             <img width="55" height="55" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
+                                             <img width="35" height="35" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
                                              <?php } ?>&nbsp <strong><?php echo $subCategory['name'];?> </strong>
                                          </a>
 
-                                    <?php  if((isset($subCategory['children']))) { ?>
+                                    <?php // if((isset($subCategory['children']))) { ?>
+
+                                    <!--
                                     <ul>
                                         <?php foreach($subCategory['children'] as $subSubCategory){ ?>
 
@@ -404,8 +412,8 @@ $index++;
 
                                         <?php } ?>
                                     </ul>
-                                    <?php } ?>
-
+                                    <?php // } ?>
+-->
                                     <?php  }  ?>
 
                                 </li>
@@ -426,148 +434,7 @@ $index++;
 
 
 
-                <li id="padmenu">
 
-                    <a  href="" class="dpDown-main-a dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        <span class="wholesalePic"></span>&nbsp <?= $text_wholesale ?>
-                    </a>
-
-                    <ul class="dropdown-menu multi-level">
-
-
-                        <?php if(isset($Categories_childern_products[1]['children'])){ ?>
-
-
-<!-- whol sale issu in arabic -->
-<?php if($lang=="en") {
-
-$caten=$Categories_childern_products[2]['children'];
-
-}else {
-
-   $caten =$Categories_childern_products[1]['children'];
-}
-
-
-    ?>
-
-
-                        <?php foreach($caten as $oneCategory2){ ?>
-
-
-                        <li class="dropdown-submenu">
-
-                            <a  href="<?php echo $oneCategory2['href'] ?>" >
-
-                                <?php if ((strpos($oneCategory2['image'], 'jpg') !== false) || (strpos($oneCategory2['image'], 'png') !== false)) { ?>
-                                <img width="70" height="70"  src="<?php echo $oneCategory2['image']; ?>" title="<?php echo $oneCategory2['name'];?>" />
-                                <?php } else { ?>
-                                <img width="70" height="70" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
-                                <?php } ?>&nbsp <strong><?php echo $oneCategory2['name'];?> </strong>
-                            </a>
-
-                            <ul class="dropdown-menu wMore">
-
-
-                                <?php if(isset($oneCategory2['children'])){ ?>
-
-                                <?php foreach($oneCategory2['children'] as $oneCategory3){ ?>
-
-                                <?php //  print_r($oneCategory3); ?>
-
-                                <li>
-                                    <a  href="<?php echo $oneCategory3['href'] ?>" >
-
-
-                                        <?php if ((strpos($oneCategory3['image'], 'jpg') !== false) || (strpos($oneCategory3['image'], 'png') !== false)) { ?>
-                                        <img width="70" height="70"  src="<?php echo $oneCategory3['image']; ?>" title="<?php echo $oneCategory3['name'];?>" />
-                                        <?php } else { ?>
-                                        <img width="70" height="70" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
-                                        <?php } ?>&nbsp <strong><?php echo $oneCategory3['name'];?> </strong>
-                                    </a>
-
-
-                                    <ul>
-
-                                    <?php if(isset($oneCategory3['children'])){ ?>
-
-                                    <?php  foreach($oneCategory3['children'] as $oneCategory4){ ?>
-
-
-                                        <?php //print_r($oneCategory4); ?>
-
-
-
-                                        <li class="dropdown-submenu">
-
-                                            <a  href="<?php echo $oneCategory4['href'] ?>" >
-
-
-                                                <?php if ((strpos($oneCategory4['image'], 'jpg') !== false) || (strpos($oneCategory4['image'], 'png') !== false)) { ?>
-                                                <img width="55" height="55"  src="<?php echo $oneCategory4['image']; ?>" title="<?php echo $oneCategory4['name'];?>" />
-                                                <?php } else { ?>
-                                                <img width="55" height="55" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
-                                                <?php } ?>&nbsp <strong><?php echo $oneCategory4['name'];?> </strong>
-                                            </a>
-
-                                            <ul class="dropdown-menu wMore">
-
-
-                                                <?php if(isset($oneCategory4['children'])){ ?>
-
-                                                <?php  foreach($oneCategory4['children'] as $oneCategory5){ ?>
-
-                                                <?php // print_r($oneCategory5); ?>
-
-
-
-
-                                                <li>
-
-                                                    <a  href="<?php echo $oneCategory5['href'].'&wholesale=1' ?>" >
-
-
-                                                        <?php if ((strpos($oneCategory5['image'], 'jpg') !== false) || (strpos($oneCategory5['image'], 'png') !== false)) { ?>
-                                                        <img width="55" height="55"  src="<?php echo $oneCategory5['image']; ?>" title="<?php echo $oneCategory5['name'];?>" />
-                                                        <?php } else { ?>
-                                                        <img width="55" height="55" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
-                                                        <?php } ?>&nbsp <strong><?php echo $oneCategory5['name'];?> </strong>
-                                                    </a>
-                                                </li>
-
-
-                                                <?php } } ?>
-
-                                                </ul>
-
-
-                                        </li>
-
-                                        <?php } } ?>
-
-
-
-                                    </ul>
-
-                                    <?php // } ?>
-
-                                </li>
-
-                                <?php  }}  ?>
-                            </ul>
-
-
-                        </li>
-                        <?php
-
-}}
-
-                         ?>
-
-
-
-                    </ul>
-                </li>
 
                 <!-- code for wholesale -->
 
@@ -672,6 +539,157 @@ $index++;
                 </li>
 
 
+
+
+                <li id="padmenu">
+
+                    <a  href="" class="dpDown-main-a dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="wholesalePic"></span>&nbsp <?= $text_wholesale ?>
+                    </a>
+
+                    <ul class="dropdown-menu multi-level">
+
+
+                        <?php if(isset($Categories_childern_products[1]['children'])){ ?>
+
+
+
+
+
+
+                        <!-- whol sale issu in arabic -->
+                        <?php if($lang=="en") {
+
+   $caten=(isset($Categories_childern_products[2]) && isset($Categories_childern_products[2]['children']))?$Categories_childern_products[2]['children']:[];
+
+}else {
+
+   $caten =(isset($Categories_childern_products[1]) && isset($Categories_childern_products[1]['children']))?$Categories_childern_products[1]['children']:[];
+}
+
+
+    ?>
+
+
+                        <?php foreach($caten as $oneCategory2){ ?>
+
+
+                        <li class="dropdown-submenu">
+
+                            <a  href="<?php echo $oneCategory2['href'] ?>" >
+
+                                <?php if ((strpos($oneCategory2['image'], 'jpg') !== false) || (strpos($oneCategory2['image'], 'png') !== false)) { ?>
+                                <img width="30" height="30"  src="<?php echo $oneCategory2['image']; ?>" title="<?php echo $oneCategory2['name'];?>" />
+                                <?php } else { ?>
+                                <img width="30" height="30" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
+                                <?php } ?>&nbsp <strong><?php echo $oneCategory2['name'];?> </strong>
+                            </a>
+
+
+
+
+                            <ul class="dropdown-menu wMore">
+
+
+                                <?php if(isset($oneCategory2['children'])){ ?>
+
+                                <?php foreach($oneCategory2['children'] as $oneCategory3){ ?>
+
+                                <?php //  print_r($oneCategory3); ?>
+
+                                <li>
+                                    <a  href="<?php echo $oneCategory3['href'] ?>" >
+
+
+                                        <?php if ((strpos($oneCategory3['image'], 'jpg') !== false) || (strpos($oneCategory3['image'], 'png') !== false)) { ?>
+                                        <img width="35" height="35"  src="<?php echo $oneCategory3['image']; ?>" title="<?php echo $oneCategory3['name'];?>" />
+                                        <?php } else { ?>
+                                        <img width="35" height="35" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
+                                        <?php } ?>&nbsp <strong><?php echo $oneCategory3['name'];?> </strong>
+                                    </a>
+
+
+                                    <ul>
+
+                                        <?php if(isset($oneCategory3['children'])){ ?>
+
+                                        <?php  foreach($oneCategory3['children'] as $oneCategory4){ ?>
+
+
+                                        <?php //print_r($oneCategory4); ?>
+
+
+
+                                        <li class="dropdown-submenu">
+
+                                            <a  href="<?php echo $oneCategory4['href'] ?>" >
+
+
+                                                <?php if ((strpos($oneCategory4['image'], 'jpg') !== false) || (strpos($oneCategory4['image'], 'png') !== false)) { ?>
+                                                <img width="35" height="35"  src="<?php echo $oneCategory4['image']; ?>" title="<?php echo $oneCategory4['name'];?>" />
+                                                <?php } else { ?>
+                                                <img width="35" height="35" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
+                                                <?php } ?>&nbsp <strong><?php echo $oneCategory4['name'];?> </strong>
+                                            </a>
+                                            <!--
+                                                                                        <ul class="dropdown-menu wMore">
+
+
+                                                                                            <?php // if(isset($oneCategory4['children'])){ ?>
+
+                                                                                            <?php // foreach($oneCategory4['children'] as $oneCategory5){ ?>
+
+                                                                                            <?php // print_r($oneCategory5); ?>
+
+
+
+
+                                                                                            <li>
+
+                                                                                                <a  href="<?php echo $oneCategory5['href'].'&wholesale=1' ?>" >
+
+
+                                                                                                    <?php if ((strpos($oneCategory5['image'], 'jpg') !== false) || (strpos($oneCategory5['image'], 'png') !== false)) { ?>
+                                                                                                    <img width="55" height="55"  src="<?php echo $oneCategory5['image']; ?>" title="<?php echo $oneCategory5['name'];?>" />
+                                                                                                    <?php } else { ?>
+                                                                                                    <img width="55" height="55" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
+                                                                                                    <?php } ?>&nbsp <strong><?php echo $oneCategory5['name'];?> </strong>
+                                                                                                </a>
+                                                                                            </li>
+
+
+                                                <?php // } } ?>
+
+                                            </ul>
+-->
+
+                                        </li>
+
+                                        <?php } } ?>
+
+
+
+                                    </ul>
+
+                                    <?php // } ?>
+
+                                </li>
+
+                                <?php  }}  ?>
+                            </ul>
+-->
+
+                        </li>
+                        <?php
+
+}}
+
+                         ?>
+
+
+
+                    </ul>
+                </li>
                 <!--    <li>
                       <a href="<?php echo $brand_link; ?>" ><span class="brands"></span> <?= $brands ?> </a>
                     </li> -->

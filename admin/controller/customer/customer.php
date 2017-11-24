@@ -475,6 +475,8 @@ class ControllerCustomerCustomer extends Controller {
 				$unlock = '';
 			}
 
+			$data['export']=$this->url->link('customer/customer/export', 'token=' . $this->session->data['token'] . $url, true);
+
 			$data['customers'][] = array(
 				'customer_id'    => $result['customer_id'],
 				'name'           => $result['name'],
@@ -981,6 +983,8 @@ class ControllerCustomerCustomer extends Controller {
 		} else {
 			$data['confirm'] = '';
 		}
+
+
 
 		$this->load->model('localisation/country');
 
@@ -1532,4 +1536,42 @@ class ControllerCustomerCustomer extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
+
+	public function export() {
+
+
+		$this->load->model('customer/customer');
+
+
+		$results = $this->model_customer_customer->getCustomersall();
+//var_dump($results);
+
+		$data['oResult']=array();
+
+		foreach ($results as $result) {
+			$data['oResult'][] = array(
+				'customer_id'       => $result['customer_id'],
+				'customer_group_id' => $result['customer_group_id'],
+				'name'              => strip_tags(html_entity_decode($result['firstname'], ENT_QUOTES, 'UTF-8')),
+				//'customer_group'    => $result['customer_group'],
+				'firstname'         => $result['firstname'],
+				'lastname'          => $result['lastname'],
+				'email'             => $result['email'],
+				'telephone'         => $result['telephone'],
+				'fax'               => $result['fax'],
+				'custom_field'      => json_decode($result['custom_field'], true),
+				'address'           => $this->model_customer_customer->getAddresses($result['customer_id'])
+			);
+		}
+
+
+
+
+
+		$this->response->setOutput($this->load->view('customer/customer_export', $data));
+
+	}
+
+
+
 }

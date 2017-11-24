@@ -1137,11 +1137,12 @@ span.req {
 .sort .form-control{
 	display:inline-block;
 	max-width:60%;
-	float:left;
 	height:34px;
 }
 .sort .sort-search .form-control{
 	max-width:100%;
+	z-index: 1;
+	position: relative;
 }
 .sort .btn{
 	margin-top:-4px;
@@ -1930,7 +1931,7 @@ select.siz-clr{    width: 100%; max-width: 200px; padding: 5px 8px; border-radiu
 .offer-label span{ font-size:15px;}
 .list-imageNew{position: relative;}
 .list-imageNew img{width: 100%; border: 1px solid #ededed;}
-.subTotal-div{background: #f4f4f4; padding: 15px; border-radius: 11px; margin-top: 56px; border: solid 1px #cecece;}
+.subTotal-div{background: #f4f4f4; padding: 15px; border-radius: 11px; margin-top: 56px; border: solid 1px #cecece; height: 52%}
 .subTotal-div h4{font-size: 17px; font-weight: 600; color: #5a5a5a; border-bottom: solid 1px #be1e2d; padding-bottom: 25px; padding-top: 6px;}
 .subTotal-div h4 i{font-style: normal; font-size: 15px; font-weight: normal; color: #000;}
 .subTotal-div h4 span{color: #be1e2d; font-size: 18px; float: left;}
@@ -2432,6 +2433,12 @@ ul.log-area li{
 .bran_details h4 {
 	font-weight: bold;
 }
+.bran_details{
+	min-height: 58px;
+}
+
+
+
 
 .ban_title {
 	width: auto;
@@ -2651,7 +2658,9 @@ ul.log-area li{
 	border-radius: 0 6px 6px 6px;
 }
 .dropdown-submenu:hover>.dropdown-menu {
-	display: block;
+
+display: grid;
+	width: 200%;
 }
 .dropdown-submenu>a:after {
 	display: block;
@@ -2686,8 +2695,9 @@ ul.log-area li{
 
 }
 .wMore li {
-	width: 25%;
-	float: right;
+	width: 33%;
+	max-width: 33%;
+	vertical-align: top;
 }
 .wMore li a {
 	border: none;

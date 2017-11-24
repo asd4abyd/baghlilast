@@ -4,74 +4,78 @@
 <?php // echo $errors; ?>
   <!-- Modal -->
   <!--Begin Modal Window-->
-  <div class="modal fade left" id="myModalbook" data-backdrop="static"
-          >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="pull-left no-margin"><?php echo $your_extra_quantity;?></h3>
-          <button type="button" class="close" data-dismiss="modal" title="Close"><span class="glyphicon glyphicon-remove"></span>
-          </button>
-        </div>
 
-          <div class="modal-body">
-
-              <form id='search_form'  action="<?php echo $action_popup_form; ?>" method="post" enctype="multipart/form-data">
-
-
-                  <label><?php echo $your_name ;?></label>
-                  <input  type="text" name="name" class="form-control" placeholder="<?php echo $your_name;?>">
-
-                  <?php if ($error_name) { ?>
-                  <div class="text-danger"><?php echo $error_name;?></div>
-                  <?php } ?>
-
-
-
-
-                  <label><?php echo $quantity_name ;?></label>
-
-                  <input  type="text" name="quantity" class="form-control" placeholder="<?php echo $your_quantity;?>">
-
-                  <?php if ($error_quantity) { ?>
-                  <div class="text-danger"><?php echo $error_quantity;?></div>
-                  <?php } ?>
-
-
-                  <label><?php echo $mobile ;?></label>
-
-                  <input  type="text" name="phone" class="form-control" placeholder="<?php echo $your_phone;?>">
-
-                  <?php if ($error_phone) { ?>
-                  <div class="text-danger"><?php echo $error_phone;?></div>
-                  <?php } ?>
-
-                  <label><?php echo $email_name ;?></label>
-
-                  <input  type="text" name="email" class="form-control" placeholder="<?php echo $your_email;?>">
-
-                  <?php if ($error_email) { ?>
-                  <div class="text-danger"><?php echo $error_email;?></div>
-                  <?php } ?> <br>
-
-
-                  <div class="modal-footer">
-                      <button onclick="form_submit()"  class="btn btn-primary algn-leftt">SUBMIT</button>
-
-                  </div>
-
-              </form>
-          </div>
-
-      </div>
-    </div>
-  </div>
 
 
     <div class="content"></div>
 
 
-  <?php if ($attention) { ?>
+    <div class="modal fade left" id="myModalbook">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="pull-left no-margin">Your Extra Quantity for the Product</h3>
+                    <button type="button" class="close" data-dismiss="modal" title="Close"><span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <form id='search_form'  action="<?php echo $action_popup_form; ?>" method="post" enctype="multipart/form-data">
+
+                        <label><?php echo $your_name ;?></label>
+
+                        <input  type="text" name="name"  value="<?=isset($_POST['name'])? $_POST['name']:'';?>" class="form-control" placeholder="<?php echo $your_name;?>">
+
+                        <?php if ($error_name) { ?>
+                        <div class="text-danger"><?php echo $error_name;?></div>
+                        <?php } ?>
+
+
+
+                        <label><?php echo $quantity_name ;?></label>
+
+                        <input  type="number" name="quantity" value="<?=isset($_POST['quantity'])? $_POST['quantity']:'';?>" min="1" size="1" class="form-control" placeholder="<?php echo $your_quantity;?>">
+
+                        <?php if ($error_quantity) { ?>
+                        <div class="text-danger"><?php echo $error_quantity;?></div>
+                        <?php } ?>
+
+
+                        <label><?php echo $mobile ;?></label>
+
+                        <input  type="text" name="phone"  value="<?=isset($_POST['phone'])? $_POST['phone']:'';?>" class="form-control" placeholder="<?php echo $your_phone;?>">
+
+                        <?php if ($error_phone) { ?>
+                        <div class="text-danger"><?php echo $error_phone;?></div>
+                        <?php } ?>
+
+                        <label><?php echo $email_name ;?></label>
+
+                        <input  type="text" name="email" value="<?=isset($_POST['email'])? $_POST['email']:'';?>"  class="form-control" placeholder="<?php echo $your_email;?>">
+
+                        <?php if ($error_email) { ?>
+                        <div class="text-danger"><?php echo $error_email;?></div>
+                        <?php } ?> <br>
+
+
+                        <input  type="hidden" name="product_name" id="hidden_modal_product_name" value="<?=isset($_POST['product_name'])? $_POST['product_name']:'';?>" class="form-control">
+                        <input type="hidden" name="ajaxRequest" value="1">
+
+                        <div class="modal-footer">
+                            <button onclick="form_submit()"  class="btn btn-primary algn-leftt">SUBMIT</button>
+
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <?php if ($attention) { ?>
   <div class="alert alert-info"><i class="fa fa-info-circle"></i> <?php echo $attention; ?>
     <button type="button" class="close" data-dismiss="alert">&times;</button>
   </div>
@@ -107,6 +111,8 @@
         <form id="edit-cart-items" action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
 
         <?php foreach ($products as $product) { ?>
+
+            <?php //print_r($product) ?>
 
 
           <section class="innr-shpng-cart clearfix">
@@ -147,8 +153,19 @@
 
               <?php } ?>
 
-              <div class="rateyo subrtio"></div>
-              <div class="rateyo"></div>
+
+                <?php if (isset($product['rating'])) { ?>
+                <div class="rating"><img src="catalog/view/theme/default/image/stars-<?php echo $product['rating']; ?>.png" alt="<?php echo $product['reviews']; ?>" /></div>
+                <?php }else{ ?>
+                <div ><?php // echo $product['reviews']; ?> </div>
+
+                <?php } ?>
+
+
+
+
+
+                <div class="rateyo"></div>
 
 
 
@@ -168,12 +185,10 @@
               <?php } ?>
               <?php } ?>
 
-<?php // print_r($product); ?>
 
 
               <?php if ($product['quantity']) { ?>
 
-                <?php // print_r($product_quantity); ?>
 
               <div class="list-price-div"><b><?= $quantity_text?> : </b><span><?php echo $product['avalabile'];?></span></div>
               <?php } ?>
@@ -191,11 +206,9 @@
               <!--| <a href="#">save for later</a> -->
 
 
-              <button type="button" class="btn btn-primary btn-lg margin_arabic_style" style="margin-bottom: 30px; margin-top: 30px; margin-left: -12px;" data-toggle="modal" data-target="#myModalbook">
+              <button type="button" class="btn btn-primary btn-lg margin_arabic_style" style="margin-bottom: 30px; margin-top: 30px; margin-left: -12px;" data-toggle="modal" data-target="#myModalbook" onclick="$('#hidden_modal_product_name').val('<?=$product['name']; ?>');">
                   <?php echo $request_more; ?>
               </button>
-
-
 
 
 
@@ -204,7 +217,7 @@
 
                 <div class="input-group spinner">
 
-                  <input type="number" name="quantity[<?php echo $product['cart_id']; ?>]" value="<?php echo $product['quantity']; ?>" min="1" size="1" class="form-control " style="margin-left:0%;width: min-content"/>
+                  <input type="number" name="quantity[<?php echo $product['cart_id']; ?>]" value="<?php echo $product['quantity']; ?>" min="1" size="1" class="form-control " style="margin-left:0%;width: min-content;z-index: 1"/>
 
                   <div class="input-group-btn-vertical">
 
@@ -301,30 +314,7 @@
 
 
 
-          <script type="text/javascript">
-      function form_submit() {
-//
- if (<?=count($error); ?> > 0) {
-          $('#myModalbook').modal('show');
-      } else
-          {
-//                      var x, text;
-//
-//                      // Get the value of the input field with id="numb"
-//                      x = document.getElementById("numb").value;
-//
-//                      // If x is Not a Number or less than one or greater than 10
-//                      if (isNaN(x) || x.length() < 8 || x.length() >8) {
-//                          text = "Input not valid";
-//                      } else {
-//                          text = "Input OK";
-//                      }
 
-
-              document.getElementById("search_form").submit();
-          }
-              }
-          </script>
 
 <script>
           $(function(){
@@ -343,21 +333,14 @@
           });
 </script>
 
-          <script type="text/javascript">
-              if (<?=count($error); ?> > 0) {
-                  $('#myModalbook').modal('show');
-              }
 
-          </script>
             <script type="text/javascript">
 
                 $(document).ready(function(){
                     $('.spinner .btn:first-of-type').on('click', function() {
                         var spinner=$(this).parent().parent();
 
-
                         spinner.find('input').val( parseInt(spinner.find('input').val(), 10) );
-
 
                     });
 
@@ -384,21 +367,24 @@
                 });
 
 
-                //    $('.q-down').click(function(){
-                //        if($('#input-quantity').val() == 0){
-                //            $('#input-quantity').val('1');
-                //        }
-                //    });
-
-
-
             </script>
 
 
-      <!--<div class="buttons clearfix">
-        <div class="pull-left"><a href="<?php //echo $continue; ?>" class="btn btn-default"><?php //echo $button_shopping; ?></a></div>
-        <div class="pull-right"><a href="<?php //echo $checkout; ?>" class="btn btn-primary"><?php //echo $button_checkout; ?></a></div>
-      </div>-->
+
+            <?php if(isset($_POST['product_name'])){ ?>
+            <script >
+
+                $('#myModalbook').modal('show');
+            </script>
+
+            <?php }?>
+
+
+
+            <!--<div class="buttons clearfix">
+              <div class="pull-left"><a href="<?php //echo $continue; ?>" class="btn btn-default"><?php //echo $button_shopping; ?></a></div>
+              <div class="pull-right"><a href="<?php //echo $checkout; ?>" class="btn btn-primary"><?php //echo $button_checkout; ?></a></div>
+            </div>-->
       <?php echo $content_bottom; ?></div>
       </div>
     </div>

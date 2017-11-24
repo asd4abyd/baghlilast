@@ -90,6 +90,10 @@ class ComposerStaticInitcf10b8371a79db84df0e1f7a71ecc810
             array (
                 0 => __DIR__ . '/..' . '/psr/log',
             ),
+            'PHPExcel' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpoffice/phpexcel/Classes',
+            ),
         ),
         'D' => 
         array (

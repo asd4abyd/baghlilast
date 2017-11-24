@@ -27,7 +27,11 @@ class ControllerCheckoutCart extends Controller {
 //
 //            $this->response->redirect($this->url->link('checkout/cart/success'));
 //        }
-		if (isset($this->request->get['ajaxRequest'] ) && $this->validate() ) {
+
+		//die(var_dump(44));
+//		die(var_dump($this->request->post['product_name'] ));
+		if (isset($this->request->get['ajaxRequest'] ) && isset($this->request->post['name']) && isset($this->request->post['quantity']) && isset($this->request->post['email']) && $this->validate() ) {
+	//	echo $this->request->post['product_name'];die();
 			$data['your_quantity'] = $this->language->get('your_quantity');
 			$data['your_name'] = $this->language->get('your_name');
 			$data['your_email'] = $this->language->get('your_email');
@@ -46,7 +50,8 @@ class ControllerCheckoutCart extends Controller {
 			$mail->setFrom($this->request->post['email']);
 			$mail->setSender(html_entity_decode($data['your_name'].' : '.$this->request->post['name'], ENT_QUOTES, 'UTF-8'));
 			$mail->setSubject(html_entity_decode(sprintf($data['your_email'], $this->request->post['email']), ENT_QUOTES, 'UTF-8'));
-			$mail->setText($data['your_name'].' : '.$this->request->post['name']."\r\n".$data['your_email'].' : '.$this->request->post['email']."\r\n".$data['your_phone'].' : '.$this->request->post['phone']."\r\n"."\r\n".$data['your_quantity'].' : '.$this->request->post['quantity']);
+
+			$mail->setText($data['your_name'].' : '.$this->request->post['name']."\r\n".$data['your_email'].' : '.$this->request->post['email']."\r\n".$data['your_phone'].' : '.$this->request->post['phone']."\r\n".$data['your_product_name'].' : '.$this->request->post['product_name']."\r\n".$data['your_quantity'].' : '.$this->request->post['quantity']);
 			$mail->send();
 
 			$this->response->redirect($this->url->link('information/contact/success'));
@@ -291,9 +296,10 @@ class ControllerCheckoutCart extends Controller {
 
 			//print_r($products);
 
-       //     print_r($products);
+          //  print_r($products);
 			foreach ($products as $product) {
 
+		//		print_r($product);
 				// start  to get special price for each product
 				$product_info = $this->model_catalog_product->getProduct($product['product_id']);
 
@@ -554,11 +560,11 @@ class ControllerCheckoutCart extends Controller {
             $this->error['phone'] = $this->language->get('error_phone');
         }
 
-        if ((utf8_strlen(trim($this->request->post['name'])) < 1) || (utf8_strlen(trim($this->request->post['name'])) > 32)) {
+        if  ((utf8_strlen(trim($this->request->post['name'])) < 1) || (utf8_strlen(trim($this->request->post['name'])) > 32)) {
             $this->error['name'] = $this->language->get('error_name');
         }
 
-        if ((utf8_strlen(trim($this->request->post['quantity'])) < 1) || (utf8_strlen(trim($this->request->post['quantity'])) > 32 || (is_nan($this->request->post['quantity'])))) {
+        if ((utf8_strlen(trim($this->request->post['quantity'])) < 1) || (utf8_strlen(trim($this->request->post['quantity'])) > 32 || (is_nan($this->request->post['quantity'])))){
             $this->error['quantity'] = $this->language->get('error_quantity');
         }
 

@@ -61,16 +61,17 @@ class Cart {
 									$option_price -= $option_value_query->row['price'];
 								}
 
-								if ($option_value_query->row['points_prefix'] == '+') {
-									$option_points += $option_value_query->row['points'];
-								} elseif ($option_value_query->row['points_prefix'] == '-') {
-									$option_points -= $option_value_query->row['points'];
-								}
+//								if ($option_value_query->row['points_prefix'] == '+') {
+////									die(var_dump($option_value_query->row['points']));
+//									$option_points += floatval($option_value_query->row['points']);
+//								} elseif ($option_value_query->row['points_prefix'] == '-') {
+//									$option_points -=  floatval($option_value_query->row['points']);
+//								}
 
 								if ($option_value_query->row['weight_prefix'] == '+') {
-								$option_weight += $option_value_query->row['weight'];
+								$option_weight += floatval($option_value_query->row['weight']);
 								} elseif ($option_value_query->row['weight_prefix'] == '-') {
-									$option_weight -= $option_value_query->row['weight'];
+									$option_weight -= floatval($option_value_query->row['weight']);
 								}
 
 								if ($option_value_query->row['subtract'] && (!$option_value_query->row['quantity'] || ($option_value_query->row['quantity'] < $cart['quantity']))) {

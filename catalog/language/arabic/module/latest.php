@@ -9,4 +9,10 @@ $_['heading_title_reviews_carosel'] = 'الاستعراضات التي جرت م
 $_['heading_title_toprated_carosel'] = 'المنتجات ذات أعلى تصنيف';
 
 // Text
-$_['text_tax']      = 'السعر بدون الضريبة:'; 
+$_['text_tax']      = 'السعر بدون الضريبة:';
+
+$_['heading_title'] = 'وصل حديثا';
+
+// Text
+
+$_['price_now'] = 'السعر الحالي :';

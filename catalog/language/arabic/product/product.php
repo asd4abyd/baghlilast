@@ -38,6 +38,8 @@ $_['text_customer_review']     = 'اراء الزبائن';
 
 
 $_['PRICE NOW']                               ='السعر الان';
+$_['customer_service']                               ='أراء الزبون';
+
 $_['BEFORE']                                  = ' قبل';
 $_['PRODUCT']                                 = ' تفاصيل' ;
 $_['DETAILS']                  ='المنتج';

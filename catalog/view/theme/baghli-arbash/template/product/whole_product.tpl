@@ -37,8 +37,6 @@
 
                         <div class="thumbnails">
 
-
-
                             <div class="large-5 column">
                                 <!-- im -->
                                 <div class="xzoom-container">

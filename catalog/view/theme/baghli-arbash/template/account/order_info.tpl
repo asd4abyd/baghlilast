@@ -33,7 +33,7 @@
         </thead>
         <tbody>
           <tr>
-           
+
            <?php // var_dump($invoice_no);die;  ?>
             <td class="text-left" style="width: 50%;"><?php if ($invoice_no) { ?>
               <b><?php echo $text_invoice_no; ?></b> <?php echo $invoice_no; ?><br />
@@ -132,7 +132,7 @@
 
 
 
-      
+
       <?php if ($comment) { ?>
       <table class="table table-bordered table-hover">
         <thead>

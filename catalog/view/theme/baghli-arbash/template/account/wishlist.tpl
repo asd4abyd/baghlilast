@@ -183,14 +183,24 @@ $(function(){
                </div>
 </div>            
                 <div>
+
                 <div class="col-md-6 s" >
+
                    <div class="add-crt ">
+
             <input id="button-cart"  data-product_id="<?=$product['product_id'];?>"  value="<?= $addtocart?>" class="btn_wrap add_algn button-cart" type="button"  <?php if($stock_css_class!='lightgrn'){echo 'disabled=""';} ?>>
-          </div>
+
+
+                   </div>
+
                      <div class="add-crt">
+
                     <input name=""   onClick="window.location.href='<?php echo $product['remove']; ?>'" type="button" value="<?= $Delete ?>" class="btn_wrap delte">
+
                     </div>
-        </div>
+
+               </div>
+
         </div>
               </div>
             </div>
@@ -377,7 +387,7 @@ $('.button-cart').on('click', function() {
     },
     success: function(json) {
 
-window.location.href='http://localhost/baghli/index.php?route=account/wishlist&remove='+product_id;
+window.location.href='index.php?route=account/wishlist&remove='+product_id;
 
       $('.alert, .text-danger').remove();
       $('.form-group').removeClass('has-error');

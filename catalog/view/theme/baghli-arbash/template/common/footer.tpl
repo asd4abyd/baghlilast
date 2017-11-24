@@ -34,7 +34,7 @@ foreach ($informations as $information) {
 				
 				
     <li><a href="<?php echo $tips_advices ?>"> <?= $tips ?> </a></li> <!-- add url to footer.php -->
-  <!--   <li><a href="<?php echo $wholsale ?>"><?= $WHOLESALE ?></a></li> <!-- add url to footer.php -->
+  <!--   <li><a href="<?php echo $wholsalfe ?>"><?= $WHOLESALE ?></a></li> <!-- add url to footer.php -->
     <li><a href="<?php echo $careers ?>"><?= $careers1 ?></a></li> <!-- add url to footer.php -->
 
 	<?php if($faq_manager_status) { ?>

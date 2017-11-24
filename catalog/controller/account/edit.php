@@ -269,7 +269,6 @@ class ControllerAccountEdit extends Controller {
         	if ((utf8_strlen($this->request->post['mobile']) < 10) || (utf8_strlen($this->request->post['mobile']) > 12)) {
 			$this->error['mobile'] = $this->language->get('error_mobile');
 		}
-
 		return !$this->error;
 	}
 }

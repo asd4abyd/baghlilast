@@ -12,19 +12,21 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
 
-    <div class="container inner-page">
+    <div class="container inner-page"  >
         <?php
     $heading_title_pieces = explode(" ", $heading_title);
     ?>
 
 
-        <div class="content"><!-- alert message class -->
-
-
-        </div><!-- alert message class -->
-
 
         <div class="heading">
+
+
+            <div class="content"><!-- alert message class -->
+
+
+            </div><!-- alert message class -->
+
             <span><strong><?php echo $heading_title_pieces[0];?></strong>
 
                 <?php
@@ -42,8 +44,8 @@
 <input type="hidden" name="path" value="<?=(isset($_GET['path']))? $_GET['path']:'';?>" />
                     <div class="col-sm-6 sort-search">
                         <div class="input-group"><!-- /input-group -->
-                          
-                                <input  type="text" value="<?=array_key_exists('search',$_GET)? $_GET['search']:'' ;?>" class="form-control" name="search" placeholder="<?= $search ?>">
+
+                                <input  type="text" value="<?=array_key_exists('search',$_GET)? $_GET['search']:'' ;?>" class="form-control" name="search" placeholder="<?= $search ?>" required>
                                 <div class="input-group-btn">
                                     <button class="btn btn-default" style="margin-top:0;" type="submit"><?= $Go?></button>
                                 </div>
@@ -56,10 +58,10 @@
 
                     <div class="col-sm-6">
 
-                        <select  style=" float:right;"class="form-control"  id="input-sort" onchange="$('#categorySearchSub').submit();" name="sort" ;>
+                        <select  style=" float:right;z-index: 1"class="form-control"  id="input-sort" onchange="$('#categorySearchSub').submit();" name="sort" ;>
 
 <?php foreach($sortByList as $sortKey=>$sortValue){ ?>
-<option value="<?=$sortKey;?>" 
+<option value="<?=$sortKey;?>"
     <?=(isset($_GET['sort']) && $sortKey==$_GET['sort'])? 'selected':'';?>
     ><?=$sortValue;?></option>
  <?php }?>
@@ -69,8 +71,6 @@
                         <?= $text_sort ?>
                     </div>
                             </form>
-
-
 
 
                 </div>
@@ -90,12 +90,12 @@
                         <h4 class="ban_title"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a> </h4>
                     </div>
 
-                    <div class="col-sm-12 col-md-12 img" style=" max-height: 500px; min-height: 500px; margin-bottom:30px">
+                    <div class="col-sm-12 col-md-12 img" style=" max-height: 330px; min-height: 330px; margin-bottom:30px">
                         <figure>
                             <a href="<?php echo $category['href']; ?>">
 
                                 <?php if ((strpos($category['image'], 'jpg') !== false) || (strpos($category['image'], 'png') !== false)) { ?>
-                                <img style=" max-height: 350px; min-height: 350px;" src="<?php echo $category['image']; ?>" title="<?php echo $category['name'];?>" />
+                                <img style=" max-height: 390px; min-height: 390px;" src="<?php echo $category['image']; ?>" title="<?php echo $category['name'];?>" />
                                 <?php } else { ?>
                                 <img style=" max-height: 350px; min-height: 350px;" src="catalog/view/theme/baghli-arbash/images/brand.png" alt="">
                                 <?php } ?>
@@ -107,6 +107,7 @@
 
                 </div>
             </div>
+
 
             <?php  } ?>
 
@@ -189,21 +190,15 @@
                                     <div class="qnty">
                                         <strong><?= $text_quantity ?></strong>
 
-
-
-
-
-
                                         <div class="input-group spinner">
                                             <input type="text" class="form-control" value="<?= $product['minimum'] ?>">
                                             <div class="input-group-btn-vertical">
                                                 <button class="btn" type="button"><i class="fa fa-caret-up"></i></button>
                                                 <button class="btn q-down" type="button"><i class="fa fa-caret-down"></i></button>
-                                                <input id  type="hidden" name="product_id" value="<?= $product['product_id']  ?>" min="1" size="1"  />
+                                                <input type="hidden" name="product_id" value="<?= $product['product_id']  ?>"   />
 
                                             </div>
                                         </div>
-
 
                                     </div>
 
@@ -368,6 +363,17 @@
                     <div class=" col-md-6 text-right" style="float: right;"><?php  echo $results; ?></div> -->
 
 
+            <div class="row">
+
+                <div class="col-sm-6 text-right "><?php echo $pagination; ?></div>
+
+
+                <div class="col-sm-6 text-left"><span style="font-weight: bold; white-space: normal;top: 26px;position: relative;"><?php echo $results; ?></span></div>
+            </div>
+
+
+
+
             <?php // }} ?>
 
 
@@ -431,11 +437,6 @@
 
     </div>
         <?php } ?>
-
-
-
-
-
 
 
 
@@ -535,18 +536,16 @@
             });
 
 
-            $(document).on('click', '.q-down', function() {
-                var spinner=$(this).parent().parent();
-                var quantity = spinner.find('#input-quantity').val();
-
-                if(quantity == 0){
-                    spinner.find('#input-quantity').val('1');
-                }
-            });
+//            $(document).on('click', '.q-down', function() {
+//                var spinner=$(this).parent().parent();
+//                var quantity = spinner.find('#input-quantity').val();
+//
+//                if(quantity == 0){
+//                    spinner.find('#input-quantity').val('1');
+//                }
+//            });
 
         });
-
-
 
 
     </script>
@@ -564,11 +563,11 @@
                     window.location.href = 'index.php?route=account/login';
                 }
             });
-            $('.q-down').click(function(){
-                if($('#input-quantity').val() == 0){
-                    $('#input-quantity').val('1');
-                }
-            });
+//            $('.q-down').click(function(){
+//                if($('#input-quantity').val() == 0){
+//                    $('#input-quantity').val('1');
+//                }
+//            });
             $("#related-products").owlCarousel({
 
                 autoPlay: false, //Set AutoPlay to 3 seconds

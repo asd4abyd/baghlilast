@@ -1,4 +1,5 @@
 <?php
+
 class ControllerProductSearch extends Controller {
 	public function index() { 
 		$this->load->language('product/search');
@@ -43,7 +44,7 @@ class ControllerProductSearch extends Controller {
 
 
 		$this->load->model('catalog/category');
-if(isset($this->request->get['search'] ) && $this->request->get['search_type']="category" ){
+if(isset($this->request->get['search'] ) && $this->request->get['search_type']=="category" ){
 	
 	// $search_result = $this->model_catalog_category->getCategoryBySearchName($this->request->get['search']);
 	
