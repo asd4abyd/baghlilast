@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * Class ControllerCommonColumnLeft
+ *
+ * @property ModelUserUser user
+ */
 class ControllerCommonColumnLeft extends Controller {
 	public function index() {
 		if (isset($this->request->get['token']) && isset($this->session->data['token']) && ($this->request->get['token'] == $this->session->data['token'])) {
@@ -706,12 +712,12 @@ class ControllerCommonColumnLeft extends Controller {
 			
 			// Report Products			
 			$report_product = array();	
-			
+
 			if ($this->user->hasPermission('access', 'report/product_viewed')) {
 				$report_product[] = array(
 					'name'	   => $this->language->get('text_report_product_viewed'),
 					'href'     => $this->url->link('report/product_viewed', 'token=' . $this->session->data['token'], true),
-					'children' => array()	
+					'children' => array()
 				);
 			}
 			
@@ -722,8 +728,16 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()	
 				);
 			}
-			
-			if ($report_product) {	
+
+            if ($this->user->hasPermission('access', 'report/product_search')) {
+                $report_product[] = array(
+                    'name'	   => $this->language->get('text_report_product_search'),
+                    'href'     => $this->url->link('report/product_search', 'token=' . $this->session->data['token'], true),
+                    'children' => array()
+                );
+            }
+
+            if ($report_product) {
 				$report[] = array(
 					'name'	   => $this->language->get('text_report_product'),
 					'href'     => '',

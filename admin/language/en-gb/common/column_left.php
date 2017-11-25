@@ -47,6 +47,7 @@ $_['text_report_sale_coupon']        = 'Coupons';
 $_['text_report_product']            = 'Products';
 $_['text_report_product_viewed']     = 'Viewed';
 $_['text_report_product_purchased']  = 'Purchased';
+$_['text_report_product_search']     = 'Search';
 $_['text_report_customer']           = 'Customers';
 $_['text_report_customer_activity']  = 'Customer Activity';
 $_['text_report_customer_search']    = 'Customer Searches';

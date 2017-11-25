@@ -93,4 +93,64 @@ class ModelReportProduct extends Model {
 
 		return $query->row['total'];
 	}
+
+	public function getTotalSearchProduct($data) {
+        $sql = "SELECT COUNT(DISTINCT op.meta_keyword) AS total FROM `" . DB_PREFIX . "product_description` op LEFT JOIN `" . DB_PREFIX . "product` p ON (op.product_id = p.product_id)";
+
+
+        $wh=[];
+
+        if (!empty($data['filter_date_start'])) {
+            $wh[] = "DATE(p.date_added) >= '" . $this->db->escape($data['filter_date_start']) . "'";
+        }
+
+        if (!empty($data['filter_date_end'])) {
+            $wh[] = "DATE(p.date_added) <= '" . $this->db->escape($data['filter_date_end']) . "'";
+        }
+
+        if(count($wh)) {
+            $sql .= ' where '.implode(' and ', $wh);
+        }
+
+        $query = $this->db->query($sql);
+
+        return $query->row['total'];
+    }
+
+    public function getSearchProduct($data) {
+        $sql = "SELECT DISTINCT op.meta_keyword as keyword FROM `" . DB_PREFIX . "product_description` op LEFT JOIN `" . DB_PREFIX . "product` p ON (op.product_id = p.product_id)";
+
+
+        $wh=[];
+
+        if (!empty($data['filter_date_start'])) {
+            $wh[] = "DATE(p.date_added) >= '" . $this->db->escape($data['filter_date_start']) . "'";
+        }
+
+        if (!empty($data['filter_date_end'])) {
+            $wh[] = "DATE(p.date_added) <= '" . $this->db->escape($data['filter_date_end']) . "'";
+        }
+
+        if(count($wh)) {
+            $sql .= ' where '.implode(' and ', $wh);
+        }
+
+        if (isset($data['start']) || isset($data['limit'])) {
+            if ($data['start'] < 0) {
+                $data['start'] = 0;
+            }
+
+            if ($data['limit'] < 1) {
+                $data['limit'] = 20;
+            }
+
+            $sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
+        }
+
+        $query = $this->db->query($sql);
+
+        return $query->rows;
+    }
+
+
 }
