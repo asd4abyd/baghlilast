@@ -38,8 +38,8 @@ define('DB_DRIVER', 'mysqli');
 //
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_DATABASE', 'baghli');
+define('DB_PASSWORD', 'asdasd');
+define('DB_DATABASE', 'baghlilast');
 define('DB_PORT', '3306');
 define('DB_PREFIX', 'oc_');
 
